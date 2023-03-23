@@ -34,45 +34,39 @@ export default function Home() {
   return (
     <div className={styles.container}>
      <div className={styles.header} style={{ display: 'flex', alignItems: 'center' }}>
-  <a href="https://auditutils.com/">
+  <a style={{
+        
+        textAlign: 'center',
+        flex: 1,
+        alignItems: 'center',
+      }} href="https://blockchat.auditutils.com/">
     <img
       style={{
-        maxWidth: '96px',
-        borderRadius: '15px',
-        border: '6px solid rgba(10, 202, 166, 0.9)',
-        margin: '30px',
-        padding: '15px',
+        maxWidth: '300px',
+        margin: '0px',
+        padding: '3px',
+        textAlign: 'center',
+        flex: 1,
+        alignItems: 'center',
       }}
-      src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
-      alt="auditutils logo pixel"
-    />
-  </a>
-  <h1 style={{ flex: 1, textAlign: 'center' }}>BlockChat by Audit Utils</h1>
-  <a href="https://user137-portfolio.auditutils.com">
-    <img
-      style={{
-        maxWidth: '96px',
-        borderRadius: '15px',
-        border: '6px solid rgba(10, 202, 166, 0.9)',
-        margin: '30px',
-        padding: '15px',
-      }}
-      src="https://user137-portfolio.auditutils.com/user137.PNG"
-      alt="user137 Profile Picture"
+      src="blockchat-logo-300.png"
+      alt="blockchat logo"
+      
     />
   </a>
 </div>
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
-          Enter Ethereum Address:
+          Enter an Ethereum Address:{" "}
           <input
-            type="text"
-            value={address}
-            onChange={(event) => setAddress(event.target.value)}
-          />
+  type="text"
+  value={address}
+  onChange={(event) => setAddress(event.target.value)}
+  className={styles.inputText}
+/>
         </label>
-        <button type="submit">Get chat history</button>
+        <button type="submit" className={styles.submitButton}>Get chat history</button>
       </form>
       {transactions.length > 0 && (
         <div className={styles.conversation}>
@@ -106,7 +100,7 @@ export default function Home() {
                         </p>
                         <div className="spacer" />
                         <p>
-                          <strong>message:</strong> {transaction.inputData}
+                          <strong>Message:</strong> {transaction.inputData}
                         </p>
                       </div>
                     )}
@@ -118,6 +112,37 @@ export default function Home() {
           </ListGroup>
         </div>
       )}
+     <div style={{ flex: 1, textAlign: 'center' }}>
+      <h3 style={{ flex: 1, textAlign: 'center' }}>2023, BlockChat by Audit Utils</h3>
+  <a href="https://auditutils.com/">
+    <img
+      style={{
+        maxWidth: '96px',
+        borderRadius: '15px',
+        border: '6px solid rgba(10, 202, 166, 0.9)',
+        margin: '30px',
+        padding: '15px',
+      }}
+      src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
+      alt="auditutils logo pixel"
+    />
+  </a>
+  <a href="https://user137-portfolio.auditutils.com">
+    <img
+      style={{
+        maxWidth: '96px',
+        borderRadius: '15px',
+        border: '6px solid rgba(10, 202, 166, 0.9)',
+        margin: '30px',
+        padding: '15px',
+        maxHeight: '96px',
+      }}
+      src="https://user137-portfolio.auditutils.com/user137.PNG"
+      alt="user137 Profile Picture"
+    />
+  </a>
+  </div>
+  
     </div>
   );
 }
