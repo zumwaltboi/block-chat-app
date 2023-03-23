@@ -38,19 +38,36 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  width: auto;
+
 }
 
 .message p {
   margin: 0;
+  font-family: monospace;
+  font-size: 1.3em;
 }
+
 
 .message p strong {
   font-weight: bold;
+  color: rgba(10, 202, 166, 0.9);
+  font-size: 1.7em;
 }
 
 .message hr {
   margin: 10px 0;
   border: none;
   border-top: 1px solid #ccc;
+}
+.spacer {
+  height: 20px;
+  margin-top: 10px;
+}
+.message * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 10px;
 }
