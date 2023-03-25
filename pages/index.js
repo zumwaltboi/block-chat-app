@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { getTransactions } from "../lib/eth";
 import styles from "./styles.module.css";
@@ -8,11 +8,9 @@ export default function Home() {
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
+  const fetchTransactions = async () => {
     try {
-      const response = await fetch(`/api?address=${address}`);
+      const response = await fetch(`/api?address=${address}&limit=200`);
       const data = await response.json();
   
       setTransactions(data.transactions);
@@ -21,6 +19,17 @@ export default function Home() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await fetchTransactions();
+  };
+
+  const handleAddressClick = async (event, sender) => {
+    event.preventDefault();
+    setAddress(sender);
+    await fetchTransactions();
   };
 
   const getColor = (sender) => {
@@ -34,19 +43,7 @@ export default function Home() {
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
     }
   
-    return sender === address ? colors[sender] : (
-      <a
-        href={`/?address=${sender}`}
-        onClick={(event) => {
-          event.preventDefault();
-          setAddress(sender);
-          handleSubmit(event);
-        }}
-        style={{ color: colors[sender], textDecoration: "underline" }}
-      >
-        {sender}
-      </a>
-    );
+    return colors[sender];
   };
 
   return (
