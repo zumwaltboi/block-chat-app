@@ -10,13 +10,14 @@ export default function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await fetch(`/api?address=${address}`);
       const data = await response.json();
-
+  
       setTransactions(data.transactions);
       setColors({});
+      window.scrollTo(0, 0); // scroll to top of page
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +34,19 @@ export default function Home() {
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
     }
   
-    return colors[sender];
+    return sender === address ? colors[sender] : (
+      <a
+        href={`/?address=${sender}`}
+        onClick={(event) => {
+          event.preventDefault();
+          setAddress(sender);
+          handleSubmit(event);
+        }}
+        style={{ color: colors[sender], textDecoration: "underline" }}
+      >
+        {sender}
+      </a>
+    );
   };
 
   return (
@@ -96,30 +109,82 @@ export default function Home() {
                     className={styles.message}
                     style={{
                       backgroundColor: color,
-                      
                     }}
                   >
-                    {transaction.from === address ? (
-                      <div>
-                        <p>
-                          <strong>Target address</strong> to {<strong>transaction.to</strong>}
-                        </p>
-                        <div className="spacer" />
-                        <p>
-                          <strong>Message:</strong> {transaction.inputData}
-                        </p>
-                      </div>
-                    ) : (
-                      <div>
-                        <p>
-                          <strong>{transaction.from}</strong> to <strong>Target address</strong>
-                        </p>
-                        <div className="spacer" />
-                        <p>
-                          <strong>Message:</strong> {transaction.inputData}
-                        </p>
-                      </div>
-                    )}
+{transaction.from === address ? (
+  <div>
+    <p>
+      <strong>From:</strong> {transaction.from} to{" "}
+      <a
+        href={`/?address=${transaction.to}`}
+        onClick={(event) => {
+          event.preventDefault();
+          setAddress(transaction.to);
+          handleSubmit(event);
+        }}
+      >
+        <strong>{transaction.to}</strong>
+      </a>
+    </p>
+    {transaction.inputData && (
+      <>
+        <div className="spacer" />
+        <p>
+          <strong>Message:</strong> {transaction.inputData}
+          <a
+            href={`https://etherscan.io/tx/${transaction.hash}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginLeft: "10px" }}
+          >
+            <img
+              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+              alt="Etherscan logo"
+              style={{ height: "20px" }}
+            />
+          </a>
+        </p>
+      </>
+    )}
+  </div>
+) : (
+  <div>
+    <p>
+      <strong>From:</strong>{" "}
+      <a
+        href={`/?address=${transaction.from}`}
+        onClick={(event) => {
+          event.preventDefault();
+          setAddress(transaction.from);
+          handleSubmit(event);
+        }}
+      >
+        <strong>{transaction.from}</strong>
+      </a>{" "}
+      to <strong>Receiver:</strong> {transaction.to}
+    </p>
+    {transaction.inputData && (
+      <>
+        <div className="spacer" />
+        <p>
+          <strong>Message:</strong> {transaction.inputData}
+          <a
+            href={`https://etherscan.io/tx/${transaction.hash}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginLeft: "10px" }}
+          >
+            <img
+              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+              alt="Etherscan logo"
+              style={{ height: "20px" }}
+            />
+          </a>
+        </p>
+      </>
+    )}
+  </div>
+)}
                   </div>
                 </ListGroupItem>
               );
