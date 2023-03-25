@@ -1,9 +1,48 @@
 .root {
+  --background-start-rgb: #0a82a6;
+  --background-end-rgb: #10caa6;
+  --foreground-rgb: #282c33;
+  --max-width: 800px;
+  --border-radius: 5px;
+  --font-mono: "Roboto Mono", monospace;
   --gunmetal: #282c33ff;
   --chamoisee: #b0825aff;
   --bole: #7a4c4aff;
   --moss-green: #8a9e53ff;
   --steel-blue: #4e86bcff;
+}
+
+.body {
+  background: linear-gradient(
+    to bottom right,
+    var(--background-start-rgb),
+    var(--background-end-rgb)
+  );
+  font-family: "Roboto", sans-serif;
+  color: var(--foreground-rgb);
+  margin: 0;
+  padding: 0;
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.a {
+  color: var(--foreground-rgb);
+  text-decoration: none;
+}
+
+.a:hover {
+  color: var(--background-start-rgb);
 }
 
 .container {
@@ -42,15 +81,12 @@
   text-align: center;
   font-family: monospace;
   font-size: 1.3em;
-
 }
-
 
 .form label {
   margin-top: 10px;
   margin-bottom: 30px;
   align-items: center;
-
 }
 
 .form input {
@@ -70,7 +106,7 @@
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 6px;
   cursor: pointer;
-  color:#4e86bcff;
+  color: #4e86bcff;
 }
 
 .conversation {
@@ -92,10 +128,20 @@
   background-color: var(--gunmetal);
   color: #ccc;
   border: 3px solid rgba(10, 202, 166, 0.9);
-  
-  
 }
 
+.timestamp {
+  
+  font-size: 1.5em;
+  color: #a5dd21;
+  align-items: center;
+  text-align: end;
+}
+
+.messageText {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
 
 .message-title p strong {
   font-weight: bold;
@@ -112,7 +158,7 @@
 .message p strong {
   font-weight: bold;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .message hr {
@@ -129,7 +175,7 @@
 .message * {
   box-sizing: border-box;
   padding: 0;
-  margin:  0;
+  margin: 10px;
 }
 
 .submitButton {
@@ -146,7 +192,7 @@
 
 .submitButton:hover {
   background-color: rgba(10, 202, 166, 0.9);
-  color:var(--gunmetal);
+  color: var(--gunmetal);
 }
 
 .inputText {
@@ -162,4 +208,94 @@
   outline: none;
   box-shadow: 0 0 5px rgba(10, 202, 166, 0.5);
   background-color: rgba(10, 202, 166, 0.9);
+}
+
+/* Navigation bar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--foreground-rgb);
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--background-start-rgb);
+}
+
+/* Footer styles */
+.footer {
+  background-color: var(--foreground-rgb);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--background-start-rgb);
+}
+
+.profile-image-user137 {
+  max-width: 96px;
+  border-radius: 6px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  margin: 30px;
+  padding: 10px;
+  max-height: 96px;
+}
+
+.profile-image-au {
+  max-width: 96px;
+  border-radius: 6px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  margin: 30px;
+  padding: 10px;
+  max-height: 96px;
 }

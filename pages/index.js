@@ -12,8 +12,19 @@ export default function Home() {
     try {
       const response = await fetch(`/api?address=${address}&limit=200`);
       const data = await response.json();
-  
-      setTransactions(data.transactions);
+
+      const formattedTransactions = data.transactions.map((transaction) => {
+        let timestamp = "Invalid Date";
+        if (typeof transaction.inputData === "string") {
+          const date = new Date(transaction.timeStamp * 1000);
+          if (!isNaN(date)) {
+            timestamp = date.toLocaleString();
+          }
+        }
+        return { ...transaction, timestamp };
+      });
+
+      setTransactions(formattedTransactions);
       setColors({});
       window.scrollTo(0, 0); // scroll to top of page
     } catch (error) {
@@ -38,11 +49,14 @@ export default function Home() {
         "#282c33ff", // dark grey
         "#0d1c15", // dark green
         "#11202D", // dark blue
+        "#008148", // sea green
+        "#621B00", // seal brown
+        "#1282A2", // cerulean
       ];
       const color = colorsArray[Math.floor(Math.random() * colorsArray.length)];
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
     }
-  
+
     return colors[sender];
   };
 
@@ -77,7 +91,7 @@ export default function Home() {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
-          <p>Enter an Ethereum address:{" "}</p>
+          <p>Enter an Ethereum address: </p>
           <input
             type="text"
             value={address}
@@ -95,7 +109,7 @@ export default function Home() {
           <ListGroup>
             {transactions.map((transaction, index) => {
               if (!transaction.inputData) {
-                return null;
+                return 'trx skept from rendering';
               }
 
               const color = getColor(transaction.from);
@@ -108,80 +122,88 @@ export default function Home() {
                       backgroundColor: color,
                     }}
                   >
-{transaction.from === address ? (
-  <div>
-    <p>
-      <strong>From:</strong> {transaction.from} to{" "}
-      <a
-        href={`/?address=${transaction.to}`}
-        onClick={(event) => {
-          event.preventDefault();
-          setAddress(transaction.to);
-          handleSubmit(event);
-        }}
-      >
-        <strong>{transaction.to}</strong>
-      </a>
-    </p>
-    {transaction.inputData && (
-      <>
-        <div className="spacer" />
-        <p>
-          <strong>Message:</strong> {transaction.inputData}
-          <a
-            href={`https://etherscan.io/tx/${transaction.hash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ marginLeft: "10px" }}
-          >
-            <img
-              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-              alt="Etherscan logo"
-              style={{ height: "20px" }}
-            />
-          </a>
-        </p>
-      </>
-    )}
-  </div>
-) : (
-  <div>
-    <p>
-      <strong>From:</strong>{" "}
-      <a
-        href={`/?address=${transaction.from}`}
-        onClick={(event) => {
-          event.preventDefault();
-          setAddress(transaction.from);
-          handleSubmit(event);
-        }}
-      >
-        <strong>{transaction.from}</strong>
-      </a>{" "}
-      to <strong>Receiver:</strong> {transaction.to}
-    </p>
-    {transaction.inputData && (
-      <>
-        <div className="spacer" />
-        <p>
-          <strong>Message:</strong> {transaction.inputData}
-          <a
-            href={`https://etherscan.io/tx/${transaction.hash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ marginLeft: "10px" }}
-          >
-            <img
-              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-              alt="Etherscan logo"
-              style={{ height: "20px" }}
-            />
-          </a>
-        </p>
-      </>
-    )}
-  </div>
-)}
+                    {transaction.from === address ? (
+                      <div>
+                        <p className={styles.timestamp}>
+                          timestamp: {transaction.timestamp}
+                        </p>
+
+                        <p>
+                          <strong>From:</strong> {transaction.from} to{" "}
+                          <a
+                            href={`/?address=${transaction.to}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              setAddress(transaction.to);
+                              handleSubmit(event);
+                            }}
+                          >
+                            <strong>{transaction.to}</strong>
+                          </a>
+                        </p>
+                        {transaction.inputData && (
+                          <>
+                            <div className="spacer" />
+                            <p>
+                              <strong>Message:</strong> {transaction.inputData}
+                              <a
+                                href={`https://etherscan.io/tx/${transaction.hash}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ marginLeft: "10px" }}
+                              >
+                                <img
+                                  src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                  alt="Etherscan logo"
+                                  style={{ height: "20px" }}
+                                />
+                              </a>
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        <p className={styles.timestamp}>
+                          timestamp: {transaction.timestamp}
+                        </p>
+
+                        <p>
+                          <strong>From:</strong>{" "}
+                          <a
+                            href={`/?address=${transaction.from}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              setAddress(transaction.from);
+                              handleSubmit(event);
+                            }}
+                          >
+                            <strong>{transaction.from}</strong>
+                          </a>{" "}
+                          to <strong>Receiver:</strong> {transaction.to}
+                        </p>
+                        {transaction.inputData && (
+                          <>
+                            <div className="spacer" />
+                            <p>
+                              <strong>Message:</strong> {transaction.inputData}
+                              <a
+                                href={`https://etherscan.io/tx/${transaction.hash}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ marginLeft: "10px" }}
+                              >
+                                <img
+                                  src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                  alt="Etherscan logo"
+                                  style={{ height: "20px" }}
+                                />
+                              </a>
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </ListGroupItem>
               );
@@ -190,32 +212,19 @@ export default function Home() {
         </div>
       )}
       <div style={{ flex: 1, textAlign: "center" }}>
-        <h3 style={{ flex: 1, textAlign: "center" }}>
-          2023, BlockChat by Audit Utils
+        <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
+          2023, BlockChat by AuditUtils
         </h3>
         <a href="https://auditutils.com/">
           <img
-            style={{
-              maxWidth: "96px",
-              borderRadius: "15px",
-              border: "6px solid rgba(10, 202, 166, 0.9)",
-              margin: "30px",
-              padding: "15px",
-            }}
+            className={styles["profile-image-au"]}
             src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
             alt="auditutils logo pixel"
           />
         </a>
         <a href="https://user137-portfolio.auditutils.com">
           <img
-            style={{
-              maxWidth: "96px",
-              borderRadius: "15px",
-              border: "6px solid rgba(10, 202, 166, 0.9)",
-              margin: "30px",
-              padding: "15px",
-              maxHeight: "96px",
-            }}
+            className={styles["profile-image-user137"]}
             src="https://user137-portfolio.auditutils.com/user137.PNG"
             alt="user137 Profile Picture"
           />
