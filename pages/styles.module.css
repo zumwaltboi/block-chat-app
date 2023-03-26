@@ -1,25 +1,4 @@
-.root {
-  --background-start-rgb: #0a82a6;
-  --background-end-rgb: #10caa6;
-  --foreground-rgb: #282c33;
-  --max-width: 800px;
-  --border-radius: 5px;
-  --font-mono: "Roboto Mono", monospace;
-  --gunmetal: #282c33ff;
-  --chamoisee: #b0825aff;
-  --bole: #7a4c4aff;
-  --moss-green: #8a9e53ff;
-  --steel-blue: #4e86bcff;
-}
-
 .body {
-  background: linear-gradient(
-    to bottom right,
-    var(--background-start-rgb),
-    var(--background-end-rgb)
-  );
-  font-family: "Roboto", sans-serif;
-  color: var(--foreground-rgb);
   margin: 0;
   padding: 0;
 }
@@ -46,7 +25,7 @@
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
   width: 95vw;
@@ -55,7 +34,7 @@
 .container form {
   max-width: 90%;
   margin: 0 auto;
-  padding: 60px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,14 +44,13 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items: center;
   margin-top: 10px;
   width: 80%;
   max-width: 600px;
   border: 3px solid rgba(10, 202, 166, 0.9);
-  border-radius: 6px;
-  padding: 20px;
+  border-radius: 15px;
   text-align: center;
 }
 
@@ -92,7 +70,7 @@
 .form input {
   padding: 10px;
   border: 3px solid rgba(10, 202, 166, 0.9);
-  border-radius: 6px;
+  border-radius: 15px;
   margin-top: 10px;
 
   margin-bottom: 10px;
@@ -100,13 +78,12 @@
 }
 
 .form button {
-  padding: 10px;
+  padding: 20px;
   background-color: #282c33ff;
   color: #fff;
   border: 3px solid rgba(10, 202, 166, 0.9);
-  border-radius: 6px;
+  border-radius: 15px;
   cursor: pointer;
-  color: #4e86bcff;
 }
 
 .conversation {
@@ -121,7 +98,7 @@
 .message {
   padding: 10px;
   /* border: 1px solid #ccc; */
-  border-radius: 6px;
+  border-radius: 15px;
   margin: 10px;
   word-wrap: break-word;
   width: auto;
@@ -131,15 +108,14 @@
 }
 
 .timestamp {
-  
-  font-size: 1.5em;
+  font-size: 9px;
   color: #a5dd21;
-  align-items: center;
-  text-align: end;
+  /* align-items: center; */
+  text-align: start;
 }
 
 .messageText {
-  font-size: 18px;
+  font-size: 1.2em;
   margin-bottom: 5px;
 }
 
@@ -152,37 +128,37 @@
 .message p {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .message p strong {
   font-weight: bold;
-  color: #fff;
-  font-size: 1.2em;
+  color: #4e86bcff;
+  font-size: 0.9em;
 }
 
 .message hr {
-  margin: 10px 0;
+  margin: 20px 0;
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 3px solid rgba(10, 202, 166, 0.9);
 }
 
 .spacer {
-  height: 20px;
+  height: 60px;
   margin-top: 10px;
 }
 
 .message * {
   box-sizing: border-box;
   padding: 0;
-  margin: 10px;
+  margin:  0;
 }
 
 .submitButton {
   background-color: rgba(10, 202, 166, 0.9);
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   padding: 10px 20px;
   font-size: 1.3em;
   font-weight: bold;
@@ -197,7 +173,7 @@
 
 .inputText {
   border: none;
-  border-radius: 6px;
+  border-radius: 15px;
   padding: 10px;
   font-size: 1.3em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -207,7 +183,7 @@
 .inputText:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(10, 202, 166, 0.5);
-  background-color: rgba(10, 202, 166, 0.9);
+  /* background-color: rgba(10, 202, 166, 0.9); */
 }
 
 /* Navigation bar styles */
@@ -284,7 +260,7 @@
 
 .profile-image-user137 {
   max-width: 96px;
-  border-radius: 6px;
+  border-radius: 15px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   margin: 30px;
   padding: 10px;
@@ -293,7 +269,7 @@
 
 .profile-image-au {
   max-width: 96px;
-  border-radius: 6px;
+  border-radius: 15px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   margin: 30px;
   padding: 10px;

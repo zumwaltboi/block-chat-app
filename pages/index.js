@@ -10,13 +10,15 @@ export default function Home() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`/api?address=${address}&limit=200`);
+      const response = await fetch(
+        `/api?address=${address}&limit=200&timestamp=true`
+      );
       const data = await response.json();
 
       const formattedTransactions = data.transactions.map((transaction) => {
         let timestamp = "Invalid Date";
         if (typeof transaction.inputData === "string") {
-          const date = new Date(transaction.timeStamp * 1000);
+          const date = new Date(transaction.timestamp);
           if (!isNaN(date)) {
             timestamp = date.toLocaleString();
           }
@@ -49,9 +51,9 @@ export default function Home() {
         "#282c33ff", // dark grey
         "#0d1c15", // dark green
         "#11202D", // dark blue
-        "#008148", // sea green
+        "#1d215e", // sea green
         "#621B00", // seal brown
-        "#1282A2", // cerulean
+        "#123344", // cerulean
       ];
       const color = colorsArray[Math.floor(Math.random() * colorsArray.length)];
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
@@ -100,7 +102,7 @@ export default function Home() {
           />
         </label>
         <button type="submit" className={styles.submitButton}>
-          Get chat history
+          Load chat history
         </button>
       </form>
       {transactions.length > 0 && (
@@ -109,7 +111,7 @@ export default function Home() {
           <ListGroup>
             {transactions.map((transaction, index) => {
               if (!transaction.inputData) {
-                return 'trx skept from rendering';
+                return " ";
               }
 
               const color = getColor(transaction.from);
@@ -125,12 +127,27 @@ export default function Home() {
                     {transaction.from === address ? (
                       <div>
                         <p className={styles.timestamp}>
-                          timestamp: {transaction.timestamp}
+                          time-UTC: {transaction.timestamp} 
+                          <a
+                            href={`https://etherscan.io/tx/${transaction.hash}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ marginLeft: "10px" }}
+                          >
+                            <img
+                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                              alt="Etherscan logo"
+                              style={{ height: "20px" }}
+                            />
+                          </a>
                         </p>
+                        <hr />
 
                         <p>
-                          <strong>From:</strong> {transaction.from} to{" "}
-                          <a
+                          <strong>From:</strong> {transaction.from} 
+                          
+                        </p>
+                        <p><strong>Receiver:</strong> <a
                             href={`/?address=${transaction.to}`}
                             onClick={(event) => {
                               event.preventDefault();
@@ -138,26 +155,16 @@ export default function Home() {
                               handleSubmit(event);
                             }}
                           >
-                            <strong>{transaction.to}</strong>
-                          </a>
-                        </p>
+                            {transaction.to}
+                          </a></p>
+
                         {transaction.inputData && (
                           <>
                             <div className="spacer" />
+                            
                             <p>
+                            <hr />
                               <strong>Message:</strong> {transaction.inputData}
-                              <a
-                                href={`https://etherscan.io/tx/${transaction.hash}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ marginLeft: "10px" }}
-                              >
-                                <img
-                                  src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                                  alt="Etherscan logo"
-                                  style={{ height: "20px" }}
-                                />
-                              </a>
                             </p>
                           </>
                         )}
@@ -165,8 +172,21 @@ export default function Home() {
                     ) : (
                       <div>
                         <p className={styles.timestamp}>
-                          timestamp: {transaction.timestamp}
+                          time-UTC: {transaction.timestamp} 
+                          <a
+                            href={`https://etherscan.io/tx/${transaction.hash}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ marginLeft: "10px" }}
+                          >
+                            <img
+                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                              alt="Etherscan logo"
+                              style={{ height: "20px" }}
+                            />
+                          </a>
                         </p>
+                        <hr />
 
                         <p>
                           <strong>From:</strong>{" "}
@@ -178,27 +198,17 @@ export default function Home() {
                               handleSubmit(event);
                             }}
                           >
-                            <strong>{transaction.from}</strong>
+                            {transaction.from}
                           </a>{" "}
-                          to <strong>Receiver:</strong> {transaction.to}
+                           
                         </p>
+                        <p><strong>Receiver:</strong> {transaction.to}</p>
                         {transaction.inputData && (
                           <>
                             <div className="spacer" />
+                            <hr />
                             <p>
                               <strong>Message:</strong> {transaction.inputData}
-                              <a
-                                href={`https://etherscan.io/tx/${transaction.hash}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ marginLeft: "10px" }}
-                              >
-                                <img
-                                  src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                                  alt="Etherscan logo"
-                                  style={{ height: "20px" }}
-                                />
-                              </a>
                             </p>
                           </>
                         )}
