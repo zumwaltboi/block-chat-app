@@ -304,7 +304,7 @@ export default function Home() {
                             <div className="spacer" />
                             <hr />
                             <p>
-                              <strong>Message:</strong> {transaction.inputData}
+                              <strong>Message:</strong> {"'"}{transaction.inputData}{"'"}
                             </p>
                           </>
                         )}
@@ -397,7 +397,7 @@ export default function Home() {
                             />
                           </button>
                         </p>
-                        <p className={styles.yoyo}>
+                        <p className={`${styles.address} ${transaction.to === address ? styles.highlight : ''}`}>
                           <strong>To:</strong> {transaction.to}
                           <button
                             onClick={(event) => {
@@ -460,7 +460,7 @@ export default function Home() {
                             <div className="spacer" />
                             <hr />
                             <p>
-                              <strong>Message:</strong> {transaction.inputData}
+                              <strong>Message:</strong> {"'"}{transaction.inputData}{"'"}
                             </p>
                           </>
                         )}
