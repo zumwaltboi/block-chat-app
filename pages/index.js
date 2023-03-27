@@ -113,14 +113,14 @@ export default function Home() {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
-          {/* <p>Enter an Ethereum address: </p> */}
+          <p>Enter an Ethereum address: </p>
 
           <input
             type="text"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
             className={styles.inputText}
-            placeholder="Enter an Eth address"
+            placeholder="0x..."
           />
            {/* <input
           type="text"
