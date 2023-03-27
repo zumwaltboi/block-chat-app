@@ -5,8 +5,25 @@ import styles from "./styles.module.css";
 
 export default function Home() {
   const [address, setAddress] = useState("");
+  const [secondAddress, setSecondAddress] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleSecondAddressChange = (event) => {
+    setSecondAddress(event.target.value);
+  };
+
+  const filteredTransactions = transactions.filter(
+    (transaction) =>
+      (transaction.from === address && transaction.to === secondAddress) ||
+      (transaction.from === secondAddress && transaction.to === address) ||
+      transaction.from === address ||
+      transaction.to === address
+  );
 
   const fetchTransactions = async () => {
     try {
@@ -63,6 +80,8 @@ export default function Home() {
     return colors[sender];
   };
 
+  const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
+
   return (
     <div className={styles.container}>
       <div
@@ -94,13 +113,22 @@ export default function Home() {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
-          <p>Enter an Ethereum address: </p>
+          {/* <p>Enter an Ethereum address: </p> */}
+
           <input
             type="text"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
             className={styles.inputText}
+            placeholder="Enter an Eth address"
           />
+           {/* <input
+          type="text"
+          value={secondAddress}
+          onChange={handleSecondAddressChange}
+          placeholder="2nd Eth address (optional)"
+          className={styles.inputText}
+        /> */}
         </label>
         <button type="submit" className={styles.submitButton}>
           Load chat history
@@ -114,6 +142,7 @@ export default function Home() {
               if (!transaction.inputData) {
                 return " ";
               }
+              
 
               const color = getColor(transaction.from);
 
@@ -438,6 +467,57 @@ export default function Home() {
           </ListGroup>
         </div>
       )}
+      <div
+        style={{
+          marginTop: "30px",
+          backgroundColor: "#282c33ff",
+          padding: "10px",
+          borderRadius: "15px",
+        }}
+      >
+        <p style={{ textAlign: "center", fontFamily: "monospace" }}>
+          Example of an hacker adress:
+          0xb66cd966670d962C227B3EABA30a872DbFb995db
+          <button
+            onClick={(event) => {
+              navigator.clipboard.writeText(example);
+            }}
+            style={{
+              border: "none",
+              background: "none",
+              cursor: "pointer",
+              marginLeft: "20px",
+            }}
+          >
+            {" "}
+            copy -{">"}
+            <img
+              src="WhhCopy.svg"
+              alt="Copy address"
+              style={{ height: "20px" }}
+            />
+          </button>{" "}
+          <button
+            onClick={(event) => {
+              setAddress(example);
+              window.scrollTo(0, 0);            }}
+            style={{
+              border: "none",
+              background: "none",
+              cursor: "pointer",
+              marginLeft: "20px",
+            }}
+          >
+            {" "}
+            click this icon to populate -{">"}
+            <img
+              src="gg_scan.svg"
+              alt="Copy address"
+              style={{ height: "20px" }}
+            />
+          </button>
+        </p>
+      </div>
       <div style={{ flex: 1, textAlign: "center" }}>
         <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
           2023, BlockChat by AuditUtils
