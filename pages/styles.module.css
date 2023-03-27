@@ -32,9 +32,9 @@
 }
 
 .container form {
-  max-width: 90%;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
