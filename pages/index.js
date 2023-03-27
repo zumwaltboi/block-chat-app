@@ -157,7 +157,7 @@ export default function Home() {
                     {transaction.from === address ? (
                       <div>
                         <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}
+                          time-UTC: {transaction.timestamp}{", "}value:{transaction.value} ETH{" "} TRX:
                           <button
                             onClick={() => {
                               window.open(
@@ -172,7 +172,7 @@ export default function Home() {
                               marginLeft: "20px",
                             }}
                           >
-                            TRX:{" "}
+                            
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
@@ -182,7 +182,7 @@ export default function Home() {
                         </p>
                         <hr />
 
-                        <p>
+                        <p className={styles.yoyo}>
                           <strong>From:</strong> {transaction.from}
                           <button
                             onClick={(event) => {
@@ -240,7 +240,7 @@ export default function Home() {
                             />
                           </button>
                         </p>
-                        <p>
+                        <p  className={styles.yoyo}>
                           <strong>To:</strong> {transaction.to}
                           <button
                             onClick={(event) => {
@@ -312,7 +312,7 @@ export default function Home() {
                     ) : (
                       <div>
                         <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}
+                          time-UTC: {transaction.timestamp}{", "}value:{transaction.value} ETH{" "}TRX:
                           <button
                             onClick={() => {
                               window.open(
@@ -327,17 +327,19 @@ export default function Home() {
                               marginLeft: "10px",
                             }}
                           >
-                            TRX:{" "}
+                            
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
                               style={{ height: "20px", background: "write" }}
                             />
                           </button>
+                          
+                          
                         </p>
                         <hr />
 
-                        <p>
+                        <p className={styles.yoyo}>
                           <strong>From:</strong> {transaction.from}
                           <button
                             onClick={(event) => {
@@ -348,6 +350,7 @@ export default function Home() {
                               border: "none",
                               background: "none",
                               cursor: "pointer",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -364,6 +367,7 @@ export default function Home() {
                               border: "none",
                               background: "none",
                               cursor: "pointer",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -383,7 +387,7 @@ export default function Home() {
                               border: "none",
                               background: "white",
                               cursor: "pointer",
-                              marginLeft: "10px",
+                              marginLeft: "20px",marginLeft: "20px",
                             }}
                           >
                             <img
@@ -393,7 +397,7 @@ export default function Home() {
                             />
                           </button>
                         </p>
-                        <p>
+                        <p className={styles.yoyo}>
                           <strong>To:</strong> {transaction.to}
                           <button
                             onClick={(event) => {
@@ -404,6 +408,7 @@ export default function Home() {
                               border: "none",
                               background: "none",
                               cursor: "pointer",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -420,6 +425,7 @@ export default function Home() {
                               border: "none",
                               background: "none",
                               cursor: "pointer",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -439,7 +445,7 @@ export default function Home() {
                               border: "none",
                               background: "white",
                               cursor: "pointer",
-                              marginLeft: "10px",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -473,6 +479,7 @@ export default function Home() {
           backgroundColor: "#282c33ff",
           padding: "10px",
           borderRadius: "15px",
+          border: "3px solid rgba(10, 202, 166, 0.9)",
         }}
       >
         <p style={{ textAlign: "center", fontFamily: "monospace" }}>
@@ -487,6 +494,7 @@ export default function Home() {
               background: "none",
               cursor: "pointer",
               marginLeft: "20px",
+              color: "#ccc",
             }}
           >
             {" "}
@@ -506,6 +514,7 @@ export default function Home() {
               background: "none",
               cursor: "pointer",
               marginLeft: "20px",
+              color: "#ccc",
             }}
           >
             {" "}

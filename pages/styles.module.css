@@ -63,7 +63,7 @@
 
 .form label {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   align-items: center;
 }
 
@@ -72,9 +72,10 @@
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   margin-top: 10px;
-
   margin-bottom: 10px;
   width: 100%;
+  background-color: #282c33ff;
+  color:rgba(10, 202, 166, 0.9);
 }
 
 .form button {
@@ -95,23 +96,32 @@
   text-align: center;
 }
 
+.yoyo {
+  /* this is the adresses classe */
+  font-size: 0.7em;
+  text-align: start;
+  color: #ccc;
+
+}
+
 .message {
-  padding: 10px;
+  padding: 20px;
   /* border: 1px solid #ccc; */
   border-radius: 15px;
-  margin: 10px;
+  margin: 20px;
   word-wrap: break-word;
   width: auto;
   background-color: var(--gunmetal);
-  color: #ccc;
+  color: #fff;
   border: 3px solid rgba(10, 202, 166, 0.9);
+  font-size: 1.3em;
 }
 
 .timestamp {
-  font-size: 9px;
+  font-size: 0.6em;
   color: #a5dd21;
   /* align-items: center; */
-  text-align: start;
+  text-align: end;
 }
 
 .messageText {
@@ -128,17 +138,17 @@
 .message p {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 1.3em;
+  /* font-size: 1.3em; */
 }
 
 .message p strong {
   font-weight: bold;
-  color: #4e86bcff;
-  font-size: 0.9em;
+  color: #8a9e53ff;
+  font-size: 0.8em;
 }
 
 .message hr {
-  margin: 20px 0;
+  margin: 10px 0;
   border: none;
   border-top: 3px solid rgba(10, 202, 166, 0.9);
 }

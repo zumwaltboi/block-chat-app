@@ -12,25 +12,9 @@
     var(--background-start-color),
     var(--background-end-color)
   );
-  --foreground-color: #14161a;
-  --background-start-color: #95c2ce;
-  --background-end-color: #369aa3;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-color: #14161a;
-    --background-start-color: #95c2ce;
-    --background-end-color: #369aa3;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-color: #ccc;
-    --background-start-color: #163333;
-    --background-end-color: #102e4b;
-  }
+  --foreground-color: #ccc;
+  --background-start-color: #163333;
+  --background-end-color: #102e4b;
 }
 
 * {
@@ -51,10 +35,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
