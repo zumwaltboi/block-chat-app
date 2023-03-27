@@ -113,7 +113,9 @@ export default function Home() {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
-          <p>Enter an Ethereum address: </p>
+          <p>
+            Enter an Ethereum address for viewing messages it sent and receive:
+          </p>
 
           <input
             type="text"
@@ -122,7 +124,7 @@ export default function Home() {
             className={styles.inputText}
             placeholder="0x..."
           />
-           {/* <input
+          {/* <input
           type="text"
           value={secondAddress}
           onChange={handleSecondAddressChange}
@@ -142,7 +144,6 @@ export default function Home() {
               if (!transaction.inputData) {
                 return " ";
               }
-              
 
               const color = getColor(transaction.from);
 
@@ -157,7 +158,8 @@ export default function Home() {
                     {transaction.from === address ? (
                       <div>
                         <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}{", "}value:{transaction.value} ETH{" "} TRX:
+                          time-UTC: {transaction.timestamp}
+                          {", "}value:{transaction.value} ETH TRX:
                           <button
                             onClick={() => {
                               window.open(
@@ -172,7 +174,6 @@ export default function Home() {
                               marginLeft: "20px",
                             }}
                           >
-                            
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
@@ -240,7 +241,7 @@ export default function Home() {
                             />
                           </button>
                         </p>
-                        <p  className={styles.yoyo}>
+                        <p className={styles.yoyo}>
                           <strong>To:</strong> {transaction.to}
                           <button
                             onClick={(event) => {
@@ -304,7 +305,9 @@ export default function Home() {
                             <div className="spacer" />
                             <hr />
                             <p>
-                              <strong>Message:</strong> {"'"}{transaction.inputData}{"'"}
+                              <strong>Message:</strong> {"'"}
+                              {transaction.inputData}
+                              {"'"}
                             </p>
                           </>
                         )}
@@ -312,7 +315,8 @@ export default function Home() {
                     ) : (
                       <div>
                         <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}{", "}value:{transaction.value} ETH{" "}TRX:
+                          time-UTC: {transaction.timestamp}
+                          {", "}value:{transaction.value} ETH TRX:
                           <button
                             onClick={() => {
                               window.open(
@@ -327,15 +331,12 @@ export default function Home() {
                               marginLeft: "10px",
                             }}
                           >
-                            
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
                               style={{ height: "20px", background: "write" }}
                             />
                           </button>
-                          
-                          
                         </p>
                         <hr />
 
@@ -387,7 +388,8 @@ export default function Home() {
                               border: "none",
                               background: "white",
                               cursor: "pointer",
-                              marginLeft: "20px",marginLeft: "20px",
+                              marginLeft: "20px",
+                              marginLeft: "20px",
                             }}
                           >
                             <img
@@ -397,7 +399,11 @@ export default function Home() {
                             />
                           </button>
                         </p>
-                        <p className={`${styles.address} ${transaction.to === address ? styles.highlight : ''}`}>
+                        <p
+                          className={`${styles.address} ${
+                            transaction.to === address ? styles.highlight : ""
+                          }`}
+                        >
                           <strong>To:</strong> {transaction.to}
                           <button
                             onClick={(event) => {
@@ -460,7 +466,9 @@ export default function Home() {
                             <div className="spacer" />
                             <hr />
                             <p>
-                              <strong>Message:</strong> {"'"}{transaction.inputData}{"'"}
+                              <strong>Message:</strong> {"'"}
+                              {transaction.inputData}
+                              {"'"}
                             </p>
                           </>
                         )}
@@ -508,7 +516,8 @@ export default function Home() {
           <button
             onClick={(event) => {
               setAddress(example);
-              window.scrollTo(0, 0);            }}
+              window.scrollTo(0, 0);
+            }}
             style={{
               border: "none",
               background: "none",
