@@ -596,7 +596,7 @@ export default function Home() {
       >
         
         <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-          Example of an hacker adress:
+          Example of an adress:
           0xb66cd966670d962C227B3EABA30a872DbFb995db
           </p>
           
