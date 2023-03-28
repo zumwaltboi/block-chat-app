@@ -540,7 +540,7 @@ export default function Home() {
     style={{ height: "20px" }}
   />
 </button>
-<button
+{/* <button
   onClick={() => {
     const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
     const timestamp = `${transaction.timestamp}`;
@@ -560,7 +560,7 @@ export default function Home() {
     alt="Share on LinkedIn"
     style={{ height: "20px" }}
   />
-</button>
+</button> */}
 </p>
                           </>
                         )}
