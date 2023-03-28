@@ -162,7 +162,7 @@ export default function Home() {
                       <div>
                         <p className={styles.timestamp}>
                           time-UTC: {transaction.timestamp}
-                          {", "}value:{transaction.value} ETH TRX:
+                          {", "}value:{transaction.value} ETH TX:
                           <button
                             onClick={() => {
                               window.open(
@@ -172,7 +172,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "write",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "20px",
                             }}
@@ -180,7 +180,7 @@ export default function Home() {
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
-                              style={{ height: "20px" }}
+                              style={{ height: "20px", background: "#eab308" }}
                             />
                           </button>
                         </p>
@@ -232,7 +232,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "white",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "20px",
                             }}
@@ -290,7 +290,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "white",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "20px",
                             }}
@@ -319,7 +319,7 @@ export default function Home() {
                       <div>
                         <p className={styles.timestamp}>
                           time-UTC: {transaction.timestamp}
-                          {", "}value:{transaction.value} ETH TRX:
+                          {", "}value:{transaction.value} ETH TX:
                           <button
                             onClick={() => {
                               window.open(
@@ -329,7 +329,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "write",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "10px",
                             }}
@@ -337,7 +337,7 @@ export default function Home() {
                             <img
                               src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                               alt="Etherscan logo"
-                              style={{ height: "20px", background: "write" }}
+                              style={{ height: "20px", background: "#eab308" }}
                             />
                           </button>
                           
@@ -390,7 +390,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "white",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "20px",
                               marginLeft: "20px",
@@ -453,7 +453,7 @@ export default function Home() {
                             }}
                             style={{
                               border: "none",
-                              background: "white",
+                              background: "#eab308",
                               cursor: "pointer",
                               marginLeft: "20px",
                             }}
