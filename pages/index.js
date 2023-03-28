@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { getTransactions } from "../lib/eth";
 import styles from "./styles.module.css";
+import Head from "next/head";
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -81,578 +82,603 @@ export default function Home() {
   };
 
   const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
-  
-  
-  
-
 
   return (
-    <div className={styles.container}>
-      <div
-        className={styles.header}
-        style={{ display: "flex", alignItems: "center" }}
-      >
-        <a
-          style={{
-            textAlign: "center",
-            flex: 1,
-            alignItems: "center",
-          }}
-          href="https://blockchat.auditutils.com/"
+    <div>
+      <Head>
+        <title>BlockChat</title>
+        <meta
+          name="description"
+          content="A decentralized chat app built on Ethereum"
+        />
+        <meta
+          name="keywords"
+          content="blockchain, Ethereum, chat, decentralized"
+        />
+        <meta name="author" content="Your Name" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Head>
+      <div className={styles.container}>
+        <div
+          className={styles.header}
+          style={{ display: "flex", alignItems: "center" }}
         >
-          <img
+          <a
             style={{
-              maxWidth: "200px",
-              margin: "0px",
-              padding: "0px",
               textAlign: "center",
               flex: 1,
               alignItems: "center",
+              marginBottom: "30px",
             }}
-            src="blockchat-logo-300.png"
-            alt="blockchat logo"
-          />
-        </a>
-      </div>
-
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label>
-          <p>
-            Enter an Ethereum address for viewing messages it sent and receive:
-          </p>
-
-          <input
-            type="text"
-            value={address}
-            onChange={(event) => setAddress(event.target.value)}
-            className={styles.inputText}
-            placeholder="0x..."
-          />
-          {/* <input
-          type="text"
-          value={secondAddress}
-          onChange={handleSecondAddressChange}
-          placeholder="2nd Eth address (optional)"
-          className={styles.inputText}
-        /> */}
-        </label>
-        <button type="submit" className={styles.submitButton}>
-          Load chat history
-        </button>
-      </form>
-      {transactions.length > 0 && (
-        <div className={styles.conversation}>
-          <h2>Conversation:</h2>
-          <ListGroup>
-            {transactions.map((transaction, index) => {
-              if (!transaction.inputData) {
-                return " ";
-              }
-
-              const color = getColor(transaction.from);
-
-              return (
-                <ListGroupItem key={transaction.hash}>
-                  <div
-                    className={styles.message}
-                    style={{
-                      backgroundColor: color,
-                    }}
-                  >
-                    {transaction.from === address ? (
-                      <div>
-                        <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}
-                          {", "}value:{transaction.value} ETH TX:
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/tx/${transaction.hash}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px", background: "#eab308" }}
-                            />
-                          </button>
-                        </p>
-                        <hr />
-                        
-                        <p className={styles.yoyo}>
-                          <strong>From:</strong> {transaction.from}
-                          <button
-                            onClick={(event) => {
-                              setAddress(transaction.from);
-                              window.scrollTo(0, 0);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="gg_scan.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(transaction.from);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="WhhCopy.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/address/${transaction.to}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                        </p>
-                        
-                        <p className={styles.yoyo}>
-                          <strong>To:</strong> {transaction.to}
-                          <button
-                            onClick={(event) => {
-                              setAddress(transaction.to);
-                              window.scrollTo(0, 0);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="gg_scan.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(transaction.to);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="WhhCopy.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/address/${transaction.to}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                        </p>
-
-                        {transaction.inputData && (
-                          <>
-                            <div className="spacer" />
-                            <hr />
-                            <p>
-                              <strong>Message:</strong> {"'"}
-                              {transaction.inputData}
-                              {"'"}
-                            </p>
-                          </>
-                        )}
-                      </div>
-                    ) : (
-                      <div>
-                        <p className={styles.timestamp}>
-                          time-UTC: {transaction.timestamp}
-                          {", "}value:{transaction.value} ETH TX:
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/tx/${transaction.hash}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "10px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px", background: "#eab308" }}
-                            />
-                          </button>
-                          
-                        </p>
-                        <hr />
-                        
-                        <p className={styles.yoyo}>
-                          <strong>From:</strong> {transaction.from}
-                          <button
-                            onClick={(event) => {
-                              setAddress(transaction.from);
-                              window.scrollTo(0, 0);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="gg_scan.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(transaction.from);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="WhhCopy.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/address/${transaction.from}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                        </p>
-                        
-                        <p
-                          className={`${styles.address} ${
-                            transaction.to === address ? styles.highlight : ""
-                          }`}
-                        >
-                          <strong>To:</strong> {transaction.to}
-                          <button
-                            onClick={(event) => {
-                              setAddress(transaction.to);
-                              window.scrollTo(0, 0);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="gg_scan.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(transaction.to);
-                            }}
-                            style={{
-                              border: "none",
-                              background: "none",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="WhhCopy.svg"
-                              alt="Copy address"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                          <button
-                            onClick={() => {
-                              window.open(
-                                `https://etherscan.io/address/${transaction.to}`,
-                                "_blank"
-                              );
-                            }}
-                            style={{
-                              border: "none",
-                              background: "#eab308",
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            <img
-                              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-                              alt="Etherscan logo"
-                              style={{ height: "20px" }}
-                            />
-                          </button>
-                        </p>
-                        {transaction.inputData && (
-                          <>
-                            <div className="spacer" />
-                            <hr />
-                            <p>
-                              <strong>Message:</strong> {"'"}
-                              {transaction.inputData}
-                              {"'"}
-                            </p>
-                            <p style={{
-                              textAlign: "end",
-                            }}>
-                            <button
-  onClick={() => {
-    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
-    const timestamp = `${transaction.timestamp}`;
-    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
-    navigator.clipboard.writeText(transactionData);
-    alert('Transaction data copied to clipboard!');
-  }}
-  style={{
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    marginLeft: "20px",
-  }}
->
-  <img
-    src="GgShare.svg"
-    alt="Copy transaction data"
-    style={{ height: "20px" }}
-  />
-</button>
-<button
-  onClick={() => {
-    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
-    const timestamp = `${transaction.timestamp}`;
-    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
-    const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(transactionData)}`;
-    window.open(telegramLink, '_blank');
-  }}
-  style={{
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    marginLeft: "20px",
-  }}
->
-  <img
-    src="telegram.png"
-    alt="Share on Telegram"
-    style={{ height: "20px" }}
-  />
-</button>
-<button
-  onClick={() => {
-    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
-    const timestamp = `${transaction.timestamp}`;
-    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
-    const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(transactionData)}`;
-    window.open(twitterLink, '_blank');
-  }}
-  style={{
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    marginLeft: "20px",
-  }}
->
-  <img
-    src="twitter.svg"
-    alt="Share on Twitter"
-    style={{ height: "20px" }}
-  />
-</button>
-{/* <button
-  onClick={() => {
-    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
-    const timestamp = `${transaction.timestamp}`;
-    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
-    const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(etherscanLink)}`;
-    window.open(linkedInLink, '_blank');
-  }}
-  style={{
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    marginLeft: "20px",
-  }}
->
-  <img
-    src="linkedin.svg"
-    alt="Share on LinkedIn"
-    style={{ height: "20px" }}
-  />
-</button> */}
-</p>
-                          </>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </ListGroupItem>
-              );
-            })}
-          </ListGroup>
+            href="https://blockchat.auditutils.com/"
+          >
+            <img
+              style={{
+                maxWidth: "120px",
+                margin: "0px",
+                padding: "0px",
+                textAlign: "center",
+                flex: 1,
+                alignItems: "center",
+              }}
+              src="blockchat-logo-300-V02.5.png"
+              alt="blockchat logo"
+            />
+          </a>
         </div>
-      )}
-      <div
-        style={{
-          marginTop: "30px",
-          backgroundColor: "#282c33ff",
-          padding: "10px",
-          borderRadius: "15px",
-          border: "3px solid rgba(10, 202, 166, 0.9)",
-        }}
-      >
-        
-        <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-          Example of an adress:
-          0xb66cd966670d962C227B3EABA30a872DbFb995db
-          </p>
-          
-          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-          <button
-            onClick={(event) => {
-              navigator.clipboard.writeText(example);
-            }}
-            style={{
-              border: "none",
-              background: "none",
-              cursor: "pointer",
-              marginLeft: "20px",
-              color: "#ccc",
-            }}
-          >
-            {" "}
-            copy -{">"}
-            <img
-              src="WhhCopy.svg"
-              alt="Copy address"
-              style={{ height: "20px" }}
+
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label>
+            <p>
+              Enter an Ethereum address for viewing messages it sent and
+              receive:
+            </p>
+
+            <input
+              type="text"
+              value={address}
+              onChange={(event) => setAddress(event.target.value)}
+              className={styles.inputText}
+              placeholder="0x..."
             />
-          </button>{" "}
-          <button
-            onClick={(event) => {
-              setAddress(example);
-              window.scrollTo(0, 0);
-            }}
-            style={{
-              border: "none",
-              background: "none",
-              cursor: "pointer",
-              marginLeft: "20px",
-              color: "#ccc",
-            }}
-          >
-            {" "}
-            click this icon to populate -{">"}
-            <img
-              src="gg_scan.svg"
-              alt="Copy address"
-              style={{ height: "20px" }}
-            />
+            {}
+          </label>
+          <button type="submit" className={styles.submitButton}>
+            Load chat history
           </button>
-        </p>
-      </div>
-      <div style={{ flex: 1, textAlign: "center" }}>
-        <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
-          2023, BlockChat by AuditUtils
-        </h3>
-        <a href="https://auditutils.com/">
-          <img
-            className={styles["profile-image-au"]}
-            src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
-            alt="auditutils logo pixel"
-          />
-        </a>
-        <a href="https://user137-portfolio.auditutils.com">
-          <img
-            className={styles["profile-image-user137"]}
-            src="https://user137-portfolio.auditutils.com/user137.PNG"
-            alt="user137 Profile Picture"
-          />
-        </a>
+        </form>
+        {transactions.length > 0 && (
+          <div className={styles.conversation}>
+            <h2>Conversation:</h2>
+            <ListGroup>
+              {transactions.map((transaction, index) => {
+                if (!transaction.inputData) {
+                  return " ";
+                }
+
+                const color = getColor(transaction.from);
+
+                return (
+                  <ListGroupItem key={transaction.hash}>
+                    <div
+                      className={styles.message}
+                      style={{
+                        backgroundColor: color,
+                      }}
+                    >
+                      {transaction.from === address ? (
+                        <div>
+                          <p className={styles.timestamp}>
+                            time-UTC: {transaction.timestamp}
+                            {", "}value:{transaction.value} ETH TX:
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/tx/${transaction.hash}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
+                              />
+                            </button>
+                          </p>
+                          <hr />
+
+                          <p className={styles.yoyo}>
+                            <strong>From:</strong> {transaction.from}
+                            <button
+                              onClick={(event) => {
+                                setAddress(transaction.from);
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(transaction.from);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="WhhCopy.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/address/${transaction.to}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                          </p>
+
+                          <p className={styles.yoyo}>
+                            <strong>To:</strong> {transaction.to}
+                            <button
+                              onClick={(event) => {
+                                setAddress(transaction.to);
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(transaction.to);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="WhhCopy.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/address/${transaction.to}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                          </p>
+
+                          {transaction.inputData && (
+                            <>
+                              <div className="spacer" />
+                              <hr />
+                              <p>
+                                <strong>Message:</strong> {"'"}
+                                {transaction.inputData}
+                                {"'"}
+                              </p>
+                            </>
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          <p className={styles.timestamp}>
+                            time-UTC: {transaction.timestamp}
+                            {", "}value:{transaction.value} ETH TX:
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/tx/${transaction.hash}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "10px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
+                              />
+                            </button>
+                          </p>
+                          <hr />
+
+                          <p className={styles.yoyo}>
+                            <strong>From:</strong> {transaction.from}
+                            <button
+                              onClick={(event) => {
+                                setAddress(transaction.from);
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(transaction.from);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="WhhCopy.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/address/${transaction.from}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                          </p>
+
+                          <p
+                            className={`${styles.address} ${
+                              transaction.to === address ? styles.highlight : ""
+                            }`}
+                          >
+                            <strong>To:</strong> {transaction.to}
+                            <button
+                              onClick={(event) => {
+                                setAddress(transaction.to);
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(transaction.to);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="WhhCopy.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => {
+                                window.open(
+                                  `https://etherscan.io/address/${transaction.to}`,
+                                  "_blank"
+                                );
+                              }}
+                              style={{
+                                border: "none",
+                                background: "#eab308",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                alt="Etherscan logo"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                          </p>
+                          {transaction.inputData && (
+                            <>
+                              <div className="spacer" />
+                              <hr />
+                              <p>
+                                <strong>Message:</strong> {"'"}
+                                {transaction.inputData}
+                                {"'"}
+                              </p>
+                              <p
+                                style={{
+                                  textAlign: "end",
+                                }}
+                              >
+                                <button
+                                  onClick={() => {
+                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    const timestamp = `${transaction.timestamp}`;
+                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+                                    navigator.clipboard.writeText(
+                                      transactionData
+                                    );
+                                    alert(
+                                      "Transaction data copied to clipboard!"
+                                    );
+                                  }}
+                                  style={{
+                                    border: "none",
+                                    background: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                  }}
+                                >
+                                  <img
+                                    src="GgShare.svg"
+                                    alt="Copy transaction data"
+                                    style={{ height: "20px" }}
+                                  />
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    const timestamp = `${transaction.timestamp}`;
+                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+                                    const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
+                                      transactionData
+                                    )}`;
+                                    window.open(telegramLink, "_blank");
+                                  }}
+                                  style={{
+                                    border: "none",
+                                    background: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                  }}
+                                >
+                                  <img
+                                    src="telegram.png"
+                                    alt="Share on Telegram"
+                                    style={{ height: "20px" }}
+                                  />
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    const timestamp = `${transaction.timestamp}`;
+                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+                                    const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                                      transactionData
+                                    )}`;
+                                    window.open(twitterLink, "_blank");
+                                  }}
+                                  style={{
+                                    border: "none",
+                                    background: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                  }}
+                                >
+                                  <img
+                                    src="twitter.svg"
+                                    alt="Share on Twitter"
+                                    style={{ height: "20px" }}
+                                  />
+                                </button>
+                              </p>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </ListGroupItem>
+                );
+              })}
+            </ListGroup>
+          </div>
+        )}
+        <div
+          style={{
+            marginTop: "30px",
+            backgroundColor: "#282c33ff",
+            padding: "20px",
+            borderRadius: "15px",
+            border: "3px solid rgba(10, 202, 166, 0.9)",
+            Width: "80%",
+            maxWidth: "600px",
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            margin: "30px auto",
+          }}
+        >
+          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
+            Example of an adress: 0xb66cd966670d962C227B3EABA30a872DbFb995db
+          </p>
+
+          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
+            <button
+              onClick={(event) => {
+                navigator.clipboard.writeText(example);
+              }}
+              style={{
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+                marginLeft: "20px",
+                color: "#ccc",
+                width: "80%",
+                maxWidth: "600px",
+              }}
+            >
+              {" "}
+              copy -{">"}
+              <img
+                src="WhhCopy.svg"
+                alt="Copy address"
+                style={{ height: "20px" }}
+              />
+            </button>{" "}
+            <button
+              onClick={(event) => {
+                setAddress(example);
+                window.scrollTo(0, 0);
+              }}
+              style={{
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+                marginLeft: "20px",
+                color: "#ccc",
+              }}
+            >
+              {" "}
+              click this icon to populate -{">"}
+              <img
+                src="gg_scan.svg"
+                alt="Copy address"
+                style={{ height: "20px" }}
+              />
+            </button>
+          </p>
+        </div>
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
+            2023, BlockChat by AuditUtils
+          </h3>
+          <a href="https://auditutils.com/">
+            <img
+              className={styles["profile-image-au"]}
+              src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
+              alt="auditutils logo pixel"
+            />
+          </a>
+          <a href="https://user137-portfolio.auditutils.com">
+            <img
+              className={styles["profile-image-user137"]}
+              src="https://user137-portfolio.auditutils.com/user137.PNG"
+              alt="user137 Profile Picture"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );
