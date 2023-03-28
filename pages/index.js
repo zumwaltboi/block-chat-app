@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { getTransactions } from "../lib/eth";
 import styles from "./styles.module.css";
+import Jdenticon from 'react-jdenticon';
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -82,7 +83,30 @@ export default function Home() {
 
   const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   
+  function JdiconeFrom({ transaction }) {
+    if (!transaction) {
+      return null; // or render a placeholder component or message
+    }
+  
+    return (
+      <Jdenticon size="48" value={transaction.from.toString()} />
+    );
+  }
+  
+  function JdiconeTo({ transaction }) {
+    if (!transaction) {
+      return null; // or render a placeholder component or message
+    }
+  
+    return (
+      <Jdenticon size="48" value={transaction.to.toString()} />
+    );
+  }
 
+  function Example(){
+    const value = 0xb66cd966670d962C227B3EABA30a872DbFb995db; // replace with your number value
+    return(<Jdenticon size="48" value={value.toString()} />);
+  }
 
 
   return (
@@ -185,7 +209,11 @@ export default function Home() {
                           </button>
                         </p>
                         <hr />
-
+                        <div
+        style={{
+          textAlign: "end",
+        }} >
+          <JdiconeFrom transaction={transaction}/></div>
                         <p className={styles.yoyo}>
                           <strong>From:</strong> {transaction.from}
                           <button
@@ -244,6 +272,11 @@ export default function Home() {
                             />
                           </button>
                         </p>
+                        <div
+        style={{
+          textAlign: "end",
+        }} >
+          <JdiconeTo transaction={transaction}/></div>
                         <p className={styles.yoyo}>
                           <strong>To:</strong> {transaction.to}
                           <button
@@ -343,7 +376,11 @@ export default function Home() {
                           
                         </p>
                         <hr />
-
+                        <div
+        style={{
+          textAlign: "end",
+        }} >
+          <JdiconeFrom transaction={transaction}/></div>
                         <p className={styles.yoyo}>
                           <strong>From:</strong> {transaction.from}
                           <button
@@ -403,6 +440,11 @@ export default function Home() {
                             />
                           </button>
                         </p>
+                        <div
+        style={{
+          textAlign: "end",
+        }} >
+          <JdiconeTo transaction={transaction}/></div>
                         <p
                           className={`${styles.address} ${
                             transaction.to === address ? styles.highlight : ""
@@ -582,9 +624,17 @@ export default function Home() {
           border: "3px solid rgba(10, 202, 166, 0.9)",
         }}
       >
+        
         <p style={{ textAlign: "center", fontFamily: "monospace" }}>
           Example of an hacker adress:
           0xb66cd966670d962C227B3EABA30a872DbFb995db
+          </p>
+          <div
+        style={{
+          textAlign: "center",
+        }} >
+          <Example /></div>
+          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
           <button
             onClick={(event) => {
               navigator.clipboard.writeText(example);
