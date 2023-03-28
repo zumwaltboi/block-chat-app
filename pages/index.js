@@ -82,15 +82,6 @@ export default function Home() {
 
   const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   
-  function JdiconeFrom({ transaction }) {
-    if (!transaction) {
-      return null; // or render a placeholder component or message
-    }
-  
-    return (
-      <Jdenticon size="48" value={transaction.from.toString()} />
-    );
-  }
   
   
 
