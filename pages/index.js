@@ -81,6 +81,9 @@ export default function Home() {
   };
 
   const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
+  
+
+
 
   return (
     <div className={styles.container}>
@@ -337,6 +340,7 @@ export default function Home() {
                               style={{ height: "20px", background: "write" }}
                             />
                           </button>
+                          
                         </p>
                         <hr />
 
@@ -470,6 +474,94 @@ export default function Home() {
                               {transaction.inputData}
                               {"'"}
                             </p>
+                            <p style={{
+                              textAlign: "end",
+                            }}>
+                            <button
+  onClick={() => {
+    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+    const timestamp = `${transaction.timestamp}`;
+    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+    navigator.clipboard.writeText(transactionData);
+    alert('Transaction data copied to clipboard!');
+  }}
+  style={{
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    marginLeft: "20px",
+  }}
+>
+  <img
+    src="GgShare.svg"
+    alt="Copy transaction data"
+    style={{ height: "20px" }}
+  />
+</button>
+<button
+  onClick={() => {
+    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+    const timestamp = `${transaction.timestamp}`;
+    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+    const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(transactionData)}`;
+    window.open(telegramLink, '_blank');
+  }}
+  style={{
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    marginLeft: "20px",
+  }}
+>
+  <img
+    src="telegram.png"
+    alt="Share on Telegram"
+    style={{ height: "20px" }}
+  />
+</button>
+<button
+  onClick={() => {
+    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+    const timestamp = `${transaction.timestamp}`;
+    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+    const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(transactionData)}`;
+    window.open(twitterLink, '_blank');
+  }}
+  style={{
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    marginLeft: "20px",
+  }}
+>
+  <img
+    src="twitter.svg"
+    alt="Share on Twitter"
+    style={{ height: "20px" }}
+  />
+</button>
+<button
+  onClick={() => {
+    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+    const timestamp = `${transaction.timestamp}`;
+    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+    const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(etherscanLink)}`;
+    window.open(linkedInLink, '_blank');
+  }}
+  style={{
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    marginLeft: "20px",
+  }}
+>
+  <img
+    src="linkedin.svg"
+    alt="Share on LinkedIn"
+    style={{ height: "20px" }}
+  />
+</button>
+</p>
                           </>
                         )}
                       </div>
