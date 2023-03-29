@@ -6,25 +6,12 @@ import Head from "next/head";
 
 export default function Home() {
   const [address, setAddress] = useState("");
-  const [secondAddress, setSecondAddress] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
   };
-
-  const handleSecondAddressChange = (event) => {
-    setSecondAddress(event.target.value);
-  };
-
-  const filteredTransactions = transactions.filter(
-    (transaction) =>
-      (transaction.from === address && transaction.to === secondAddress) ||
-      (transaction.from === secondAddress && transaction.to === address) ||
-      transaction.from === address ||
-      transaction.to === address
-  );
 
   const fetchTransactions = async () => {
     try {
@@ -89,13 +76,13 @@ export default function Home() {
         <title>BlockChat</title>
         <meta
           name="description"
-          content="A decentralized chat app built on Ethereum"
+          content="A transaction chat explorer on Ethereum"
         />
         <meta
           name="keywords"
           content="blockchain, Ethereum, chat, decentralized"
         />
-        <meta name="author" content="Your Name" />
+        <meta name="author" content="user137" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -166,7 +153,7 @@ export default function Home() {
         </form>
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h2>Conversation:</h2>
+            <h2 style={{ color: "#fff" }}>Conversation:</h2>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
@@ -337,9 +324,8 @@ export default function Home() {
                               <div className="spacer" />
                               <hr />
                               <p>
-                                <strong>Message:</strong> {"'"}
+                                <strong>Message:</strong>{" "}
                                 {transaction.inputData}
-                                {"'"}
                               </p>
                             </>
                           )}
@@ -435,11 +421,7 @@ export default function Home() {
                             </button>
                           </p>
 
-                          <p
-                            className={`${styles.address} ${
-                              transaction.to === address ? styles.highlight : ""
-                            }`}
-                          >
+                          <p className={styles.yoyo}>
                             <strong>To:</strong> {transaction.to}
                             <button
                               onClick={(event) => {
@@ -502,9 +484,8 @@ export default function Home() {
                               <div className="spacer" />
                               <hr />
                               <p>
-                                <strong>Message:</strong> {"'"}
+                                <strong>Message:</strong>{" "}
                                 {transaction.inputData}
-                                {"'"}
                               </p>
                               <p
                                 style={{
