@@ -79,7 +79,7 @@
 }
 
 .form button {
-  padding: 20px;
+  padding: 15px;
   background-color: #282c33ff;
   color: #fff;
   border: 3px solid rgba(10, 202, 166, 0.9);
@@ -110,10 +110,12 @@
 }
 
 .message {
-  padding: 20px;
+  padding: 10px;
   /* border: 1px solid #ccc; */
   border-radius: 15px;
-  margin: 20px;
+  /* margin: 20px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
   word-wrap: break-word;
   width: auto;
   background-color: var(--gunmetal);
