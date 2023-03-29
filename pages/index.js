@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-import { getTransactions } from "../lib/eth";
+import {
+  getTransactions,
+  getTransactions2,
+  getTransactions3,
+} from "../lib/eth";
 import styles from "./styles.module.css";
 import Head from "next/head";
 
@@ -8,6 +12,7 @@ export default function Home() {
   const [address, setAddress] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
+  const [network, setNetwork] = useState("mainnet");
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -15,13 +20,22 @@ export default function Home() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(
-        `/api?address=${address}&limit=200&timestamp=true`,
-        { timeout: 10000 } // set timeout to 10 seconds
-      );
-      const data = await response.json();
+      let transactions;
+      switch (network) {
+        case "mainnet":
+          transactions = await getTransactions(address);
+          break;
+        case "goerli":
+          transactions = await getTransactions2(address);
+          break;
+        case "sepolia":
+          transactions = await getTransactions3(address);
+          break;
+        default:
+          throw new Error(`Invalid network: ${network}`);
+      }
 
-      const formattedTransactions = data.transactions.map((transaction) => {
+      const formattedTransactions = transactions.map((transaction) => {
         let timestamp = "Invalid Date";
         if (typeof transaction.inputData === "string") {
           const date = new Date(transaction.timestamp);
@@ -66,6 +80,12 @@ export default function Home() {
     }
 
     return colors[sender];
+  };
+
+  const handleNetworkChange = (event) => {
+    const selectedNetwork = event.target.value;
+    setNetwork(selectedNetwork);
+    console.log("Selected network:", selectedNetwork);
   };
 
   const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
@@ -145,8 +165,17 @@ export default function Home() {
               className={styles.inputText}
               placeholder="0x..."
             />
-            {}
+            <select
+              value={network}
+              onChange={handleNetworkChange}
+              className={styles.networkSelect}
+            >
+              <option value="mainnet">Ethereum</option>
+              <option value="goerli">Goerli</option>
+              <option value="sepolia">Sepolia</option>
+            </select>
           </label>
+
           <button type="submit" className={styles.submitButton}>
             Load chat history
           </button>
@@ -177,10 +206,17 @@ export default function Home() {
                             {", "}value:{transaction.value} ETH TX:
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/tx/${transaction.hash}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
@@ -240,10 +276,17 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/address/${transaction.to}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/address/${transaction.from}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/address/${transaction.from}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
@@ -255,7 +298,10 @@ export default function Home() {
                               <img
                                 src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                                 alt="Etherscan logo"
-                                style={{ height: "20px" }}
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
                               />
                             </button>
                           </p>
@@ -299,10 +345,17 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/address/${transaction.to}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/address/${transaction.to}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/address/${transaction.to}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
@@ -314,7 +367,10 @@ export default function Home() {
                               <img
                                 src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                                 alt="Etherscan logo"
-                                style={{ height: "20px" }}
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
                               />
                             </button>
                           </p>
@@ -337,16 +393,23 @@ export default function Home() {
                             {", "}value:{transaction.value} ETH TX:
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/tx/${transaction.hash}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
                                 background: "#eab308",
                                 cursor: "pointer",
-                                marginLeft: "10px",
+                                marginLeft: "20px",
                               }}
                             >
                               <img
@@ -400,23 +463,32 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/address/${transaction.from}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/address/${transaction.from}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/address/${transaction.from}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
                                 background: "#eab308",
                                 cursor: "pointer",
                                 marginLeft: "20px",
-                                marginLeft: "20px",
                               }}
                             >
                               <img
                                 src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                                 alt="Etherscan logo"
-                                style={{ height: "20px" }}
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
                               />
                             </button>
                           </p>
@@ -460,10 +532,17 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => {
-                                window.open(
-                                  `https://etherscan.io/address/${transaction.to}`,
-                                  "_blank"
-                                );
+                                let etherscanUrl = "";
+                                if (network === "mainnet") {
+                                  etherscanUrl = `https://etherscan.io/address/${transaction.to}`;
+                                } else if (network === "goerli") {
+                                  etherscanUrl = `https://goerli.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "sepolia") {
+                                  etherscanUrl = `https://${network}.etherscan.io/address/${transaction.to}`;
+                                }
+                                if (etherscanUrl !== "") {
+                                  window.open(etherscanUrl, "_blank");
+                                }
                               }}
                               style={{
                                 border: "none",
@@ -475,7 +554,10 @@ export default function Home() {
                               <img
                                 src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
                                 alt="Etherscan logo"
-                                style={{ height: "20px" }}
+                                style={{
+                                  height: "20px",
+                                  background: "#eab308",
+                                }}
                               />
                             </button>
                           </p>
@@ -494,7 +576,14 @@ export default function Home() {
                               >
                                 <button
                                   onClick={() => {
-                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    let etherscanLink = "";
+                                    if (network === "mainnet") {
+                                      etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "goerli") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "sepolia") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    }
                                     const timestamp = `${transaction.timestamp}`;
                                     const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
                                     navigator.clipboard.writeText(
@@ -517,9 +606,17 @@ export default function Home() {
                                     style={{ height: "20px" }}
                                   />
                                 </button>
+
                                 <button
                                   onClick={() => {
-                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    let etherscanLink = "";
+                                    if (network === "mainnet") {
+                                      etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "goerli") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "sepolia") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    }
                                     const timestamp = `${transaction.timestamp}`;
                                     const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
@@ -540,7 +637,7 @@ export default function Home() {
                                     style={{ height: "20px" }}
                                   />
                                 </button>
-                                <button
+                                {/* <button
                                   onClick={() => {
                                     const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
                                     const timestamp = `${transaction.timestamp}`;
@@ -562,7 +659,7 @@ export default function Home() {
                                     alt="Share on Twitter"
                                     style={{ height: "20px" }}
                                   />
-                                </button>
+                                </button> */}
                               </p>
                             </>
                           )}
