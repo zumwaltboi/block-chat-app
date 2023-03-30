@@ -115,7 +115,7 @@ export default function Home() {
           name="keywords"
           content="blockchain, Ethereum, chat, decentralized"
         />
-        <meta name="author" content="user137" />
+        <meta name="og:author" content="user137" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -138,7 +138,7 @@ export default function Home() {
         <meta property="og:title" content="BlockChat" />
         <meta
           property="og:description"
-          content="A chat explorer on blockchain's adresses"
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create  content by sharing your findings."
         />
         <meta
           property="og:image"
