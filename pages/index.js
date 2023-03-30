@@ -110,10 +110,7 @@ export default function Home() {
     <div>
       <Head>
         <title>BlockChat</title>
-        <meta
-          name="description"
-          content="A transaction chat explorer on Ethereum"
-        />
+
         <meta
           name="keywords"
           content="blockchain, Ethereum, chat, decentralized"
@@ -137,6 +134,18 @@ export default function Home() {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+
+        <meta property="og:title" content="BlockChat" />
+        <meta
+          property="og:description"
+          content="A transaction chat explorer on Ethereum, Polygon, Bsc and their testnets."
+        />
+        <meta
+          property="og:image"
+          content="https://blockchat.auditutils.com/blockchat-logo-300-V02.5.png"
+        />
+        <meta property="og:url" content="https://blockchat.auditutils.com" />
+        <meta property="og:type" content="website" />
       </Head>
       <div className={styles.container}>
         <div
