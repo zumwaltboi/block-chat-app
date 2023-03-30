@@ -138,7 +138,7 @@ export default function Home() {
         <meta property="og:title" content="BlockChat" />
         <meta
           property="og:description"
-          content="A transaction chat explorer on Ethereum, Polygon, Bsc and their testnets."
+          content="A chat explorer on blockchain's adresses"
         />
         <meta
           property="og:image"
