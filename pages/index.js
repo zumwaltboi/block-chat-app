@@ -104,7 +104,8 @@ export default function Home() {
     console.log("Selected network:", selectedNetwork);
   };
 
-  const example = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
+  const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
+  const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
 
   return (
     <div>
@@ -782,35 +783,66 @@ export default function Home() {
           }}
         >
           <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-            Example of an adress: 0xb66cd966670d962C227B3EABA30a872DbFb995db
+            <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+              <strong>Euler</strong> exploiter adress on Ethreum:
+            </a>
           </p>
 
+          <p
+            style={{
+              textAlign: "center",
+              fontFamily: "monospace",
+              marginTop: "10px",
+            }}
+          >
+            0xb66cd966670d962C227B3EABA30a872DbFb995db
+          </p>
+          <button
+            onClick={(event) => {
+              setAddress(euler);
+              window.scrollTo(0, 0);
+            }}
+            style={{
+              border: "none",
+              background: "none",
+              cursor: "pointer",
+              marginLeft: "20px",
+              color: "#ccc",
+              marginTop: "10px",
+              display: "flex",
+            }}
+          >
+            <img
+              src="gg_scan.svg"
+              alt="Copy address"
+              style={{ height: "30px" }}
+            />
+          </button>
+          <hr
+            style={{
+              margin: "10px 0",
+              border: "none",
+              borderTop: "3px solid rgba(10, 202, 166, 0.9)",
+            }}
+          />
+          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
+            <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
+              <strong>Safemoon</strong> exploiter adress on Bsc:
+            </a>
+          </p>
+          <p
+            style={{
+              textAlign: "center",
+              fontFamily: "monospace",
+              marginTop: "10px",
+            }}
+          >
+            0x678ee23173dce625A90ED651E91CA5138149F590
+          </p>
           <p style={{ textAlign: "center", fontFamily: "monospace" }}>
             <button
               onClick={(event) => {
-                navigator.clipboard.writeText(example);
-              }}
-              style={{
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                marginLeft: "20px",
-                color: "#ccc",
-                width: "80%",
-                maxWidth: "600px",
-              }}
-            >
-              {" "}
-              copy -{">"}
-              <img
-                src="WhhCopy.svg"
-                alt="Copy address"
-                style={{ height: "20px" }}
-              />
-            </button>{" "}
-            <button
-              onClick={(event) => {
-                setAddress(example);
+                setAddress(safemoon);
                 window.scrollTo(0, 0);
               }}
               style={{
@@ -819,49 +851,55 @@ export default function Home() {
                 cursor: "pointer",
                 marginLeft: "20px",
                 color: "#ccc",
+                marginTop: "10px",
+                display: "flex",
               }}
             >
-              {" "}
-              click this icon to populate -{">"}
               <img
                 src="gg_scan.svg"
                 alt="Copy address"
-                style={{ height: "20px" }}
+                style={{ height: "30px" }}
               />
             </button>
           </p>
         </div>
         <div style={{ flex: 1, textAlign: "center" }}>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
-            2023, BlockChat by AuditUtils
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "60px" }}>
+            2023 BlockChat by AuditUtils.com
           </h3>
-          <div
-            className={styles.header}
-            style={{ display: "flex", alignItems: "center" }}
+        </div>
+        <div
+          // className={styles.header}
+          style={{
+            // display: "flex",
+            alignItems: "center",
+            marginTop: "60px",
+            textAlign: "center",
+          }}
+        >
+          <a
+            style={{
+              textAlign: "center",
+              flex: 1,
+              alignItems: "center",
+              marginBottom: "10px",
+            }}
+            href="https://blockchat.auditutils.com/"
           >
-            <a
+            <img
               style={{
+                maxWidth: "200px",
+                // marginTop: "60px",
+                padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                marginBottom: "30px",
+                backgroundColor: "#282c33",
               }}
-              href="https://blockchat.auditutils.com/"
-            >
-              <img
-                style={{
-                  maxWidth: "200px",
-                  margin: "30px",
-                  padding: "0px",
-                  textAlign: "center",
-                  flex: 1,
-                  alignItems: "center",
-                }}
-                src="blockchat-logo-600x200-V03.2.png"
-                alt="blockchat logo"
-              />
-            </a>
-          </div>
+              src="blockchat-logo-600x200-V03.2.png"
+              alt="blockchat logo"
+            />
+          </a>
           <a href="https://auditutils.com/">
             <img
               className={styles["profile-image-au"]}
