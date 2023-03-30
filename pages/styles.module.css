@@ -303,7 +303,7 @@
   color: rgba(10, 202, 166, 0.9);
   font-size: 1.2em;
   padding: 10px 10px;
-  width: 150px;
+  width: auto;
   text-align: center;
 }
 

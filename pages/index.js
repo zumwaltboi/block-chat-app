@@ -4,6 +4,10 @@ import {
   getTransactions,
   getTransactions2,
   getTransactions3,
+  getTransactions4,
+  getTransactions5,
+  getTransactions6,
+  getTransactions7,
 } from "../lib/eth";
 import styles from "./styles.module.css";
 import Head from "next/head";
@@ -30,6 +34,18 @@ export default function Home() {
           break;
         case "sepolia":
           transactions = await getTransactions3(address);
+          break;
+        case "bsc":
+          transactions = await getTransactions4(address);
+          break;
+        case "bsc-testnet":
+          transactions = await getTransactions5(address);
+          break;
+        case "polygon":
+          transactions = await getTransactions6(address);
+          break;
+        case "polygon-testnet":
+          transactions = await getTransactions7(address);
           break;
         default:
           throw new Error(`Invalid network: ${network}`);
@@ -171,8 +187,12 @@ export default function Home() {
               className={styles.networkSelect}
             >
               <option value="mainnet">Ethereum</option>
-              <option value="goerli">Goerli</option>
-              <option value="sepolia">Sepolia</option>
+              <option value="goerli">Goerli testnet</option>
+              <option value="sepolia">Sepolia testnet</option>
+              <option value="bsc">Bsc</option>
+              <option value="bsc-testnet">Bsc testnet</option>
+              <option value="polygon">Polygon</option>
+              <option value="polygon-testnet">Polygon testnet</option>
             </select>
           </label>
 
@@ -203,7 +223,7 @@ export default function Home() {
                         <div>
                           <p className={styles.timestamp}>
                             time-UTC: {transaction.timestamp}
-                            {", "}value:{transaction.value} ETH TX:
+                            {", "}value:{transaction.value} TX:
                             <button
                               onClick={() => {
                                 let etherscanUrl = "";
@@ -213,6 +233,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/tx/${transaction.hash}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://bscscan.com/tx/${transaction.hash}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -283,6 +311,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/address/${transaction.from}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://testnet.bscscan.com/address/${transaction.from}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://bscscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -352,6 +388,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/address/${transaction.to}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://testnet.bscscan.com/address/${transaction.to}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://bscscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -390,7 +434,7 @@ export default function Home() {
                         <div>
                           <p className={styles.timestamp}>
                             time-UTC: {transaction.timestamp}
-                            {", "}value:{transaction.value} ETH TX:
+                            {", "}value:{transaction.value} TX:
                             <button
                               onClick={() => {
                                 let etherscanUrl = "";
@@ -400,6 +444,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/tx/${transaction.hash}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://bscscan.com/tx/${transaction.hash}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -470,6 +522,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/address/${transaction.from}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://testnet.bscscan.com/address/${transaction.from}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://bscscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -539,6 +599,14 @@ export default function Home() {
                                   etherscanUrl = `https://goerli.etherscan.io/address/${transaction.to}`;
                                 } else if (network === "sepolia") {
                                   etherscanUrl = `https://${network}.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "bsc") {
+                                  etherscanUrl = `https://testnet.bscscan.com/address/${transaction.to}`;
+                                } else if (network === "bsc-testnet") {
+                                  etherscanUrl = `https://bscscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon") {
+                                  etherscanUrl = `https://polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon-testnet") {
+                                  etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -583,9 +651,17 @@ export default function Home() {
                                       etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
                                     } else if (network === "sepolia") {
                                       etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "bsc") {
+                                      etherscanLink = `https://bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "bsc-testnet") {
+                                      etherscanLink = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon") {
+                                      etherscanLink = `https://polygonscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon-testnet") {
+                                      etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+                                    const transactionData = `Shared from: https://blockchat.auditutils.com\n\nUTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}`;
                                     navigator.clipboard.writeText(
                                       transactionData
                                     );
@@ -616,9 +692,17 @@ export default function Home() {
                                       etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
                                     } else if (network === "sepolia") {
                                       etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "bsc") {
+                                      etherscanLink = `https://bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "bsc-testnet") {
+                                      etherscanLink = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon") {
+                                      etherscanLink = `https://polygonscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon-testnet") {
+                                      etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
+                                    const transactionData = `Shared from: https://blockchat.auditutils.com\n\nUTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
                                       transactionData
                                     )}`;
