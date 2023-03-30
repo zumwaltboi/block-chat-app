@@ -142,7 +142,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://blockchat.auditutils.com/blockchat-logo-300-V02.5.png"
+          content="https://blockchat.auditutils.com/blockchat-logo-600x200-V03.2"
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
@@ -170,7 +170,7 @@ export default function Home() {
                 flex: 1,
                 alignItems: "center",
               }}
-              src="blockchat-logo-300-V02.5.png"
+              src="blockchat-logo-512-V03.2.png"
               alt="blockchat logo"
             />
           </a>
@@ -835,6 +835,33 @@ export default function Home() {
           <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
             2023, BlockChat by AuditUtils
           </h3>
+          <div
+            className={styles.header}
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <a
+              style={{
+                textAlign: "center",
+                flex: 1,
+                alignItems: "center",
+                marginBottom: "30px",
+              }}
+              href="https://blockchat.auditutils.com/"
+            >
+              <img
+                style={{
+                  maxWidth: "200px",
+                  margin: "30px",
+                  padding: "0px",
+                  textAlign: "center",
+                  flex: 1,
+                  alignItems: "center",
+                }}
+                src="blockchat-logo-600x200-V03.2.png"
+                alt="blockchat logo"
+              />
+            </a>
+          </div>
           <a href="https://auditutils.com/">
             <img
               className={styles["profile-image-au"]}
