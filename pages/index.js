@@ -207,13 +207,13 @@ export default function Home() {
               textAlign: "center",
               flex: 1,
               alignItems: "center",
-              marginBottom: "30px",
+              marginBottom: "20px",
             }}
             href="https://blockchat.auditutils.com/"
           >
             <img
               style={{
-                maxWidth: "120px",
+                maxWidth: "150px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
@@ -847,6 +847,8 @@ export default function Home() {
               textAlign: "center",
               fontFamily: "monospace",
               marginTop: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
             }}
           >
             0xb66cd966670d962C227B3EABA30a872DbFb995db
@@ -889,6 +891,8 @@ export default function Home() {
               textAlign: "center",
               fontFamily: "monospace",
               marginTop: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
             }}
           >
             0x678ee23173dce625A90ED651E91CA5138149F590
