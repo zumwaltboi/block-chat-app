@@ -121,6 +121,8 @@ export default function Home() {
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
 
+  const BlockChat = "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d";
+
   return (
     <div>
       <Head>
@@ -501,8 +503,15 @@ export default function Home() {
                             <>
                               <div className="spacer" />
                               <hr />
-                              <p>
-                                <strong>Message:</strong>{" "}
+                              <p
+                                style={{
+                                  textAlign: "start",
+                                }}
+                              >
+                                <strong>Message:</strong>
+                              </p>
+                              <div style={{ marginBottom: "10px" }}></div>
+                              <p className={styles.messageContent}>
                                 {transaction.inputData}
                               </p>
                             </>
@@ -711,8 +720,15 @@ export default function Home() {
                             <>
                               <div className="spacer" />
                               <hr />
-                              <p>
-                                <strong>Message:</strong>{" "}
+                              <p
+                                style={{
+                                  textAlign: "start",
+                                }}
+                              >
+                                <strong>Message:</strong>
+                              </p>
+                              <div style={{ marginBottom: "10px" }}></div>
+                              <p className={styles.messageContent}>
                                 {transaction.inputData}
                               </p>
                               <p
@@ -744,7 +760,7 @@ export default function Home() {
                                       transactionData
                                     );
                                     alert(
-                                      "Transaction data copied to clipboard!"
+                                      "Message content copied to clipboard. Let's past it to share it!"
                                     );
                                   }}
                                   style={{
@@ -834,109 +850,87 @@ export default function Home() {
             </ListGroup>
           </div>
         )}
-        <div
-          style={{
-            marginTop: "30px",
-            backgroundColor: "#282c33ff",
-            padding: "20px",
-            borderRadius: "15px",
-            border: "3px solid rgba(10, 202, 166, 0.9)",
-            Width: "auto",
-            maxWidth: "600px",
-            alignItems: "center",
-            justifyContent: "center",
-            display: "flex",
-            flexDirection: "column",
-            margin: "30px auto",
-          }}
-        >
-          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-            <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-              <strong>Euler</strong> exploiter adress on Ethereum:
-            </a>
-          </p>
-
-          <p
-            style={{
-              textAlign: "center",
-              fontFamily: "monospace",
-              marginTop: "10px",
-              marginLeft: "10px",
-              marginRight: "10px",
-            }}
-          >
-            0xb66cd966670d962C227B3EABA30a872DbFb995db
-          </p>
-          <button
-            onClick={(event) => {
-              setAddress(euler);
-              window.scrollTo(0, 0);
-            }}
-            style={{
-              border: "none",
-              background: "none",
-              cursor: "pointer",
-              marginLeft: "20px",
-              color: "#ccc",
-              marginTop: "10px",
-              display: "flex",
-            }}
-          >
-            <img
-              src="gg_scan.svg"
-              alt="Copy address"
-              style={{ height: "30px" }}
-            />
-          </button>
-          <hr
-            style={{
-              margin: "10px 0",
-              border: "none",
-              borderTop: "3px solid rgba(10, 202, 166, 0.9)",
-            }}
-          />
-          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-            <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
-              <strong>Safemoon</strong> exploiter adress on Bsc:
-            </a>
-          </p>
-          <p
-            style={{
-              textAlign: "center",
-              fontFamily: "monospace",
-              marginTop: "10px",
-              marginLeft: "10px",
-              marginRight: "10px",
-            }}
-          >
-            0x678ee23173dce625A90ED651E91CA5138149F590
-          </p>
-          <p style={{ textAlign: "center", fontFamily: "monospace" }}>
-            <button
-              onClick={(event) => {
-                setAddress(safemoon);
-                window.scrollTo(0, 0);
-              }}
-              style={{
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                marginLeft: "20px",
-                color: "#ccc",
-                marginTop: "10px",
-                display: "flex",
-              }}
-            >
-              <img
-                src="gg_scan.svg"
-                alt="Copy address"
-                style={{ height: "30px" }}
-              />
-            </button>
-          </p>
+        <div className={styles.myContainer}>
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                <strong>Euler</strong> exploiter address (Eth):
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0xb66cd966670d962C227B3EABA30a872DbFb995db
+              </p>
+              <button
+                onClick={(event) => {
+                  setAddress(euler);
+                  window.scrollTo(0, 0);
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
+          <hr className={styles.myHr} />
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
+                <strong>Safemoon</strong> exploiter address (Bsc):
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0x678ee23173dce625A90ED651E91CA5138149F590
+              </p>
+              <button
+                onClick={(event) => {
+                  setAddress(safemoon);
+                  window.scrollTo(0, 0);
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
+          <hr className={styles.myHr} />
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://blockchat.auditutils.com/" target={"_self"}>
+                <strong>BlockChat</strong> donations address (Sep):
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0xe03948003A4346fa8108f8DA1Cf3C12549f0542d
+              </p>
+              <button
+                onClick={(event) => {
+                  setAddress(BlockChat);
+                  window.scrollTo(0, 0);
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
         </div>
         <div style={{ flex: 1, textAlign: "center" }}>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "60px" }}>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
             2023 BlockChat by AuditUtils.com
           </h3>
           <a
@@ -949,8 +943,8 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "200px",
-                marginTop: "60px",
+                maxWidth: "300px",
+                marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,

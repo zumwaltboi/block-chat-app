@@ -103,7 +103,13 @@
   font-size: 0.7em;
   text-align: start;
   color: #ccc;
+}
+
+.messageContent {
+  /* this is the message content classe */
+  font-size: 0.9em;
   text-align: start;
+  color: #fff;
 }
 
 .highlight {
@@ -113,7 +119,7 @@
 }
 
 .message {
-  /* display: inline-block; */
+  display: block;
 
   margin: 0 auto;
   padding: 10px;
@@ -160,7 +166,8 @@
   font-weight: bold;
   color: #8a9e53ff;
   font-size: 0.8em;
-  font-style: italic;
+
+  /* font-style: italic; */
 }
 
 .message hr {
@@ -359,4 +366,76 @@
   margin-left: 10px;
   /* width: "24px"; */
   height: "24px";
+}
+
+.myContainer {
+  margin-top: 30px;
+  background-color: #282c33ff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  width: auto;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+}
+
+.mySection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.myTitle {
+  text-align: left;
+  font-family: monospace;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.myContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.myParagraph {
+  text-align: left;
+  font-family: monospace;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.myButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 20px;
+  color: #ccc;
+  /* margin-top: 10px; */
+  display: flex;
+}
+
+.myImage {
+  height: 32px;
+}
+
+.myHr {
+  margin: 10px 0;
+  border: none;
+  border-top: 3px solid rgba(10, 202, 166, 0.9);
+}
+
+.myAddress {
+  word-break: break-all;
+  font-size: 14px;
+  width: auto; /* add a fixed width */
 }
