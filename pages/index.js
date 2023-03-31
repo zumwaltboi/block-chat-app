@@ -228,10 +228,7 @@ export default function Home() {
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <label>
-            <p>
-              Enter an Ethereum address for viewing messages it sent and
-              receive:
-            </p>
+            <p>Enter an blockchain address to view its messages:</p>
 
             <input
               type="text"
