@@ -213,7 +213,7 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "150px",
+                maxWidth: "128px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
@@ -824,7 +824,7 @@ export default function Home() {
             padding: "20px",
             borderRadius: "15px",
             border: "3px solid rgba(10, 202, 166, 0.9)",
-            Width: "80%",
+            Width: "auto",
             maxWidth: "600px",
             alignItems: "center",
             justifyContent: "center",
@@ -835,7 +835,7 @@ export default function Home() {
         >
           <p style={{ textAlign: "center", fontFamily: "monospace" }}>
             <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-              <strong>Euler</strong> exploiter adress on Ethreum:
+              <strong>Euler</strong> exploiter adress on Ethereum:
             </a>
           </p>
 
