@@ -89,6 +89,7 @@
 
 .conversation {
   margin-top: 20px;
+  text-align: center;
 }
 
 .conversation h2 {
@@ -111,6 +112,9 @@
 }
 
 .message {
+  /* display: inline-block; */
+
+  margin: 0 auto;
   padding: 10px;
   /* border: 1px solid #ccc; */
   border-radius: 15px;
@@ -123,6 +127,7 @@
   color: #fff;
   border: 3px solid rgba(10, 202, 166, 0.9);
   font-size: 1.3em;
+  max-width: 600px;
 }
 
 .timestamp {

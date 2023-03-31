@@ -17,6 +17,7 @@ export default function Home() {
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
   const [network, setNetwork] = useState("mainnet");
+  const [loading, setLoading] = useState(false); // add loading state
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -67,17 +68,21 @@ export default function Home() {
       window.scrollTo(0, 0); // scroll to top of page
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false); // set loading state to false
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true); // set loading state to true
     await fetchTransactions();
   };
 
   const handleAddressClick = async (event, sender) => {
     event.preventDefault();
     setAddress(sender);
+    setLoading(true); // set loading state to true
     await fetchTransactions();
   };
 
@@ -116,7 +121,7 @@ export default function Home() {
           name="keywords"
           content="blockchain, Ethereum, chat, decentralized"
         />
-        <meta name="og:author" content="user137" />
+        <meta name="author" content="user137" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -139,7 +144,7 @@ export default function Home() {
         <meta property="og:title" content="BlockChat" />
         <meta
           property="og:description"
-          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create  content by sharing your findings."
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create content by sharing your findings."
         />
         <meta
           property="og:image"
@@ -147,6 +152,50 @@ export default function Home() {
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="BlockChat" />
+        <meta
+          name="twitter:description"
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create content by sharing your findings."
+        />
+        <meta
+          name="twitter:image"
+          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+        />
+
+        <meta property="telegram:title" content="BlockChat" />
+        <meta
+          property="telegram:description"
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create content by sharing your findings."
+        />
+        <meta
+          property="telegram:image"
+          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+        />
+
+        <meta property="og:site_name" content="BlockChat" />
+        <meta property="og:locale" content="en_US" />
+
+        <meta property="linkedin:title" content="BlockChat" />
+        <meta
+          property="linkedin:description"
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create content by sharing your findings."
+        />
+        <meta
+          property="linkedin:image"
+          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+        />
+
+        <meta property="discord:title" content="BlockChat" />
+        <meta
+          property="discord:description"
+          content="Uncover the full story behind blockchain transaction's messages with our app. Switch between Ethereum, Polygon, BSC, and testnets to research with ease and create content by sharing your findings."
+        />
+        <meta
+          property="discord:image"
+          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+        />
       </Head>
       <div className={styles.container}>
         <div
@@ -206,8 +255,13 @@ export default function Home() {
             </select>
           </label>
 
-          <button type="submit" className={styles.submitButton}>
-            Load chat history
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Load chat history"}{" "}
+            {/* display loading button */}
           </button>
         </form>
         {transactions.length > 0 && (
