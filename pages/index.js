@@ -941,7 +941,6 @@ export default function Home() {
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                backgroundColor: "#282c33",
               }}
               src="logo_v4_600x200_01.png"
               alt="blockchat logo"
