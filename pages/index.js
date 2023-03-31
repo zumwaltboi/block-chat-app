@@ -112,13 +112,7 @@ export default function Home() {
 
   function handleButtonClick() {
     console.log("Button clicked!");
-    const gifs = [
-      "loading_fast.gif",
-      "loading.gif",
-      "loading_round.gif",
-      "loading_blocks.gif",
-      "loading_blocks2.gif",
-    ];
+    const gifs = ["loading_blocks.gif", "loading_blocks.gif"];
     const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
     setGif(randomGif);
     // Your code to handle the button click goes here
@@ -275,7 +269,7 @@ export default function Home() {
           >
             {loading ? (
               <div className={styles.loadingContainer}>
-                <span>Loading...</span>
+                {/* <span>Loading...</span> */}
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
