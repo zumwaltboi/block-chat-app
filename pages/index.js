@@ -266,7 +266,7 @@ export default function Home() {
             {loading ? (
               <div className={styles.loadingContainer}>
                 <span>Loading...</span>
-                <img src="/loading_fast.gif" alt="Loading..." />
+                <img src="/loading_fast.gif" alt="in progress" />
               </div>
             ) : (
               "Load chat history"
@@ -275,7 +275,7 @@ export default function Home() {
         </form>
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h2 style={{ color: "#fff" }}>Conversation:</h2>
+            <h2 style={{ color: "#ccc" }}>Conversation:</h2>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
