@@ -143,7 +143,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://blockchat.auditutils.com/blockchat-logo-600x200-V03.2"
+          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
@@ -171,7 +171,7 @@ export default function Home() {
                 flex: 1,
                 alignItems: "center",
               }}
-              src="blockchat-logo-512-V03.2.png"
+              src="logo_v4_512_01.png"
               alt="blockchat logo"
             />
           </a>
@@ -867,6 +867,28 @@ export default function Home() {
           <h3 style={{ flex: 1, textAlign: "center", marginTop: "60px" }}>
             2023 BlockChat by AuditUtils.com
           </h3>
+          <a
+            style={{
+              textAlign: "center",
+              flex: 1,
+              alignItems: "center",
+            }}
+            href="https://blockchat.auditutils.com/"
+          >
+            <img
+              style={{
+                maxWidth: "200px",
+                marginTop: "60px",
+                padding: "0px",
+                textAlign: "center",
+                flex: 1,
+                alignItems: "center",
+                backgroundColor: "#282c33",
+              }}
+              src="logo_v4_600x200_01.png"
+              alt="blockchat logo"
+            />
+          </a>
         </div>
         <div
           // className={styles.header}
@@ -875,31 +897,9 @@ export default function Home() {
             alignItems: "center",
             marginTop: "60px",
             textAlign: "center",
+            padding: "20px",
           }}
         >
-          <a
-            style={{
-              textAlign: "center",
-              flex: 1,
-              alignItems: "center",
-              marginBottom: "10px",
-            }}
-            href="https://blockchat.auditutils.com/"
-          >
-            <img
-              style={{
-                maxWidth: "200px",
-                // marginTop: "60px",
-                padding: "0px",
-                textAlign: "center",
-                flex: 1,
-                alignItems: "center",
-                backgroundColor: "#282c33",
-              }}
-              src="blockchat-logo-600x200-V03.2.png"
-              alt="blockchat logo"
-            />
-          </a>
           <a href="https://auditutils.com/">
             <img
               className={styles["profile-image-au"]}
