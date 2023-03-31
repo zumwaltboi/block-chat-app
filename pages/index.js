@@ -18,6 +18,7 @@ export default function Home() {
   const [colors, setColors] = useState({});
   const [network, setNetwork] = useState("mainnet");
   const [loading, setLoading] = useState(false); // add loading state
+  const [gif, setGif] = useState(null);
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -111,6 +112,15 @@ export default function Home() {
 
   function handleButtonClick() {
     console.log("Button clicked!");
+    const gifs = [
+      "loading_fast.gif",
+      "loading.gif",
+      "loading_round.gif",
+      "loading_blocks.gif",
+      "loading_blocks2.gif",
+    ];
+    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+    setGif(randomGif);
     // Your code to handle the button click goes here
   }
 
@@ -266,13 +276,14 @@ export default function Home() {
             {loading ? (
               <div className={styles.loadingContainer}>
                 <span>Loading...</span>
-                <img src="/loading_fast.gif" alt="in progress" />
+                {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
               "Load chat history"
             )}
           </button>
         </form>
+
         {transactions.length > 0 && (
           <div className={styles.conversation}>
             <h2 style={{ color: "#ccc" }}>Conversation:</h2>
