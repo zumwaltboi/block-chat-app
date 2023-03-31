@@ -109,6 +109,11 @@ export default function Home() {
     console.log("Selected network:", selectedNetwork);
   };
 
+  function handleButtonClick() {
+    console.log("Button clicked!");
+    // Your code to handle the button click goes here
+  }
+
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
 
@@ -256,9 +261,16 @@ export default function Home() {
             type="submit"
             className={styles.submitButton}
             disabled={loading}
+            onClick={handleButtonClick}
           >
-            {loading ? "Loading..." : "Load chat history"}{" "}
-            {/* display loading button */}
+            {loading ? (
+              <div className={styles.loadingContainer}>
+                <span>Loading...</span>
+                <img src="/loading_fast.gif" alt="Loading..." />
+              </div>
+            ) : (
+              "Load chat history"
+            )}
           </button>
         </form>
         {transactions.length > 0 && (

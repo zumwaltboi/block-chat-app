@@ -349,3 +349,14 @@
   border-bottom: 5px solid transparent;
   border-left: 5px solid transparent;
 }
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.loadingContainer img {
+  margin-left: 10px;
+  width: "24px";
+  height: "24px";
+}
