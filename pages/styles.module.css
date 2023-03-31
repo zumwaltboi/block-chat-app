@@ -305,8 +305,8 @@
 }
 
 .networkSelect {
-  background-color: #282c33;
-  border: 3px solid #282c33;
+  background-color: transparent;
+  border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   color: rgba(10, 202, 166, 0.9);
   font-size: 1.2em;
@@ -315,12 +315,37 @@
   text-align: center;
 }
 
+/* Style the selected option */
+.networkSelect option:checked {
+  background-color: #282c33;
+}
+
 .networkSelect:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(10, 202, 166, 0.9);
 }
 
 .networkSelect option {
   background-color: #282c33;
   color: rgba(10, 202, 166, 0.9);
+  border-radius: "15px";
+  padding: 10px;
+}
+
+.networkSelect option:focus {
+  background-color: #282c33;
+  color: rgba(10, 202, 166, 0.9);
+}
+
+/* Style the arrow */
+.networkSelect::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  vertical-align: middle;
+  border-top: 5px solid rgba(10, 202, 166, 0.9);
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
 }
