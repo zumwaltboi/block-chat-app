@@ -383,6 +383,11 @@
   margin: 30px auto;
 }
 
+.myContainer h3 {
+  font-size: 0.9em;
+  text-align: start;
+}
+
 .mySection {
   display: flex;
   flex-direction: column;

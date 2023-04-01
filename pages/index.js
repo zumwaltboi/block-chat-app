@@ -852,7 +852,9 @@ export default function Home() {
           </div>
         )}
         <div className={styles.myContainer}>
-          <h2>Trending:</h2>
+          <p style={{ textAlign: "right" }}>
+            Discover inter-network discutions by changing blockchain.
+          </p>
           <hr className={styles.myHr} />
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
