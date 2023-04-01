@@ -883,7 +883,7 @@ export default function Home() {
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-                <strong>Euler</strong> exploiter address (Eth):
+                <strong>Euler</strong> exploiter address:
               </a>
             </p>
             <div className={styles.myContent}>
@@ -914,7 +914,7 @@ export default function Home() {
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
-                <strong>Safemoon</strong> exploiter address (Bsc):
+                <strong>Safemoon</strong> exploiter address:
               </a>
             </p>
             <div className={styles.myContent}>
@@ -946,7 +946,7 @@ export default function Home() {
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
-                <strong>BlockChat</strong> donations address (Sep):
+                <strong>BlockChat</strong> donations address:
               </a>
             </p>
             <div className={styles.myContent}>
