@@ -32,11 +32,6 @@ export default function Home() {
     if (networkParam) {
       setNetwork(networkParam);
     }
-
-    if (addressParam && networkParam) {
-      setLoading(true);
-      fetchTransactions();
-    }
   }, []);
 
   const handleAddressChange = (event) => {
