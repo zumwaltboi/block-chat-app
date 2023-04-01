@@ -779,7 +779,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `Shared from: https://blockchat.auditutils.com\n\nUTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}`;
+                                    const transactionData = `-- start message --\n\n\n${transaction.inputData}\n\n\n-- end message --\n\n\nUTC-Date-Time: ${timestamp}\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\n\nBlockChat: https://blockchat.auditutils.com/?address=${address}&network=${network}\n\n${network}-scan: ${etherscanLink}`;
                                     navigator.clipboard.writeText(
                                       transactionData
                                     );
@@ -820,7 +820,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `Shared from: https://blockchat.auditutils.com\n\nUTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}`;
+                                    const transactionData = `-- start message --\n\n\n${transaction.inputData}\n\n\n-- end message --\n\n\nUTC-Date-Time: ${timestamp}\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\n\nBlockChat: https://blockchat.auditutils.com/?address=${address}&network=${network}\n\n${network}-scan: ${etherscanLink}`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
                                       transactionData
                                     )}`;
@@ -839,29 +839,6 @@ export default function Home() {
                                     style={{ height: "20px" }}
                                   />
                                 </button>
-                                {/* <button
-                                  onClick={() => {
-                                    const etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
-                                    const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `UTC-Date-Time: ${timestamp}\n\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\nMessage: ${transaction.inputData}\n\nEtherscan: ${etherscanLink}\n\nShared from: https://blockchat.auditutils.com`;
-                                    const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                                      transactionData
-                                    )}`;
-                                    window.open(twitterLink, "_blank");
-                                  }}
-                                  style={{
-                                    border: "none",
-                                    background: "none",
-                                    cursor: "pointer",
-                                    marginLeft: "20px",
-                                  }}
-                                >
-                                  <img
-                                    src="twitter.svg"
-                                    alt="Share on Twitter"
-                                    style={{ height: "20px" }}
-                                  />
-                                </button> */}
                               </p>
                             </>
                           )}
