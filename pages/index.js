@@ -875,6 +875,8 @@ export default function Home() {
           </div>
         )}
         <div className={styles.myContainer}>
+          <h2>Trending:</h2>
+          <hr className={styles.myHr} />
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
@@ -937,7 +939,11 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <hr className={styles.myHr} />
+        </div>
+        <div
+          className={styles.myContainer}
+          style={{ backgroundColor: "transparent" }}
+        >
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
