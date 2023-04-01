@@ -20,6 +20,25 @@ export default function Home() {
   const [loading, setLoading] = useState(false); // add loading state
   const [gif, setGif] = useState(null);
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const addressParam = searchParams.get("address");
+    const networkParam = searchParams.get("network");
+
+    if (addressParam) {
+      setAddress(addressParam);
+    }
+
+    if (networkParam) {
+      setNetwork(networkParam);
+    }
+
+    if (addressParam && networkParam) {
+      setLoading(true);
+      fetchTransactions();
+    }
+  }, []);
+
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
   };
@@ -76,15 +95,23 @@ export default function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true); // set loading state to true
+    setLoading(true);
     await fetchTransactions();
+    const searchParams = new URLSearchParams();
+    searchParams.set("address", address);
+    searchParams.set("network", network);
+    window.history.replaceState({}, "", `?${searchParams.toString()}`);
   };
 
   const handleAddressClick = async (event, sender) => {
     event.preventDefault();
     setAddress(sender);
-    setLoading(true); // set loading state to true
+    setLoading(true);
     await fetchTransactions();
+    const searchParams = new URLSearchParams();
+    searchParams.set("address", sender);
+    searchParams.set("network", network);
+    window.history.replaceState({}, "", `?${searchParams.toString()}`);
   };
 
   const getColor = (sender) => {
@@ -290,6 +317,8 @@ export default function Home() {
                 }
 
                 const color = getColor(transaction.from);
+                const id = `transaction-${transaction.hash}`;
+                console.log(`Transaction ${index} has an id of ${id}`);
 
                 return (
                   <ListGroupItem key={transaction.hash}>
@@ -863,8 +892,13 @@ export default function Home() {
               </p>
               <button
                 onClick={(event) => {
-                  setAddress(euler);
-                  window.scrollTo(0, 0);
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0xb66cd966670d962C227B3EABA30a872DbFb995db"
+                  );
+                  searchParams.set("network", "mainnet");
+                  window.location.href = `?${searchParams.toString()}`;
                 }}
                 className={styles.myButton}
               >
@@ -887,10 +921,16 @@ export default function Home() {
               <p className={styles.myAddress}>
                 0x678ee23173dce625A90ED651E91CA5138149F590
               </p>
+
               <button
                 onClick={(event) => {
-                  setAddress(safemoon);
-                  window.scrollTo(0, 0);
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0x678ee23173dce625A90ED651E91CA5138149F590"
+                  );
+                  searchParams.set("network", "bsc");
+                  window.location.href = `?${searchParams.toString()}`;
                 }}
                 className={styles.myButton}
               >
@@ -915,8 +955,13 @@ export default function Home() {
               </p>
               <button
                 onClick={(event) => {
-                  setAddress(BlockChat);
-                  window.scrollTo(0, 0);
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d"
+                  );
+                  searchParams.set("network", "sepolia");
+                  window.location.href = `?${searchParams.toString()}`;
                 }}
                 className={styles.myButton}
               >
