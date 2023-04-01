@@ -154,7 +154,7 @@ export default function Home() {
           name="keywords"
           content="blockchain, Ethereum, chat, decentralized"
         />
-        <meta name="author" content="user137" />
+        <meta name="author" content="AuditUtils" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -820,7 +820,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `-- start message --\n\n\n${transaction.inputData}\n\n\n-- end message --\n\n\nUTC-Date-Time: ${timestamp}\nFrom: ${transaction.from}\nTo: ${transaction.to}\n\n\nBlockChat: https://blockchat.auditutils.com/?address=${address}&network=${network}\n\n${network}-scan: ${etherscanLink}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC-Date-Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
                                       transactionData
                                     )}`;
