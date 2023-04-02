@@ -981,7 +981,7 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "200px",
+                maxWidth: "300px",
                 marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
