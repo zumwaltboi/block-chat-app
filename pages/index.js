@@ -934,6 +934,150 @@ export default function Home() {
               </button>
             </div>
           </div>
+          <hr className={styles.myHr} />
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://rekt.news/wormhole-rekt/" target={"_blank"}>
+                <strong>Wormhole</strong> attaker address:
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0x629e7da20197a5429d30da36e77d06cdf796b71a
+              </p>
+
+              <button
+                onClick={(event) => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0x629e7da20197a5429d30da36e77d06cdf796b71a"
+                  );
+                  searchParams.set("network", "mainnet");
+                  window.location.href = `?${searchParams.toString()}`;
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
+          <hr className={styles.myHr} />
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://rekt.news/ronin-rekt/" target={"_blank"}>
+                <strong>Ronin</strong> attaker address:
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0x098b716b8aaf21512996dc57eb0615e2383e2f96
+              </p>
+
+              <button
+                onClick={(event) => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0x098b716b8aaf21512996dc57eb0615e2383e2f96"
+                  );
+                  searchParams.set("network", "mainnet");
+                  window.location.href = `?${searchParams.toString()}`;
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
+          <hr className={styles.myHr} />
+          <div className={styles.mySection}>
+            <p className={styles.myTitle}>
+              <a href="https://rekt.news/polynetwork-rekt/" target={"_blank"}>
+                <strong>PolyNetwork</strong> remaining funds adresses:
+              </a>
+            </p>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963
+              </p>
+
+              <button
+                onClick={(event) => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963"
+                  );
+                  searchParams.set("network", "mainnet");
+                  window.location.href = `?${searchParams.toString()}`;
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71
+              </p>
+
+              <button
+                onClick={(event) => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71"
+                  );
+                  searchParams.set("network", "bsc");
+                  window.location.href = `?${searchParams.toString()}`;
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+            <div className={styles.myContent}>
+              <p className={styles.myAddress}>
+                0x5dc3603C9D42Ff184153a8a9094a73d461663214
+              </p>
+
+              <button
+                onClick={(event) => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set(
+                    "address",
+                    "0x5dc3603C9D42Ff184153a8a9094a73d461663214"
+                  );
+                  searchParams.set("network", "polygon");
+                  window.location.href = `?${searchParams.toString()}`;
+                }}
+                className={styles.myButton}
+              >
+                <img
+                  src="gg_scan.svg"
+                  alt="Copy address"
+                  className={styles.myImage}
+                />
+              </button>
+            </div>
+          </div>
         </div>
         <div
           className={styles.myContainer}
