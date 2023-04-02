@@ -144,8 +144,7 @@ export default function Home() {
 
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
-
-  const BlockChat = "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d";
+  const blockchat = "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d";
 
   return (
     <div>
@@ -183,7 +182,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
+          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
@@ -196,7 +195,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
+          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
         />
 
         <meta property="telegram:title" content="BlockChat" />
@@ -206,7 +205,7 @@ export default function Home() {
         />
         <meta
           property="telegram:image"
-          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
+          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
         />
 
         <meta property="og:site_name" content="BlockChat" />
@@ -219,7 +218,7 @@ export default function Home() {
         />
         <meta
           property="linkedin:image"
-          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
+          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
         />
 
         <meta property="discord:title" content="BlockChat" />
@@ -229,7 +228,7 @@ export default function Home() {
         />
         <meta
           property="discord:image"
-          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
+          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
         />
       </Head>
       <div className={styles.container}>
@@ -248,12 +247,15 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "128px",
+                maxWidth: "150px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
+                // filter: "blur(1px)",
+                // filter: "grayscale(100%)",
+                // filter: "opacity(30%)",
               }}
               src="logo_v4_512_01.png"
               alt="blockchat logo"
@@ -793,7 +795,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Value in native money of ${network}: ${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
                                     navigator.clipboard.writeText(
                                       transactionData
                                     );
@@ -834,7 +836,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Value in native money of ${network}: ${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
                                       transactionData
                                     )}`;
@@ -969,9 +971,6 @@ export default function Home() {
           </div>
         </div>
         <div style={{ flex: 1, textAlign: "center" }}>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
-            2023 BlockChat by AuditUtils.com
-          </h3>
           <a
             style={{
               textAlign: "center",
@@ -982,17 +981,22 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "300px",
+                maxWidth: "200px",
                 marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
+                backgroundColor: "#282c33ff",
+                borderRadius: "9px",
               }}
               src="logo_v4_600x200_01.png"
               alt="blockchat logo"
             />
           </a>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
+            2023 BlockChat by AuditUtils.com
+          </h3>
         </div>
         <div
           // className={styles.header}
