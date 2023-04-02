@@ -113,21 +113,13 @@ export default function Home() {
     if (!colors[sender]) {
       const colorsArray = [
         "#282c33", // dark grey
-        "#1E1E1E", // eerie black
-        "#212121", // eerie black 2
-        "#3A3D42", // onyx
-        "#2c2f33", // jet
-        "#344046", // slate grey
-        "#1C535E", // teal blue
-        "#2B2E33", // dark green 2
-        "#1C1C1C", // dark green 3
-        "#262626", // dark green 5
-        "#194D3C", // forest green
+        "#26282B", // raisin black
         "#0A2A45", // midnight blue
-        "#005252", // teal
-        "#003D3C", // deep teal 001515
-        "#001515", // rich black
         "transparent", // transparent
+        "#1E1E1E", // eerie blk3
+        "#002928", // midnight green
+        "#001515", // rich black
+        "#082136", // oxford blue
       ];
       const color = colorsArray[Math.floor(Math.random() * colorsArray.length)];
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
@@ -191,7 +183,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
@@ -204,7 +196,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
         />
 
         <meta property="telegram:title" content="BlockChat" />
@@ -214,7 +206,7 @@ export default function Home() {
         />
         <meta
           property="telegram:image"
-          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
         />
 
         <meta property="og:site_name" content="BlockChat" />
@@ -227,7 +219,7 @@ export default function Home() {
         />
         <meta
           property="linkedin:image"
-          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
         />
 
         <meta property="discord:title" content="BlockChat" />
@@ -237,7 +229,7 @@ export default function Home() {
         />
         <meta
           property="discord:image"
-          content="https://blockchat.auditutils.com/logo_v4_512_01.png"
+          content="https://blockchat.auditutils.com/logo_v4_600x200_01.png"
         />
       </Head>
       <div className={styles.container}>
@@ -362,7 +354,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -372,7 +365,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -440,7 +434,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -450,7 +445,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -517,7 +513,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -527,7 +524,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -580,7 +578,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -590,7 +589,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -658,7 +658,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -668,7 +669,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -735,7 +737,8 @@ export default function Home() {
                               }}
                               style={{
                                 border: "none",
-                                background: "#eab308",
+                                // background: "#eab308",
+                                background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
                               }}
@@ -745,7 +748,8 @@ export default function Home() {
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
-                                  background: "#eab308",
+                                  // background: "#eab308",
+                                  background: "#ffd700",
                                 }}
                               />
                             </button>

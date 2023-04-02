@@ -102,7 +102,7 @@
   /* this is the adresses classe */
   font-size: 0.7em;
   text-align: start;
-  color: #ccc;
+  color: #f2f2f2;
 }
 
 .messageContent {
@@ -123,7 +123,7 @@
 
   margin: 0 auto;
   padding: 10px;
-  /* border: 1px solid #ccc; */
+  /* border: 1px solid #f2f2f2; */
   border-radius: 15px;
   /* margin: 20px; */
   margin-top: 20px;
@@ -139,7 +139,7 @@
 
 .timestamp {
   font-size: 0.7em;
-  color: #0acaa6e6;
+  color: #00ffff;
   /* align-items: center; */
   text-align: start;
   /* font-style: italic; */
@@ -164,7 +164,7 @@
 
 .message p strong {
   font-weight: bold;
-  color: #0acaa6e6;
+  color: #00ffff;
   font-size: 0.8em;
 
   /* font-style: italic; */
@@ -424,7 +424,7 @@
   background: none;
   cursor: pointer;
   margin-left: 20px;
-  color: #ccc;
+  color: #f2f2f2;
   /* margin-top: 10px; */
   display: flex;
 }
