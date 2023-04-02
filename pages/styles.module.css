@@ -138,11 +138,11 @@
 }
 
 .timestamp {
-  font-size: 0.6em;
-  color: #a5dd21;
+  font-size: 0.7em;
+  color: #0acaa6e6;
   /* align-items: center; */
-  text-align: end;
-  font-style: italic;
+  text-align: start;
+  /* font-style: italic; */
 }
 
 .messageText {
@@ -164,7 +164,7 @@
 
 .message p strong {
   font-weight: bold;
-  color: #8a9e53ff;
+  color: #0acaa6e6;
   font-size: 0.8em;
 
   /* font-style: italic; */

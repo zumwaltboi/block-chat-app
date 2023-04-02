@@ -112,12 +112,22 @@ export default function Home() {
   const getColor = (sender) => {
     if (!colors[sender]) {
       const colorsArray = [
-        "#282c33ff", // dark grey
-        "#0d1c15", // dark green
-        "#11202D", // dark blue
-        "#1d215e", // sea green
-        "#621B00", // seal brown
-        "#123344", // cerulean
+        "#282c33", // dark grey
+        "#1E1E1E", // eerie black
+        "#212121", // eerie black 2
+        "#3A3D42", // onyx
+        "#2c2f33", // jet
+        "#344046", // slate grey
+        "#1C535E", // teal blue
+        "#2B2E33", // dark green 2
+        "#1C1C1C", // dark green 3
+        "#262626", // dark green 5
+        "#194D3C", // forest green
+        "#0A2A45", // midnight blue
+        "#005252", // teal
+        "#003D3C", // deep teal 001515
+        "#001515", // rich black
+        "transparent", // transparent
       ];
       const color = colorsArray[Math.floor(Math.random() * colorsArray.length)];
       setColors((prevColors) => ({ ...prevColors, [sender]: color }));
@@ -304,7 +314,7 @@ export default function Home() {
 
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h2 style={{ color: "#ccc" }}>Conversation:</h2>
+            <h2 style={{ color: "#f0fff0" }}>Conversation:</h2>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
@@ -326,7 +336,7 @@ export default function Home() {
                       {transaction.from === address ? (
                         <div>
                           <p className={styles.timestamp}>
-                            time-UTC: {transaction.timestamp}
+                            UTC:{transaction.timestamp}
                             {", "}value:{transaction.value} TX:
                             <button
                               onClick={() => {
@@ -544,7 +554,7 @@ export default function Home() {
                       ) : (
                         <div>
                           <p className={styles.timestamp}>
-                            time-UTC: {transaction.timestamp}
+                            UTC:{transaction.timestamp}
                             {", "}value:{transaction.value} TX:
                             <button
                               onClick={() => {
@@ -779,7 +789,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC-Date-Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
                                     navigator.clipboard.writeText(
                                       transactionData
                                     );
@@ -820,7 +830,7 @@ export default function Home() {
                                       etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
                                     }
                                     const timestamp = `${transaction.timestamp}`;
-                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC-Date-Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Transaction details:${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
                                     const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
                                       transactionData
                                     )}`;
