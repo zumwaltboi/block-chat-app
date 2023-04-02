@@ -19,6 +19,7 @@ export default function Home() {
   const [network, setNetwork] = useState("mainnet");
   const [loading, setLoading] = useState(false); // add loading state
   const [gif, setGif] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -142,6 +143,10 @@ export default function Home() {
     // Your code to handle the button click goes here
   }
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
   const blockchat = "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d";
@@ -182,7 +187,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
+          content="https://blockchat.auditutils.com/android-chrome-192x192.png"
         />
         <meta property="og:url" content="https://blockchat.auditutils.com" />
         <meta property="og:type" content="website" />
@@ -195,7 +200,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
+          content="https://blockchat.auditutils.com/android-chrome-192x192.png"
         />
 
         <meta property="telegram:title" content="BlockChat" />
@@ -205,7 +210,7 @@ export default function Home() {
         />
         <meta
           property="telegram:image"
-          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
+          content="https://blockchat.auditutils.com/android-chrome-192x192.png"
         />
 
         <meta property="og:site_name" content="BlockChat" />
@@ -218,7 +223,7 @@ export default function Home() {
         />
         <meta
           property="linkedin:image"
-          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
+          content="https://blockchat.auditutils.com/android-chrome-192x192.png"
         />
 
         <meta property="discord:title" content="BlockChat" />
@@ -228,7 +233,7 @@ export default function Home() {
         />
         <meta
           property="discord:image"
-          content="https://blockchat.auditutils.com/BC-logo-share-bleu-bg.png"
+          content="https://blockchat.auditutils.com/android-chrome-192x192.png"
         />
       </Head>
       <div className={styles.container}>
@@ -547,6 +552,91 @@ export default function Home() {
                               <div style={{ marginBottom: "10px" }}></div>
                               <p className={styles.messageContent}>
                                 {transaction.inputData}
+                              </p>
+                              <p
+                                style={{
+                                  textAlign: "end",
+                                }}
+                              >
+                                <button
+                                  onClick={() => {
+                                    let etherscanLink = "";
+                                    if (network === "mainnet") {
+                                      etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "goerli") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "sepolia") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "bsc") {
+                                      etherscanLink = `https://bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "bsc-testnet") {
+                                      etherscanLink = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon") {
+                                      etherscanLink = `https://polygonscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon-testnet") {
+                                      etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
+                                    }
+                                    const timestamp = `${transaction.timestamp}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Value in native money of ${network}: ${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    navigator.clipboard.writeText(
+                                      transactionData
+                                    );
+                                    alert(
+                                      "Message content copied to clipboard. Let's past it to share it!"
+                                    );
+                                  }}
+                                  style={{
+                                    border: "none",
+                                    background: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                  }}
+                                >
+                                  <img
+                                    src="GgShare.svg"
+                                    alt="Copy transaction data"
+                                    style={{ height: "20px" }}
+                                  />
+                                </button>
+
+                                <button
+                                  onClick={() => {
+                                    let etherscanLink = "";
+                                    if (network === "mainnet") {
+                                      etherscanLink = `https://etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "goerli") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "sepolia") {
+                                      etherscanLink = `https://${network}.etherscan.io/tx/${transaction.hash}`;
+                                    } else if (network === "bsc") {
+                                      etherscanLink = `https://bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "bsc-testnet") {
+                                      etherscanLink = `https://testnet.bscscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon") {
+                                      etherscanLink = `https://polygonscan.com/tx/${transaction.hash}`;
+                                    } else if (network === "polygon-testnet") {
+                                      etherscanLink = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
+                                    }
+                                    const timestamp = `${transaction.timestamp}`;
+                                    const transactionData = `--------------------\n\n${transaction.inputData}\n\n--------------------\n\n\n🕰️UTC Date/Time: ${timestamp}\n💸Value in native money of ${network}: ${transaction.value}\n📤From: ${transaction.from}\n📥To: ${transaction.to}\n\n\n🌐BlockChat:\nhttps://blockchat.auditutils.com/?address=${address}&network=${network}`;
+                                    const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(
+                                      transactionData
+                                    )}`;
+                                    window.open(telegramLink, "_blank");
+                                  }}
+                                  style={{
+                                    border: "none",
+                                    background: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                  }}
+                                >
+                                  <img
+                                    src="telegram.png"
+                                    alt="Share on Telegram"
+                                    style={{ height: "20px" }}
+                                  />
+                                </button>
                               </p>
                             </>
                           )}
@@ -867,217 +957,227 @@ export default function Home() {
             </ListGroup>
           </div>
         )}
-        <div className={styles.myContainer}>
-          <p style={{ textAlign: "right" }}>
-            Discover inter-network discutions by changing blockchain.
-          </p>
-          <hr className={styles.myHr} />
-          <div className={styles.mySection}>
-            <p className={styles.myTitle}>
-              <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-                <strong>Euler</strong> exploiter address:
-              </a>
-            </p>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0xb66cd966670d962C227B3EABA30a872DbFb995db
-              </p>
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0xb66cd966670d962C227B3EABA30a872DbFb995db"
-                  );
-                  searchParams.set("network", "mainnet");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
+        <div>
+          <div className={styles.myDropdown} onClick={toggleDropdown}>
+            Examples
           </div>
-          <hr className={styles.myHr} />
-          <div className={styles.mySection}>
-            <p className={styles.myTitle}>
-              <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
-                <strong>Safemoon</strong> exploiter address:
-              </a>
-            </p>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0x678ee23173dce625A90ED651E91CA5138149F590
+          {isDropdownOpen && (
+            <div className={styles.myContainer}>
+              <p className={styles.myTitle}>
+                Discover inter-network discutions by changing blockchain:
               </p>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                    <strong>Euler</strong> exploiter address:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0xb66cd966670d962C227B3EABA30a872DbFb995db
+                  </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0xb66cd966670d962C227B3EABA30a872DbFb995db"
+                      );
+                      searchParams.set("network", "mainnet");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
+                    <strong>Safemoon</strong> exploiter address:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0x678ee23173dce625A90ED651E91CA5138149F590
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0x678ee23173dce625A90ED651E91CA5138149F590"
-                  );
-                  searchParams.set("network", "bsc");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
-          </div>
-          <hr className={styles.myHr} />
-          <div className={styles.mySection}>
-            <p className={styles.myTitle}>
-              <a href="https://rekt.news/wormhole-rekt/" target={"_blank"}>
-                <strong>Wormhole</strong> attaker address:
-              </a>
-            </p>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0x629e7da20197a5429d30da36e77d06cdf796b71a
-              </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0x678ee23173dce625A90ED651E91CA5138149F590"
+                      );
+                      searchParams.set("network", "bsc");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a href="https://rekt.news/wormhole-rekt/" target={"_blank"}>
+                    <strong>Wormhole</strong> attacker address:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0x629e7da20197a5429d30da36e77d06cdf796b71a
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0x629e7da20197a5429d30da36e77d06cdf796b71a"
-                  );
-                  searchParams.set("network", "mainnet");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
-          </div>
-          <hr className={styles.myHr} />
-          <div className={styles.mySection}>
-            <p className={styles.myTitle}>
-              <a href="https://rekt.news/ronin-rekt/" target={"_blank"}>
-                <strong>Ronin</strong> attaker address:
-              </a>
-            </p>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0x098b716b8aaf21512996dc57eb0615e2383e2f96
-              </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0x629e7da20197a5429d30da36e77d06cdf796b71a"
+                      );
+                      searchParams.set("network", "mainnet");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a href="https://rekt.news/ronin-rekt/" target={"_blank"}>
+                    <strong>Ronin</strong> attaker address:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0x098b716b8aaf21512996dc57eb0615e2383e2f96
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0x098b716b8aaf21512996dc57eb0615e2383e2f96"
-                  );
-                  searchParams.set("network", "mainnet");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
-          </div>
-          <hr className={styles.myHr} />
-          <div className={styles.mySection}>
-            <p className={styles.myTitle}>
-              <a href="https://rekt.news/polynetwork-rekt/" target={"_blank"}>
-                <strong>PolyNetwork</strong> remaining funds adresses:
-              </a>
-            </p>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963
-              </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0x098b716b8aaf21512996dc57eb0615e2383e2f96"
+                      );
+                      searchParams.set("network", "mainnet");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a
+                    href="https://rekt.news/polynetwork-rekt/"
+                    target={"_blank"}
+                  >
+                    <strong>PolyNetwork</strong> remaining funds adresses:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963"
-                  );
-                  searchParams.set("network", "mainnet");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71
-              </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0xC8a65Fadf0e0dDAf421F28FEAb69Bf6E2E589963"
+                      );
+                      searchParams.set("network", "mainnet");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71"
-                  );
-                  searchParams.set("network", "bsc");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
-            </div>
-            <div className={styles.myContent}>
-              <p className={styles.myAddress}>
-                0x5dc3603C9D42Ff184153a8a9094a73d461663214
-              </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0x0D6e286A7cfD25E0c01fEe9756765D8033B32C71"
+                      );
+                      searchParams.set("network", "bsc");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0x5dc3603C9D42Ff184153a8a9094a73d461663214
+                  </p>
 
-              <button
-                onClick={(event) => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set(
-                    "address",
-                    "0x5dc3603C9D42Ff184153a8a9094a73d461663214"
-                  );
-                  searchParams.set("network", "polygon");
-                  window.location.href = `?${searchParams.toString()}`;
-                }}
-                className={styles.myButton}
-              >
-                <img
-                  src="gg_scan.svg"
-                  alt="Copy address"
-                  className={styles.myImage}
-                />
-              </button>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0x5dc3603C9D42Ff184153a8a9094a73d461663214"
+                      );
+                      searchParams.set("network", "polygon");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div
           className={styles.myContainer}
@@ -1086,7 +1186,7 @@ export default function Home() {
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
-                <strong>BlockChat</strong> donations address:
+                <strong>BlockChat</strong> address:
               </a>
             </p>
             <div className={styles.myContent}>

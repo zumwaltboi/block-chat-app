@@ -28,7 +28,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
-  width: 95vw;
+  width: 99vw;
 }
 
 .container form {
@@ -408,6 +408,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end; /* Add this property */
+  margin-left: auto; /* Add this property */
 }
 
 .myParagraph {
@@ -423,7 +425,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: auto;
   color: #f2f2f2;
   /* margin-top: 10px; */
   display: flex;
@@ -432,6 +434,7 @@
 
 .myImage {
   height: 32px;
+  margin-left: 10px;
 }
 
 .myHr {
@@ -464,4 +467,25 @@
 
 #myBtn:hover {
   background-color: #555;
+}
+
+.myDropdown {
+  margin-top: 30px;
+  background-color: #282c33ff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  width: auto;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  font-size: 2em;
+  font-weight: 300;
+  font-family: monospace;
+}
+.myDropdown:hover {
+  background-color: rgba(10, 202, 166, 0.9);
 }
