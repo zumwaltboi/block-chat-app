@@ -481,30 +481,10 @@
   width: auto; /* add a fixed width */
 }
 
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: red;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-}
-
-#myBtn:hover {
-  background-color: #555;
-}
-
 .myDropdown {
   margin-top: 60px;
   background-color: transparent;
-  padding: 10px;
+  padding: 20px 10px;
   border-radius: 15px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   width: auto;
@@ -515,7 +495,7 @@
   flex-direction: column;
   margin: 60px auto;
   font-size: 2em;
-  font-weight: 900;
+  font-weight: 600;
   font-family: monospace;
 }
 .myDropdown:hover {
