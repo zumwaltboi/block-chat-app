@@ -254,13 +254,13 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "120px",
+                maxWidth: "150px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 // filter: "blur(1px)",
                 // filter: "grayscale(100%)",
                 // filter: "opacity(30%)",
@@ -1231,7 +1231,7 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "200px",
+                maxWidth: "300px",
                 // marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
