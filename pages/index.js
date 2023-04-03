@@ -254,13 +254,13 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "200px",
+                maxWidth: "240px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                marginBottom: "30px",
+                marginBottom: "20px",
                 backgroundColor: "#282c33ff",
                 borderRadius: "12px",
                 marginTop: "20px",
@@ -1271,7 +1271,7 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "200px",
+                maxWidth: "150px",
                 // marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
@@ -1285,7 +1285,7 @@ export default function Home() {
               alt="blockchat logo"
             />
           </a>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "10px" }}>
             2023 BlockChat by AuditUtils.com
           </h3>
         </div>
