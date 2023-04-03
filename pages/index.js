@@ -254,12 +254,13 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "150px",
+                maxWidth: "120px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
+                marginBottom: "20px",
                 // filter: "blur(1px)",
                 // filter: "grayscale(100%)",
                 // filter: "opacity(30%)",
@@ -309,7 +310,7 @@ export default function Home() {
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
-              "Load chat history"
+              "LOAD CHAT"
             )}
           </button>
         </form>
@@ -961,7 +962,7 @@ export default function Home() {
           </div>
         )}
         <div>
-          <div className={styles.myContainer}>
+          {/* <div className={styles.myContainer}>
             <p className={styles.myTitle}>
               Explore chat related to this account through different
               blockchains:
@@ -996,9 +997,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className={styles.myDropdown} onClick={toggleDropdown}>
-            open for more examples
+            trending...
           </div>
           {isDropdownOpen && (
             <div className={styles.myContainer}>
@@ -1218,6 +1219,61 @@ export default function Home() {
             </div>
           )}
         </div>
+
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <a
+            style={{
+              textAlign: "center",
+              flex: 1,
+              alignItems: "center",
+            }}
+            href="https://blockchat.auditutils.com/"
+          >
+            <img
+              style={{
+                maxWidth: "200px",
+                // marginTop: "30px",
+                padding: "0px",
+                textAlign: "center",
+                flex: 1,
+                alignItems: "center",
+                backgroundColor: "#282c33ff",
+                borderRadius: "9px",
+              }}
+              src="logo_v4_600x200_01.png"
+              alt="blockchat logo"
+            />
+          </a>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
+            2023 BlockChat by AuditUtils.com
+          </h3>
+        </div>
+
+        <div
+          // className={styles.header}
+          style={{
+            // display: "flex",
+            alignItems: "center",
+            marginTop: "30px",
+            textAlign: "center",
+            // padding: "20px",
+          }}
+        >
+          <a href="https://auditutils.com/">
+            <img
+              className={styles["profile-image-au"]}
+              src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
+              alt="auditutils logo pixel"
+            />
+          </a>
+          <a href="https://user137-portfolio.auditutils.com">
+            <img
+              className={styles["profile-image-user137"]}
+              src="https://user137-portfolio.auditutils.com/user137.PNG"
+              alt="user137 Profile Picture"
+            />
+          </a>
+        </div>
         <div
           className={styles.myContainer}
           style={{ backgroundColor: "transparent" }}
@@ -1225,7 +1281,7 @@ export default function Home() {
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
-                <strong>BlockChat</strong> address:
+                <strong>BlockChat</strong> donate (ETH/ERC20) address:
               </a>
             </p>
             <div className={styles.myContent}>
@@ -1252,59 +1308,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <a
-            style={{
-              textAlign: "center",
-              flex: 1,
-              alignItems: "center",
-            }}
-            href="https://blockchat.auditutils.com/"
-          >
-            <img
-              style={{
-                maxWidth: "300px",
-                marginTop: "30px",
-                padding: "0px",
-                textAlign: "center",
-                flex: 1,
-                alignItems: "center",
-                backgroundColor: "#282c33ff",
-                borderRadius: "9px",
-              }}
-              src="logo_v4_600x200_01.png"
-              alt="blockchat logo"
-            />
-          </a>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
-            2023 BlockChat by AuditUtils.com
-          </h3>
-        </div>
-        <div
-          // className={styles.header}
-          style={{
-            // display: "flex",
-            alignItems: "center",
-            marginTop: "60px",
-            textAlign: "center",
-            padding: "20px",
-          }}
-        >
-          <a href="https://auditutils.com/">
-            <img
-              className={styles["profile-image-au"]}
-              src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
-              alt="auditutils logo pixel"
-            />
-          </a>
-          <a href="https://user137-portfolio.auditutils.com">
-            <img
-              className={styles["profile-image-user137"]}
-              src="https://user137-portfolio.auditutils.com/user137.PNG"
-              alt="user137 Profile Picture"
-            />
-          </a>
         </div>
       </div>
     </div>

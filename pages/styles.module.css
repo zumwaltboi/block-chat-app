@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -57,7 +57,7 @@
   border-radius: 15px;
   text-align: center;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
 }
 
 .form p {
@@ -87,7 +87,7 @@
   /* margin-top: 20px;
   margin-bottom: 10px; */
   width: 70%;
-  background-color: #282c33ff;
+  background-color: transparent;
   color: rgba(10, 202, 166, 0.9);
 }
 
@@ -502,22 +502,23 @@
 }
 
 .myDropdown {
-  margin-top: 30px;
-  background-color: #282c33ff;
-  padding: 20px;
+  margin-top: 60px;
+  background-color: transparent;
+  padding: 10px;
   border-radius: 15px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   width: auto;
-  max-width: 600px;
+  max-width: 50%;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
+  margin: 60px auto;
   font-size: 2em;
-  font-weight: 300;
+  font-weight: 900;
   font-family: monospace;
 }
 .myDropdown:hover {
-  background-color: rgba(10, 202, 166, 0.9);
+  background-color: #282c33ff;
+  color: rgba(10, 202, 166, 0.9);
 }
