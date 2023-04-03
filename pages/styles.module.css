@@ -482,21 +482,28 @@
 }
 
 .myDropdown {
-  margin-top: 60px;
+  /* margin-top: 60px;
   background-color: transparent;
-  padding: 10px 10px;
-  border-radius: 15px;
-  border: 3px solid rgba(10, 202, 166, 0.9);
-  width: auto;
   max-width: 50%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+
   flex-direction: column;
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  width: auto;
+  max-width: 300px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  border-radius: 15px;
+  text-align: center;
   margin: 60px auto;
-  font-size: 1.5em;
+  padding: 20px;
   font-weight: 500;
   font-family: monospace;
+  font-size: 1.5em;
+  background-color: #282c33;
 }
 .myDropdown:hover {
   background-color: #282c33ff;

@@ -1254,7 +1254,7 @@ export default function Home() {
           style={{
             // display: "flex",
             alignItems: "center",
-            marginTop: "30px",
+            marginTop: "60px",
             textAlign: "center",
             // padding: "20px",
           }}
