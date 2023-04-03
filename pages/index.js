@@ -263,7 +263,7 @@ export default function Home() {
                 marginBottom: "30px",
                 backgroundColor: "#282c33ff",
                 borderRadius: "12px",
-                marginTop: "10px",
+                marginTop: "20px",
 
                 // filter: "blur(1px)",
                 // filter: "grayscale(100%)",
