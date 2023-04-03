@@ -97,6 +97,8 @@ export default function Home() {
     searchParams.set("address", address);
     searchParams.set("network", network);
     window.history.replaceState({}, "", `?${searchParams.toString()}`);
+    const button = document.querySelector(`.${styles.submitButton}`);
+    button.classList.remove("loading");
   };
 
   const handleAddressClick = async (event, sender) => {
@@ -269,9 +271,8 @@ export default function Home() {
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
-          <label>
-            <p>Enter an blockchain address to view its messages:</p>
-
+          <p>Enter an address and a blockchain:</p>
+          <label className={styles.label}>
             <input
               type="text"
               value={address}
@@ -279,6 +280,7 @@ export default function Home() {
               className={styles.inputText}
               placeholder="0x..."
             />
+
             <select
               value={network}
               onChange={handleNetworkChange}
@@ -296,13 +298,14 @@ export default function Home() {
 
           <button
             type="submit"
-            className={styles.submitButton}
+            className={`${styles.submitButton} ${
+              loading ? styles.loading : ""
+            }`}
             disabled={loading}
             onClick={handleButtonClick}
           >
             {loading ? (
               <div className={styles.loadingContainer}>
-                {/* <span>Loading...</span> */}
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
@@ -958,45 +961,50 @@ export default function Home() {
           </div>
         )}
         <div>
+          <div className={styles.myContainer}>
+            <p className={styles.myTitle}>
+              Explore chat related to this account through different
+              blockchains:
+            </p>
+            <div className={styles.mySection}>
+              <p className={styles.myTitle}>
+                <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                  <strong>Euler</strong> exploiter address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xb66cd966670d962C227B3EABA30a872DbFb995db
+                </p>
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xb66cd966670d962C227B3EABA30a872DbFb995db"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="gg_scan.svg"
+                    alt="Copy address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
           <div className={styles.myDropdown} onClick={toggleDropdown}>
-            Examples
+            open for more examples
           </div>
           {isDropdownOpen && (
             <div className={styles.myContainer}>
               <p className={styles.myTitle}>
                 Discover inter-network discutions by changing blockchain:
               </p>
-              <hr className={styles.myHr} />
-              <div className={styles.mySection}>
-                <p className={styles.myTitle}>
-                  <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-                    <strong>Euler</strong> exploiter address:
-                  </a>
-                </p>
-                <div className={styles.myContent}>
-                  <p className={styles.myAddress}>
-                    0xb66cd966670d962C227B3EABA30a872DbFb995db
-                  </p>
-                  <button
-                    onClick={(event) => {
-                      const searchParams = new URLSearchParams();
-                      searchParams.set(
-                        "address",
-                        "0xb66cd966670d962C227B3EABA30a872DbFb995db"
-                      );
-                      searchParams.set("network", "mainnet");
-                      window.location.href = `?${searchParams.toString()}`;
-                    }}
-                    className={styles.myButton}
-                  >
-                    <img
-                      src="gg_scan.svg"
-                      alt="Copy address"
-                      className={styles.myImage}
-                    />
-                  </button>
-                </div>
-              </div>
               <hr className={styles.myHr} />
               <div className={styles.mySection}>
                 <p className={styles.myTitle}>
@@ -1017,6 +1025,37 @@ export default function Home() {
                         "0x678ee23173dce625A90ED651E91CA5138149F590"
                       );
                       searchParams.set("network", "bsc");
+                      window.location.href = `?${searchParams.toString()}`;
+                    }}
+                    className={styles.myButton}
+                  >
+                    <img
+                      src="gg_scan.svg"
+                      alt="Copy address"
+                      className={styles.myImage}
+                    />
+                  </button>
+                </div>
+              </div>
+              <hr className={styles.myHr} />
+              <div className={styles.mySection}>
+                <p className={styles.myTitle}>
+                  <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                    <strong>Euler</strong> exploiter address:
+                  </a>
+                </p>
+                <div className={styles.myContent}>
+                  <p className={styles.myAddress}>
+                    0xb66cd966670d962C227B3EABA30a872DbFb995db
+                  </p>
+                  <button
+                    onClick={(event) => {
+                      const searchParams = new URLSearchParams();
+                      searchParams.set(
+                        "address",
+                        "0xb66cd966670d962C227B3EABA30a872DbFb995db"
+                      );
+                      searchParams.set("network", "mainnet");
                       window.location.href = `?${searchParams.toString()}`;
                     }}
                     className={styles.myButton}
