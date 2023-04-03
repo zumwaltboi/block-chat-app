@@ -20,6 +20,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false); // add loading state
   const [gif, setGif] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -34,6 +35,12 @@ export default function Home() {
       setNetwork(networkParam);
     }
   }, []);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  // {isClicked && <div>This will disappear when you click the button</div>}
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -261,8 +268,8 @@ export default function Home() {
                 flex: 1,
                 alignItems: "center",
                 marginBottom: "20px",
-                backgroundColor: "#282c33ff",
-                borderRadius: "12px",
+                // backgroundColor: "#282c33ff",
+                // borderRadius: "12px",
                 marginTop: "15px",
 
                 // filter: "blur(1px)",
@@ -274,7 +281,19 @@ export default function Home() {
             />
           </a>
         </div>
-
+        {/* <div className={styles.showExampleContainer}>
+          <div className={styles.myDropdown} onClick={toggleDropdown}>
+            Show examples
+          </div>
+        </div> */}
+        <div className={styles.settingsButtonContainer}>
+          <div className={styles.settingsButton} onClick={toggleDropdown}>
+            Show examples
+          </div>
+          <button className={styles.settingsButton} onClick={handleClick}>
+            Settings
+          </button>
+        </div>
         <form className={styles.form} onSubmit={handleSubmit}>
           <p>Enter an blockchain address:</p>
           <label className={styles.label}>
@@ -314,9 +333,16 @@ export default function Home() {
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
-              "LOAD CHAT"
+              "LOAD"
             )}
           </button>
+          {isClicked && (
+            <div className={styles.settingsArea}>
+              Settings
+              <div>Secondary adress</div>
+              <div>Transaction hash</div>
+            </div>
+          )}
         </form>
 
         {transactions.length > 0 && (
@@ -1038,9 +1064,7 @@ export default function Home() {
               </div>
             </div>
           </div> */}
-          <div className={styles.myDropdown} onClick={toggleDropdown}>
-            Show examples
-          </div>
+
           {isDropdownOpen && (
             <div className={styles.myContainer}>
               <p className={styles.myTitle}>
@@ -1279,13 +1303,13 @@ export default function Home() {
                 alignItems: "center",
                 // backgroundColor: "#282c33ff",
                 borderRadius: "9px",
-                marginTop: "30px",
+                marginTop: "90px",
               }}
               src="logo_v4_512_01.png"
               alt="blockchat logo"
             />
           </a>
-          <h3 style={{ flex: 1, textAlign: "center", marginTop: "10px" }}>
+          <h3 style={{ flex: 1, textAlign: "center", marginTop: "30px" }}>
             2023 BlockChat by AuditUtils.com
           </h3>
         </div>

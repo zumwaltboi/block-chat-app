@@ -482,6 +482,7 @@
 
   flex-direction: column;
   */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -530,4 +531,54 @@
   border: 1px solid rgba(10, 202, 166, 0.9);
   border-radius: 3px;
   padding: 1px;
+}
+
+.settingsButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -20px;
+  margin-right: -10px;
+}
+
+.settingsButton {
+  padding: 10px;
+  /* border: 3px solid rgba(10, 202, 166, 0.9); */
+  border: none;
+  border-radius: 15px;
+  background-color: #282c33;
+  color: rgba(10, 202, 166, 0.9);
+  text-align: end;
+  font-family: monospace;
+  font-size: 1em;
+  font-weight: 600;
+  margin-left: 10px;
+  /* float: right; add this property */
+}
+
+.settingsButton:hover {
+  background-color: rgba(10, 202, 166, 0.9);
+  color: #282c33;
+  font-weight: 700;
+}
+
+.settingsArea {
+  background-color: rgba(10, 202, 166, 0.1);
+  padding: 10px;
+  margin: 30px 0px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  border-radius: 15px;
+  height: auto;
+  width: 100%;
+  font-family: monospace;
+  /* text-align: left; */
+}
+
+.settingsArea div {
+  text-align: left;
+}
+
+.showExampleContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -20px;
 }
