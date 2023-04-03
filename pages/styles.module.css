@@ -25,16 +25,10 @@
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-  width: 99vw;
-}
-
-.container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
+  width: 99vw;
 }
 
 .form-container {
@@ -57,7 +51,7 @@
   border-radius: 15px;
   text-align: center;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
 }
 
 .form p {
@@ -494,18 +488,46 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
   width: auto;
-  max-width: 300px;
-  border: 3px solid rgba(10, 202, 166, 0.9);
-  border-radius: 15px;
+  max-width: 200px;
+  border: 1px solid rgba(10, 202, 166, 0.9);
+  border-radius: 9px;
   text-align: center;
-  margin: 60px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 10px;
   font-weight: 500;
   font-family: monospace;
-  font-size: 1.5em;
-  background-color: #282c33;
+  font-size: 1.3em;
+  background-color: transparent;
 }
 .myDropdown:hover {
   background-color: #282c33ff;
   color: rgba(10, 202, 166, 0.9);
+}
+
+.myBtn {
+  display: flex-end;
+  /* display: flex; */
+  /* position: fixed;
+  bottom: 10%;
+  right: 3px; */
+  z-index: 99;
+  /* font-size: 18px; */
+  /* border: none;
+  outline: none;
+  background-color: red;
+  color: white; */
+  cursor: pointer;
+  /* padding: 0px; */
+}
+
+.myBtn img {
+  background-color: transparent;
+  /* border: 2px solid rgba(10, 202, 166, 0.9);
+  border-radius: 3px; */
+}
+
+.myBtn img:hover {
+  border: 1px solid rgba(10, 202, 166, 0.9);
+  border-radius: 3px;
+  padding: 1px;
 }

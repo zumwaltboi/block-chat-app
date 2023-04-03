@@ -254,25 +254,29 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "150px",
+                maxWidth: "200px",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                marginBottom: "10px",
+                marginBottom: "30px",
+                backgroundColor: "#282c33ff",
+                borderRadius: "12px",
+                marginTop: "10px",
+
                 // filter: "blur(1px)",
                 // filter: "grayscale(100%)",
                 // filter: "opacity(30%)",
               }}
-              src="logo_v4_512_01.png"
+              src="logo_v4_600x200_01.png"
               alt="blockchat logo"
             />
           </a>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
-          <p>Enter an address and a blockchain:</p>
+          <p>Enter an blockchain address:</p>
           <label className={styles.label}>
             <input
               type="text"
@@ -379,6 +383,24 @@ export default function Home() {
                                   // background: "#eab308",
                                   background: "#ffd700",
                                 }}
+                              />
+                            </button>{" "}
+                            <button
+                              className={styles.myBtn}
+                              onClick={(event) => {
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                // marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUp.svg"
+                                alt="top"
+                                style={{ height: "18px" }}
                               />
                             </button>
                           </p>
@@ -688,6 +710,24 @@ export default function Home() {
                                   // background: "#eab308",
                                   background: "#ffd700",
                                 }}
+                              />
+                            </button>{" "}
+                            <button
+                              className={styles.myBtn}
+                              onClick={(event) => {
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                // marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUp.svg"
+                                alt="top"
+                                style={{ height: "18px" }}
                               />
                             </button>
                           </p>
@@ -999,7 +1039,7 @@ export default function Home() {
             </div>
           </div> */}
           <div className={styles.myDropdown} onClick={toggleDropdown}>
-            Show trending
+            Show examples
           </div>
           {isDropdownOpen && (
             <div className={styles.myContainer}>
@@ -1231,16 +1271,17 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "300px",
+                maxWidth: "200px",
                 // marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
                 flex: 1,
                 alignItems: "center",
-                backgroundColor: "#282c33ff",
+                // backgroundColor: "#282c33ff",
                 borderRadius: "9px",
+                marginTop: "30px",
               }}
-              src="logo_v4_600x200_01.png"
+              src="logo_v4_512_01.png"
               alt="blockchat logo"
             />
           </a>
