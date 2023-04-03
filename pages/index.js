@@ -999,7 +999,7 @@ export default function Home() {
             </div>
           </div> */}
           <div className={styles.myDropdown} onClick={toggleDropdown}>
-            trending...
+            Show trending
           </div>
           {isDropdownOpen && (
             <div className={styles.myContainer}>
