@@ -397,7 +397,7 @@
 .myContainer {
   margin-top: 30px;
   background-color: #282c33ff;
-  padding: 20px;
+  padding: 3px 20px;
   border-radius: 15px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   width: auto;
@@ -406,7 +406,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
+  /* margin: 30px auto; */
 }
 
 .myContainer h3 {
