@@ -669,12 +669,12 @@
   width: 100%;
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .NewTitleContainer {
     flex-direction: column;
     align-items: flex-end;
   }
-}
+} */
 .NewTitleContainer .settingsButton {
   display: flex;
   justify-content: center;

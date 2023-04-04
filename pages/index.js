@@ -329,14 +329,14 @@ export default function Home() {
                 onClick={toggleDropdown}
                 style={{ marginTop: "auto", marginBottom: "5px" }}
               >
-                How to
+                examples
               </button>
               <button
                 className={styles.settingsButton}
                 onClick={handleClick}
                 style={{ marginTop: "5px", marginBottom: "auto" }}
               >
-                Options
+                advanced
               </button>
             </div>
           </div>
