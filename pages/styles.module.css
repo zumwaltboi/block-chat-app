@@ -10,9 +10,10 @@
 }
 
 .h3 {
-  font-size: 18px;
+  font-size: 1.9em;
   font-weight: bold;
-  margin: 0;
+  margin: 20px;
+  color: #00ffff;
 }
 
 .a {
@@ -44,22 +45,26 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   width: auto;
   max-width: 600px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   text-align: center;
-  margin: 0 auto;
+  margin-top: 20px;
   padding: 20px;
+  position: relative;
 }
 
 .form p {
-  align-items: center;
+  display: flex;
+  align-items: left;
   text-align: left;
   font-family: monospace;
   font-size: 1.3em;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  text-align: left;
+  justify-content: left;
 }
 
 .form label {
@@ -88,7 +93,7 @@
 
 .form button {
   margin-top: 10px;
-  padding: 20px;
+  padding: 10px;
   background-color: #282c33ff;
   color: #fff;
   border: 3px solid rgba(10, 202, 166, 0.9);
@@ -238,7 +243,7 @@
   border: none;
   border-radius: 15px;
   padding: 10px;
-  font-size: 1.3em;
+  font-size: 1.1em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   width: auto;
 }
@@ -399,7 +404,7 @@
 }
 
 .myContainer {
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #282c33ff;
   padding: 3px 20px;
   border-radius: 15px;
@@ -465,6 +470,16 @@
 .myImage {
   height: 32px;
   margin-left: 10px;
+}
+
+.myResetImage {
+  all: unset;
+  height: 15px;
+  text-align: center;
+  margin: 0 0;
+  width: 15px;
+  margin-top: -5px;
+  margin-left: -7px;
 }
 
 .myHr {
@@ -539,9 +554,17 @@
 
 .settingsButtonContainer {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: -20px;
-  margin-right: -10px;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* margin-top: 0px; */
+  /* margin-left: -5px; */
+  width: 15px;
+  height: 15px;
+  border: none;
+  margin-left: 14px;
+  margin-top: 6px;
 }
 
 .settingsButton {
@@ -553,44 +576,108 @@
   color: #f2f2f2;
   text-align: end;
   font-family: monospace;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 600;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   /* float: right; add this property */
+  /* margin-top: 5px; */
+  width: 100%;
+}
+
+.resetBtn {
+  all: unset;
+  width: 15px;
 }
 
 .settingsButton:hover {
   background-color: rgba(10, 202, 166, 1);
   color: #282c33;
-  font-weight: 700;
-  font-size: 1.2em;
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 .settingsArea {
   background-color: transparent;
-  padding: 10px;
-  margin-top: 30px;
-  border: 3px solid rgba(10, 202, 166, 0.9);
-  border-radius: 15px;
+  /* padding: 10px; */
+  margin-top: 10px;
+  /* border: 3px solid rgba(10, 202, 166, 0.9);
+  border-radius: 15px; */
   height: auto;
   width: 100%;
   font-family: monospace;
   /* text-align: left; */
   color: #00ffff;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 .settingsArea div {
   text-align: center;
   color: #ccc;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
-.settingsArea p {
+.settingsArea div p {
   text-align: left;
+  color: #a70c0c;
+}
+
+.settingsArea label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  flex-basis: 100%;
+}
+
+.settingsArea input {
+  padding: 10px 10px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: transparent;
+  color: rgba(10, 202, 166, 0.9);
 }
 
 .showExampleContainer {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: -20px;
+  justify-content: center;
+  width: 100%;
+  /* margin-bottom: -20px; */
+}
+
+.showExampleContainer .settingsButton {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  /* margin-bottom: -20px; */
+}
+.showExampleContainer button {
+  width: 100%;
+  padding: 5px 5px;
+  max-width: 150px;
+  padding: 10px 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.NewTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .NewTitleContainer {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+.NewTitleContainer .settingsButton {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* margin-bottom: -20px; */
 }
