@@ -27,7 +27,7 @@
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   width: 99vw;
 }
 
@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 100%;
 }
 
@@ -56,7 +56,7 @@
 
 .form p {
   align-items: center;
-  text-align: center;
+  text-align: left;
   font-family: monospace;
   font-size: 1.3em;
   margin-top: 10px;
@@ -80,7 +80,7 @@
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   margin-top: 10px;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
   width: 100%;
   background-color: transparent;
   color: rgba(10, 202, 166, 0.9);
@@ -569,7 +569,7 @@
 .settingsArea {
   background-color: transparent;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   height: auto;
@@ -581,8 +581,8 @@
 }
 
 .settingsArea div {
-  text-align: left;
-  color: rgba(10, 202, 166, 0.9);
+  text-align: center;
+  color: #ccc;
   font-size: 1.2em;
 }
 .settingsArea p {

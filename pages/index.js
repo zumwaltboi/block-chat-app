@@ -261,7 +261,8 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "240px",
+                maxWidth: "300px",
+                width: "100%",
                 margin: "0px",
                 padding: "0px",
                 textAlign: "center",
@@ -276,7 +277,7 @@ export default function Home() {
                 // filter: "grayscale(100%)",
                 // filter: "opacity(30%)",
               }}
-              src="logo_v4_600x200_01.png"
+              src="logo_v4_long_01.svg"
               alt="blockchat logo"
             />
           </a>
@@ -306,7 +307,7 @@ export default function Home() {
               placeholder="0x..."
             />
           </label>
-          <p>Enter a:</p>
+          <p>Choose a network:</p>
           <select
             value={network}
             onChange={handleNetworkChange}
@@ -322,9 +323,35 @@ export default function Home() {
           </select>
           {isClicked && (
             <div className={styles.settingsArea}>
-              Options
-              <div>Secondary adress</div>
-              <div>Transaction hash</div>
+              Options:
+              <div>
+                Enter a secondary adress:
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(event) => setAddress(event.target.value)}
+                  className={styles.inputText}
+                  placeholder="0x..."
+                />
+              </div>
+              <div
+                style={{
+                  margin: "10px 0px",
+                  textAlign: "center",
+                  color: "#00ffff",
+                }}
+              ></div>
+              or:
+              <div>
+                Enter a transaction hash:{" "}
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(event) => setAddress(event.target.value)}
+                  className={styles.inputText}
+                  placeholder="0x..."
+                />
+              </div>
             </div>
           )}
           <button
