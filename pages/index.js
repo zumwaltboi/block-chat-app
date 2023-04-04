@@ -309,7 +309,7 @@ export default function Home() {
                   maxWidth: "300px",
                   width: "100%",
                   margin: "0px",
-                  padding: "0px",
+                  padding: "5px 0",
                   marginRight: "10px",
                 }}
                 src="logo_v4_long_01.svg"
@@ -352,7 +352,7 @@ export default function Home() {
           </button>
         </div> */}
         <div>
-          <h3>Blockchain&aposs messages explorer</h3>
+          <h3>a cross-network discution explorer</h3>
         </div>
         {isDropdownOpen && (
           <div className={styles.myContainer}>
@@ -588,7 +588,7 @@ export default function Home() {
               />
             </a>
           </div>
-          <p>Enter an account address:</p>
+          <p>Enter an blockchain address:</p>
           <label className={styles.label}>
             <input
               type="text"
