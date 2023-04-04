@@ -310,6 +310,7 @@ export default function Home() {
                   width: "100%",
                   margin: "0px",
                   padding: "0px",
+                  marginRight: "10px",
                 }}
                 src="logo_v4_long_01.svg"
                 alt="blockchat logo"

@@ -569,6 +569,8 @@
 
 .settingsButton {
   padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: 2px solid rgba(10, 202, 166, 1);
   /* border: none; */
   border-radius: 9px;
@@ -577,11 +579,11 @@
   text-align: end;
   font-family: monospace;
   font-size: 1.1em;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 10px;
   /* float: right; add this property */
   /* margin-top: 5px; */
-  width: 90%;
+  width: 100%;
 }
 
 .resetBtn {
@@ -592,7 +594,7 @@
 .settingsButton:hover {
   background-color: rgba(10, 202, 166, 1);
   color: #282c33;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1em;
 }
 
