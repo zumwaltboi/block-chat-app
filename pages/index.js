@@ -286,12 +286,13 @@ export default function Home() {
             Show examples
           </div>
         </div> */}
+        <div className={styles.container}></div>
         <div className={styles.settingsButtonContainer}>
           <div className={styles.settingsButton} onClick={toggleDropdown}>
-            Show examples
+            How to
           </div>
           <button className={styles.settingsButton} onClick={handleClick}>
-            Settings
+            Options
           </button>
         </div>
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -304,22 +305,28 @@ export default function Home() {
               className={styles.inputText}
               placeholder="0x..."
             />
-
-            <select
-              value={network}
-              onChange={handleNetworkChange}
-              className={styles.networkSelect}
-            >
-              <option value="mainnet">Ethereum</option>
-              <option value="goerli">Goerli testnet</option>
-              <option value="sepolia">Sepolia testnet</option>
-              <option value="bsc">Bsc</option>
-              <option value="bsc-testnet">Bsc testnet</option>
-              <option value="polygon">Polygon</option>
-              <option value="polygon-testnet">Polygon testnet</option>
-            </select>
           </label>
-
+          <p>Enter a:</p>
+          <select
+            value={network}
+            onChange={handleNetworkChange}
+            className={styles.networkSelect}
+          >
+            <option value="mainnet">Ethereum</option>
+            <option value="goerli">Goerli testnet</option>
+            <option value="sepolia">Sepolia testnet</option>
+            <option value="bsc">Bsc</option>
+            <option value="bsc-testnet">Bsc testnet</option>
+            <option value="polygon">Polygon</option>
+            <option value="polygon-testnet">Polygon testnet</option>
+          </select>
+          {isClicked && (
+            <div className={styles.settingsArea}>
+              Options
+              <div>Secondary adress</div>
+              <div>Transaction hash</div>
+            </div>
+          )}
           <button
             type="submit"
             className={`${styles.submitButton} ${
@@ -333,16 +340,9 @@ export default function Home() {
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
-              "LOAD"
+              "Click to LOAD"
             )}
           </button>
-          {isClicked && (
-            <div className={styles.settingsArea}>
-              Settings
-              <div>Secondary adress</div>
-              <div>Transaction hash</div>
-            </div>
-          )}
         </form>
 
         {transactions.length > 0 && (
