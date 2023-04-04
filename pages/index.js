@@ -350,7 +350,9 @@ export default function Home() {
             Options
           </button>
         </div> */}
-        <h3>Blockchain's messages explorer</h3>
+        <div>
+          <h3>Blockchain&aposs messages explorer</h3>
+        </div>
         {isDropdownOpen && (
           <div className={styles.myContainer}>
             <p className={styles.myTitle}>
@@ -362,8 +364,8 @@ export default function Home() {
                 to scan addresses{" "}
               </li>
               <li>
-                click on "<strong>titles</strong>"" to get articles about the
-                exploit{" "}
+                click on &quot;<strong>titles</strong>&quot; to get articles
+                about the exploit{" "}
               </li>
             </p>
             <hr className={styles.myHr} />
