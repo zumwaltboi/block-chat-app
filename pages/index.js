@@ -579,7 +579,7 @@ export default function Home() {
           <div className={styles.settingsButtonContainer}>
             <a href="https://blockchat.auditutils.com/">
               <img
-                src="CharmRefresh (1).svg"
+                src="CharmRefresh.svg"
                 alt="reset"
                 className={styles.myResetImage}
               />
