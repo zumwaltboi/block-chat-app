@@ -568,7 +568,7 @@
 }
 
 .settingsButton {
-  padding: 10px;
+  padding: 5px;
   border: 2px solid rgba(10, 202, 166, 1);
   /* border: none; */
   border-radius: 9px;
@@ -578,10 +578,10 @@
   font-family: monospace;
   font-size: 1.1em;
   font-weight: 600;
-  /* margin-left: 10px; */
+  margin-left: 10px;
   /* float: right; add this property */
   /* margin-top: 5px; */
-  width: 100%;
+  width: 90%;
 }
 
 .resetBtn {

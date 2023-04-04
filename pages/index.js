@@ -334,7 +334,7 @@ export default function Home() {
               <button
                 className={styles.settingsButton}
                 onClick={handleClick}
-                style={{ marginTop: "5px", marginBottom: "auto" }}
+                style={{ marginTop: "1px", marginBottom: "auto" }}
               >
                 advanced
               </button>
