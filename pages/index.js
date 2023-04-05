@@ -14,6 +14,8 @@ import Head from "next/head";
 
 export default function Home() {
   const [address, setAddress] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [address3, setAddress3] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [colors, setColors] = useState({});
   const [network, setNetwork] = useState("mainnet");
@@ -25,10 +27,21 @@ export default function Home() {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const addressParam = searchParams.get("address");
+    const address2Param = searchParams.get("address2");
+    const address3Param = searchParams.get("address3");
+
     const networkParam = searchParams.get("network");
 
     if (addressParam) {
       setAddress(addressParam);
+    }
+
+    if (address2Param) {
+      setAddress2(address2Param);
+    }
+
+    if (address3Param) {
+      setAddress3(address3Param);
     }
 
     if (networkParam) {
@@ -37,6 +50,7 @@ export default function Home() {
   }, []);
 
   const handleClick = () => {
+    setIsDropdownOpen(false);
     setIsClicked(!isClicked);
   };
 
@@ -620,20 +634,20 @@ export default function Home() {
                 Enter a secondary adress:
                 <input
                   type="text"
-                  value={address}
-                  onChange={(event) => setAddress(event.target.value)}
+                  value={address2}
+                  onChange={(event) => setAddress2(event.target.value)}
                   className={styles.inputText}
-                  placeholder="0x..."
+                  placeholder="0x...(not available yet)"
                 />
               </div>
               <div>
                 Enter a transaction hash:{" "}
                 <input
                   type="text"
-                  value={address}
-                  onChange={(event) => setAddress(event.target.value)}
+                  value={address3}
+                  onChange={(event) => setAddress3(event.target.value)}
                   className={styles.inputText}
-                  placeholder="0x..."
+                  placeholder="0x...(not available yet)"
                 />
               </div>
             </div>
