@@ -779,6 +779,25 @@ export default function Home() {
                               />
                             </button>
                             <button
+                              onClick={(event) => {
+                                setAddress2(transaction.from);
+
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUpRight.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
                               onClick={() => {
                                 navigator.clipboard.writeText(transaction.from);
                               }}
@@ -853,6 +872,25 @@ export default function Home() {
                             >
                               <img
                                 src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={(event) => {
+                                setAddress2(transaction.to);
+
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUpRight.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
@@ -1106,6 +1144,25 @@ export default function Home() {
                               />
                             </button>
                             <button
+                              onClick={(event) => {
+                                setAddress2(transaction.from);
+
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUpRight.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
                               onClick={() => {
                                 navigator.clipboard.writeText(transaction.from);
                               }}
@@ -1180,6 +1237,25 @@ export default function Home() {
                             >
                               <img
                                 src="gg_scan.svg"
+                                alt="Copy address"
+                                style={{ height: "20px" }}
+                              />
+                            </button>
+                            <button
+                              onClick={(event) => {
+                                setAddress2(transaction.to);
+
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUpRight.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
