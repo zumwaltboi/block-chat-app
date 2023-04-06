@@ -622,13 +622,13 @@ export default function Home() {
           {isClicked && (
             <div className={styles.settingsArea}>
               <div>
-                Enter a secondary adress:
+                Enter a secondary address to see discution:
                 <input
                   type="text"
                   value={address2}
                   onChange={(event) => setAddress2(event.target.value)}
                   className={styles.inputText}
-                  placeholder="0x...(not available yet)"
+                  placeholder="0x..."
                 />
               </div>
               {/* <div>
