@@ -27,21 +27,11 @@ export default function Home() {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const addressParam = searchParams.get("address");
-    const address2Param = searchParams.get("address2");
-    const address3Param = searchParams.get("address3");
 
     const networkParam = searchParams.get("network");
 
     if (addressParam) {
       setAddress(addressParam);
-    }
-
-    if (address2Param) {
-      setAddress2(address2Param);
-    }
-
-    if (address3Param) {
-      setAddress3(address3Param);
     }
 
     if (networkParam) {
@@ -65,25 +55,25 @@ export default function Home() {
       let transactions;
       switch (network) {
         case "mainnet":
-          transactions = await getTransactions(address);
+          transactions = await getTransactions(address, address2);
           break;
         case "goerli":
-          transactions = await getTransactions2(address);
+          transactions = await getTransactions2(address, address2);
           break;
         case "sepolia":
-          transactions = await getTransactions3(address);
+          transactions = await getTransactions3(address, address2);
           break;
         case "bsc":
-          transactions = await getTransactions4(address);
+          transactions = await getTransactions4(address, address2);
           break;
         case "bsc-testnet":
-          transactions = await getTransactions5(address);
+          transactions = await getTransactions5(address, address2);
           break;
         case "polygon":
-          transactions = await getTransactions6(address);
+          transactions = await getTransactions6(address, address2);
           break;
         case "polygon-testnet":
-          transactions = await getTransactions7(address);
+          transactions = await getTransactions7(address, address2);
           break;
         default:
           throw new Error(`Invalid network: ${network}`);
@@ -117,6 +107,7 @@ export default function Home() {
     const searchParams = new URLSearchParams();
     searchParams.set("address", address);
     searchParams.set("network", network);
+    searchParams.set("address2", address2);
     window.history.replaceState({}, "", `?${searchParams.toString()}`);
     const button = document.querySelector(`.${styles.submitButton}`);
     button.classList.remove("loading");
@@ -640,7 +631,7 @@ export default function Home() {
                   placeholder="0x...(not available yet)"
                 />
               </div>
-              <div>
+              {/* <div>
                 Enter a transaction hash:{" "}
                 <input
                   type="text"
@@ -649,7 +640,7 @@ export default function Home() {
                   className={styles.inputText}
                   placeholder="0x...(not available yet)"
                 />
-              </div>
+              </div> */}
             </div>
           )}
           <button
