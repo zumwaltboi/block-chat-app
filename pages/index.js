@@ -314,10 +314,10 @@ export default function Home() {
                   maxWidth: "300px",
                   width: "100%",
                   margin: "0px",
-                  padding: "5px 0",
-                  marginRight: "10px",
+                  // padding: "5px 0",
+                  // marginLeft: "5px",
                 }}
-                src="logo_v4_long_01.svg"
+                src="logo_v4_300_01_beta-blue.png"
                 alt="blockchat logo"
               />
             </a>
@@ -328,19 +328,29 @@ export default function Home() {
                 alignItems: "flex-end",
                 justifyContent: "space-between",
                 height: "100%",
+                width: "30%",
+                maxWidth: "90px",
+                marginLeft: "15px",
               }}
             >
               <button
                 className={styles.settingsButton}
                 onClick={toggleDropdown}
-                style={{ marginTop: "auto", marginBottom: "5px" }}
+                style={{
+                  cursor: "pointer",
+                }}
+                // style={{ marginTop: "auto", marginBottom: "auto" }}
               >
                 examples
               </button>
               <button
                 className={styles.settingsButton}
                 onClick={handleClick}
-                style={{ marginTop: "1px", marginBottom: "auto" }}
+                style={{
+                  marginTop: "5px",
+                  marginBottom: "auto",
+                  cursor: "pointer",
+                }}
               >
                 advanced
               </button>
@@ -656,7 +666,7 @@ export default function Home() {
                 {gif && <img src={`/${gif}`} alt="In progress" />}
               </div>
             ) : (
-              "Click to LOAD"
+              "LOAD CHAT"
             )}
           </button>
         </form>
@@ -722,18 +732,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>{" "}
@@ -839,18 +851,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -937,18 +951,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -1087,18 +1103,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>{" "}
@@ -1204,18 +1222,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>
@@ -1302,18 +1322,20 @@ export default function Home() {
                               style={{
                                 border: "none",
                                 // background: "#eab308",
-                                background: "#ffd700",
+                                // background: "#ffd700",
                                 cursor: "pointer",
                                 marginLeft: "20px",
+                                background: "none",
                               }}
                             >
                               <img
-                                src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                                src="etherscan-logo-circle.png"
                                 alt="Etherscan logo"
                                 style={{
                                   height: "20px",
+                                  filter: "grayscale(100%)",
                                   // background: "#eab308",
-                                  background: "#ffd700",
+                                  // background: "#ffd700",
                                 }}
                               />
                             </button>

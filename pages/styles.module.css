@@ -95,7 +95,7 @@
   margin-top: 10px;
   padding: 10px;
   background-color: #282c33ff;
-  color: #fff;
+  color: -- turquoise;
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   cursor: pointer;
@@ -223,7 +223,7 @@
 
 .submitButton {
   background-color: rgba(10, 202, 166, 0.9);
-  color: #fff;
+  color: #00ffff;
   border: none;
   border-radius: 15px;
   padding: 10px 20px;
@@ -569,8 +569,8 @@
 
 .settingsButton {
   padding: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border: 2px solid rgba(10, 202, 166, 1);
   /* border: none; */
   border-radius: 9px;
@@ -580,10 +580,12 @@
   font-family: monospace;
   font-size: 1.1em;
   font-weight: 700;
-  margin-right: 10px;
+  height: 30%;
+  /* margin-right: 10px; */
   /* float: right; add this property */
   /* margin-top: 5px; */
   width: 100%;
+  cursor: "pointer";
 }
 
 .resetBtn {
@@ -596,6 +598,7 @@
   color: #282c33;
   font-weight: 700;
   font-size: 1.1em;
+  color: --gunmetal;
 }
 
 .settingsArea {
