@@ -371,12 +371,45 @@ export default function Home() {
         </div>
         {isDropdownOpen && (
           <div className={styles.myContainer}>
-            <li style={{ fontStyle: "italic" }}>
-              click on &quot;<strong>Titles</strong>&quot; to get press articles{" "}
-            </li>
+            <div>
+              <p className={styles.myTitle}>Icons legend:</p>
+              <p className={styles.myTitle}>
+                <li>
+                  click <img src="gg_scan.svg" width="12px"></img> to replace
+                  the primary address{" "}
+                </li>
+                <li>
+                  click <img src="CarbonArrowUpRight.svg" width="12px"></img> to
+                  place a secondary address{" "}
+                </li>
+                <li>
+                  click <img src="WhhCopy.svg" width="12px"></img> to copy to
+                  clipboard{" "}
+                </li>
+                <hr className={styles.myHr} />
+              </p>
+              <p className={styles.myTitle}>
+                <li>
+                  Enter an address and retrieve the complete list of outgoing
+                  and ongoing messages associated with that account.
+                </li>
+                <hr className={styles.myHr} />
 
-            <hr className={styles.myHr} />
+                <li>
+                  To retrieve the conversation between two accounts, please
+                  provide the secondary address along with the primary address
+                  for which you want to obtain the conversation.
+                </li>
+              </p>
+              <hr className={styles.myHr} />
+            </div>
+
             <div className={styles.mySection}>
+              <li style={{ fontStyle: "italic" }}>
+                click on &quot;<strong>Titles</strong>&quot; to get press
+                articles{" "}
+              </li>
+              <hr className={styles.myHr} />
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
                   <strong>Safemoon</strong> exploiter address:
@@ -580,39 +613,6 @@ export default function Home() {
                     className={styles.myImage}
                   />
                 </button>
-              </div>
-              <div>
-                <hr className={styles.myHr} />
-
-                <p className={styles.myTitle}>Icons legend:</p>
-                <p className={styles.myTitle}>
-                  <li>
-                    click <img src="gg_scan.svg" width="12px"></img> to replace
-                    the primary address{" "}
-                  </li>
-                  <li>
-                    click <img src="CarbonArrowUpRight.svg" width="12px"></img>{" "}
-                    to place a secondary address{" "}
-                  </li>
-                  <li>
-                    click <img src="WhhCopy.svg" width="12px"></img> to copy to
-                    clipboard{" "}
-                  </li>
-                  <hr className={styles.myHr} />
-                </p>
-                <p className={styles.myTitle}>
-                  <li>
-                    Enter an address and retrieve the complete list of outgoing
-                    and ongoing messages associated with that account.
-                  </li>
-                  <hr className={styles.myHr} />
-
-                  <li>
-                    To retrieve the conversation between two accounts, please
-                    provide the secondary address along with the primary address
-                    for which you want to obtain the conversation.
-                  </li>
-                </p>
               </div>
             </div>
           </div>
