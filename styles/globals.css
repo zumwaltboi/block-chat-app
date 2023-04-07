@@ -49,9 +49,10 @@ h3 {
   font-size: 1.3em;
   text-align: center;
   background-color: #282c33;
-  border-radius: 15px;
-  padding: 10px 0;
+  border-radius: 12px;
+  padding: 6px 0;
   margin: 10px 0;
   width: auto;
   font-family: monospace;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add this line for box shadow */
 }

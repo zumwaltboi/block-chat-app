@@ -71,7 +71,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   margin-top: 0px;
   flex-basis: 100%;
 }
@@ -92,8 +92,8 @@
 }
 
 .form button {
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 20px;
+  padding: 20px;
   background-color: #282c33ff;
   color: -- turquoise;
   border: 3px solid rgba(10, 202, 166, 0.9);
@@ -108,12 +108,12 @@
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
   color: rgba(10, 202, 166, 0.9);
-  font-size: 1.2em;
+  font-size: 1.1em;
   padding: 10px 10px;
   width: 100%;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .form button.loading {
@@ -134,16 +134,16 @@
 
 .yoyo {
   /* this is the adresses classe */
-  font-size: 0.7em;
-  text-align: start;
-  color: #f2f2f2;
+  font-size: 0.6em;
+  text-align: center;
+  color: #ccc;
 }
 
 .messageContent {
   /* this is the message content classe */
   font-size: 0.9em;
   text-align: start;
-  color: #fff;
+  color: #f2f2f2;
 }
 
 .highlight {
@@ -226,8 +226,8 @@
   color: #00ffff;
   border: none;
   border-radius: 15px;
-  padding: 10px 20px;
-  font-size: 1.3em;
+  padding: 10px 30px;
+  font-size: 1.4em;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.1s ease;

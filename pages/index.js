@@ -371,18 +371,10 @@ export default function Home() {
         </div>
         {isDropdownOpen && (
           <div className={styles.myContainer}>
-            <p className={styles.myTitle}>
-              Focus an address cliking the yellow buttun:
-            </p>
-            <p className={styles.myTitle}>
-              <li>
-                click <img src="gg_scan.svg" width="12px"></img> to scan
-                matching address{" "}
-              </li>
-              <li>
-                click on &quot;<strong>titles</strong>&quot; to get articles{" "}
-              </li>
-            </p>
+            <li style={{ fontStyle: "italic" }}>
+              click on &quot;<strong>Titles</strong>&quot; to get press articles{" "}
+            </li>
+
             <hr className={styles.myHr} />
             <div className={styles.mySection}>
               <p className={styles.myTitle}>
@@ -589,6 +581,39 @@ export default function Home() {
                   />
                 </button>
               </div>
+              <div>
+                <hr className={styles.myHr} />
+
+                <p className={styles.myTitle}>Icons legend:</p>
+                <p className={styles.myTitle}>
+                  <li>
+                    click <img src="gg_scan.svg" width="12px"></img> to replace
+                    the primary address{" "}
+                  </li>
+                  <li>
+                    click <img src="CarbonArrowUpRight.svg" width="12px"></img>{" "}
+                    to place a secondary address{" "}
+                  </li>
+                  <li>
+                    click <img src="WhhCopy.svg" width="12px"></img> to copy to
+                    clipboard{" "}
+                  </li>
+                  <hr className={styles.myHr} />
+                </p>
+                <p className={styles.myTitle}>
+                  <li>
+                    Enter an address and retrieve the complete list of outgoing
+                    and ongoing messages associated with that account.
+                  </li>
+                  <hr className={styles.myHr} />
+
+                  <li>
+                    To retrieve the conversation between two accounts, please
+                    provide the secondary address along with the primary address
+                    for which you want to obtain the conversation.
+                  </li>
+                </p>
+              </div>
             </div>
           </div>
         )}
@@ -631,7 +656,7 @@ export default function Home() {
           {isClicked && (
             <div className={styles.settingsArea}>
               <div>
-                Enter a secondary address to see discution:
+                Enter a secondary address:
                 <input
                   type="text"
                   value={address2}
@@ -672,17 +697,17 @@ export default function Home() {
 
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h2
-              style={{
-                color: "#f0fff0",
-                fontFamily: "monospace",
-                backgroundColor: "#282c33",
-                borderRadius: "15px",
-                width: "auto",
-              }}
+            <h3
+            // style={{
+            //   color: "#f0fff0",
+            //   fontFamily: "monospace",
+            //   backgroundColor: "#282c33",
+            //   borderRadius: "15px",
+            //   width: "auto",
+            // }}
             >
-              messages
-            </h2>
+              conversation
+            </h3>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
@@ -704,8 +729,8 @@ export default function Home() {
                       {transaction.from === address ? (
                         <div>
                           <p className={styles.timestamp}>
-                            UTC:{transaction.timestamp}
-                            {", "}value:{transaction.value} TX:
+                            {transaction.timestamp}
+                            {", "}$:{transaction.value}
                             <button
                               onClick={() => {
                                 let etherscanUrl = "";
@@ -1075,8 +1100,8 @@ export default function Home() {
                       ) : (
                         <div>
                           <p className={styles.timestamp}>
-                            UTC:{transaction.timestamp}
-                            {", "}value:{transaction.value} TX:
+                            {transaction.timestamp}
+                            {", "}$:{transaction.value}
                             <button
                               onClick={() => {
                                 let etherscanUrl = "";
