@@ -61,7 +61,7 @@
   align-items: left;
   text-align: left;
   font-family: monospace;
-  font-size: 1.3em;
+  font-size: 1.1em;
   /* margin-top: 10px; */
   text-align: left;
   justify-content: left;
@@ -88,7 +88,7 @@
   margin-bottom: 10px;
   width: 100%;
   background-color: transparent;
-  color: rgba(10, 202, 166, 0.9);
+  color: #00ffff;
 }
 
 .form button {
@@ -568,7 +568,7 @@
 }
 
 .settingsButton {
-  padding: 5px;
+  /* padding: 0px; */
   padding-top: 8px;
   padding-bottom: 8px;
   border: 2px solid rgba(10, 202, 166, 1);
@@ -618,7 +618,7 @@
 .settingsArea div {
   text-align: center;
   color: #ccc;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 .settingsArea div p {
   text-align: left;
@@ -642,7 +642,7 @@
   margin-bottom: 10px;
   width: 100%;
   background-color: transparent;
-  color: rgba(10, 202, 166, 0.9);
+  color: #00ffff;
 }
 
 .showExampleContainer {

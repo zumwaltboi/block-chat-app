@@ -330,7 +330,7 @@ export default function Home() {
                 height: "100%",
                 width: "30%",
                 maxWidth: "90px",
-                marginLeft: "15px",
+                marginLeft: "10px",
               }}
             >
               <button
@@ -372,16 +372,15 @@ export default function Home() {
         {isDropdownOpen && (
           <div className={styles.myContainer}>
             <p className={styles.myTitle}>
-              Discover inter-network discutions through these examples:
+              Focus an address cliking the yellow buttun:
             </p>
             <p className={styles.myTitle}>
               <li>
-                click on yellow icon <img src="gg_scan.svg" width="12px"></img>{" "}
-                to scan addresses{" "}
+                click <img src="gg_scan.svg" width="12px"></img> to scan
+                matching address{" "}
               </li>
               <li>
-                click on &quot;<strong>titles</strong>&quot; to get articles
-                about the exploit{" "}
+                click on &quot;<strong>titles</strong>&quot; to get articles{" "}
               </li>
             </p>
             <hr className={styles.myHr} />
