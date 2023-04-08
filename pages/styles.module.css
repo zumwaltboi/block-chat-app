@@ -135,9 +135,11 @@
 .yoyo {
   /* this is the adresses classe */
   font-size: 0.6em;
-  text-align: start;
+  text-align: center;
   color: #ccc;
   margin: 0px 0px;
+  /* display: flex;
+  flex-direction: row; */
 }
 
 .messageContent {
@@ -622,8 +624,8 @@
   font-size: 1.1em;
 }
 .settingsArea div p {
-  text-align: left;
-  color: #a70c0c;
+  text-align: center;
+  color: #ccc;
 }
 
 .settingsArea label {

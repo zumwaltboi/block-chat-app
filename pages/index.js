@@ -24,6 +24,7 @@ export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isHelpVisible, setIsHelpVisible] = useState(false);
+  const [isHelpVisible2, setIsHelpVisible2] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -173,6 +174,14 @@ export default function Home() {
 
   const handleCloseClick = () => {
     setIsHelpVisible(false);
+  };
+
+  const handleHelpClick2 = () => {
+    setIsHelpVisible2(true);
+  };
+
+  const handleCloseClick2 = () => {
+    setIsHelpVisible2(false);
   };
 
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
@@ -410,7 +419,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -441,7 +450,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -473,7 +482,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -505,7 +514,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -537,7 +546,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -561,7 +570,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -585,7 +594,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -600,15 +609,15 @@ export default function Home() {
               </p>
               <ul className={styles.myTitle}>
                 <li>
-                  click <img src="gg_scan.svg" width="12px" /> to replace the
-                  primary address{" "}
+                  click <img src="CarbonZoomFit.svg" width="12px" /> to replace
+                  the primary address{" "}
                 </li>
                 <li>
-                  click <img src="CarbonArrowUpRight.svg" width="12px" /> to
-                  place a secondary address{" "}
+                  click <img src="CarbonZoomIn.svg" width="12px" /> to place a
+                  secondary address{" "}
                 </li>
                 <li>
-                  click <img src="WhhCopy.svg" width="12px" /> to copy to
+                  click <img src="CarbonCopy.svg" width="12px" /> to copy to
                   clipboard{" "}
                 </li>
                 <li>
@@ -652,7 +661,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <p style={{ display: "flex", alignItems: "center" }}>
               Enter a blockchain address:
               <button
@@ -671,45 +680,43 @@ export default function Home() {
                   style={{ height: "20px" }}
                 />
               </button>
-              {isHelpVisible && (
+            </p>
+            {isHelpVisible && (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: "rgba(0, 0, 0, 0.6)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 9999,
+                }}
+              >
                 <div
                   style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: "rgba(0, 0, 0, 0.6)",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    zIndex: 9999,
+                    backgroundColor: "#282c33ff",
+                    padding: "10px",
+                    borderRadius: "15px",
+                    maxWidth: "400px",
+                    border: "3px solid rgba(10, 202, 166, 1)",
+                    color: "#f2f2f2",
+                    marginBottom: "21em",
+                    marginLeft: "20px",
+                    marginRight: "20px",
                   }}
+                  onClick={handleCloseClick}
                 >
-                  <div
-                    style={{
-                      backgroundColor: "#282c33ff",
-                      padding: "10px",
-                      borderRadius: "15px",
-                      maxWidth: "400px",
-                      border: "3px solid rgba(10, 202, 166, 1)",
-                      color: "#f2f2f2",
-                      marginBottom: "30em",
-                      marginLeft: "20px",
-                      marginRight: "20px",
-                    }}
-                    onClick={handleCloseClick}
-                  >
-                    <strong>main function:</strong>
-                    <p>
-                      Enter an address and retrieve the complete list of
-                      outgoing and ongoing messages associated with that
-                      account.
-                    </p>
-                  </div>
+                  <p>
+                    Enter an address and retrieve the complete list of outgoing
+                    and ongoing messages associated with that account.
+                  </p>
                 </div>
-              )}
-            </p>
+              </div>
+            )}
           </div>
 
           <label className={styles.label}>
@@ -721,26 +728,49 @@ export default function Home() {
               placeholder="0x..."
             />
           </label>
-
-          <p>Choose a network:</p>
-          <select
-            value={network}
-            onChange={handleNetworkChange}
-            className={styles.networkSelect}
-          >
-            <option value="mainnet">Ethereum</option>
-            <option value="goerli">Goerli testnet</option>
-            <option value="sepolia">Sepolia testnet</option>
-            <option value="bsc">Bsc</option>
-            <option value="bsc-testnet">Bsc testnet</option>
-            <option value="polygon">Polygon</option>
-            <option value="polygon-testnet">Polygon testnet</option>
-          </select>
-
           {isClicked && (
-            <div className={styles.settingsArea}>
-              <div>
-                Enter a secondary address:
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  width: "100%",
+                }}
+              >
+                <p
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    fontSize: "1.1em",
+                    fontFamily: "monospace",
+                  }}
+                >
+                  Enter a secondary address:
+                  <button
+                    onClick={handleHelpClick2}
+                    type="button"
+                    style={{
+                      all: "unset", // Reset all styles
+                      marginLeft: "3px",
+                      cursor: "pointer",
+                      // Adjust the margin as needed
+                    }}
+                  >
+                    <img
+                      src="CarbonHelp.svg"
+                      alt="help"
+                      style={{ height: "20px" }}
+                    />
+                  </button>
+                </p>
                 <input
                   type="text"
                   value={address2}
@@ -749,6 +779,7 @@ export default function Home() {
                   placeholder="0x..."
                 />
               </div>
+
               {/* <div>
                 Enter a transaction hash:{" "}
                 <input
@@ -761,6 +792,79 @@ export default function Home() {
               </div> */}
             </div>
           )}
+          {isHelpVisible2 && (
+            <div
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0, 0, 0, 0.6)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: 9999,
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "#282c33ff",
+                  padding: "10px",
+                  borderRadius: "15px",
+                  maxWidth: "400px",
+                  border: "3px solid rgba(10, 202, 166, 1)",
+                  color: "#f2f2f2",
+                  marginBottom: "21em",
+                  marginLeft: "20px",
+                  marginRight: "20px",
+                }}
+                onClick={handleCloseClick2}
+              >
+                <p>
+                  To retrieve the conversation between two accounts, please
+                  provide the secondary address along with the primary address
+                  for which you want to obtain the conversation.
+                </p>
+              </div>
+            </div>
+          )}
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "50%",
+            }}
+          >
+            {" "}
+            <p
+              style={{
+                // all: "unset",
+                display: "flex",
+                alignItems: "center",
+                fontSize: "1.1em",
+                fontFamily: "monospace",
+              }}
+            >
+              Choose a network:
+            </p>
+            <select
+              value={network}
+              onChange={handleNetworkChange}
+              className={styles.networkSelect}
+            >
+              <option value="mainnet">Ethereum</option>
+              <option value="goerli">Goerli testnet</option>
+              <option value="sepolia">Sepolia testnet</option>
+              <option value="bsc">Bsc</option>
+              <option value="bsc-testnet">Bsc testnet</option>
+              <option value="polygon">Polygon</option>
+              <option value="polygon-testnet">Polygon testnet</option>
+            </select>
+          </div>
+
           <button
             type="submit"
             className={`${styles.submitButton} ${
@@ -893,8 +997,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="gg_scan.svg"
-                                alt="Copy address"
+                                src="CarbonZoomFit.svg"
+                                alt="Set primary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -912,8 +1016,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="CarbonArrowUpRight.svg"
-                                alt="Copy address"
+                                src="CarbonZoomIn.svg"
+                                alt="add secondary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -929,7 +1033,7 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="WhhCopy.svg"
+                                src="CarbonCopy.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
@@ -993,8 +1097,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="gg_scan.svg"
-                                alt="Copy address"
+                                src="CarbonZoomFit.svg"
+                                alt="Set primary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -1013,8 +1117,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="CarbonArrowUpRight.svg"
-                                alt="Copy address"
+                                src="CarbonZoomIn.svg"
+                                alt="add secondary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -1030,7 +1134,7 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="WhhCopy.svg"
+                                src="CarbonCopy.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
@@ -1134,7 +1238,7 @@ export default function Home() {
                                   }}
                                 >
                                   <img
-                                    src="WhhCopy.svg"
+                                    src="CarbonCopy.svg"
                                     alt="Copy transaction data"
                                     style={{ height: "20px" }}
                                   />
@@ -1265,8 +1369,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="gg_scan.svg"
-                                alt="Copy address"
+                                src="CarbonZoomFit.svg"
+                                alt="Set primary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -1284,14 +1388,15 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="CarbonArrowUpRight.svg"
-                                alt="Copy address"
+                                src="CarbonZoomIn.svg"
+                                alt="add secondary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
                             <button
                               onClick={() => {
                                 navigator.clipboard.writeText(transaction.from);
+                                alert("Address sender copied to clipboard.");
                               }}
                               style={{
                                 border: "none",
@@ -1301,7 +1406,7 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="WhhCopy.svg"
+                                src="CarbonCopy.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
@@ -1351,7 +1456,7 @@ export default function Home() {
                           </p>
 
                           <p className={styles.yoyo}>
-                            <strong>To:</strong> {transaction.to}
+                            <strong> To: </strong> {transaction.to}
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.to);
@@ -1365,8 +1470,8 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="gg_scan.svg"
-                                alt="Copy address"
+                                src="CarbonZoomFit.svg"
+                                alt="Set primary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
@@ -1385,14 +1490,15 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="CarbonArrowUpRight.svg"
-                                alt="Copy address"
+                                src="CarbonZoomIn.svg"
+                                alt="add secondary address"
                                 style={{ height: "20px" }}
                               />
                             </button>
                             <button
                               onClick={() => {
                                 navigator.clipboard.writeText(transaction.to);
+                                alert("Address receiver copied to clipboard.");
                               }}
                               style={{
                                 border: "none",
@@ -1402,7 +1508,7 @@ export default function Home() {
                               }}
                             >
                               <img
-                                src="WhhCopy.svg"
+                                src="CarbonCopy.svg"
                                 alt="Copy address"
                                 style={{ height: "20px" }}
                               />
@@ -1505,7 +1611,7 @@ export default function Home() {
                                   }}
                                 >
                                   <img
-                                    src="WhhCopy.svg"
+                                    src="CarbonCopy.svg"
                                     alt="Copy transaction data"
                                     style={{ height: "20px" }}
                                   />
@@ -1590,7 +1696,7 @@ export default function Home() {
                   className={styles.myButton}
                 >
                   <img
-                    src="gg_scan.svg"
+                    src="CarbonZoomFit.svg"
                     alt="Scan address"
                     className={styles.myImage}
                   />
@@ -1654,7 +1760,7 @@ export default function Home() {
                 className={styles.myButton}
               >
                 <img
-                  src="gg_scan.svg"
+                  src="CarbonZoomFit.svg"
                   alt="Copy address"
                   className={styles.myImage}
                 />
