@@ -835,7 +835,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: "50%",
+              width: "100%",
             }}
           >
             {" "}
