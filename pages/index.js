@@ -704,15 +704,17 @@ export default function Home() {
                     maxWidth: "400px",
                     border: "3px solid rgba(10, 202, 166, 1)",
                     color: "#f2f2f2",
-                    marginBottom: "21em",
+                    marginBottom: "3rem",
                     marginLeft: "20px",
                     marginRight: "20px",
+                    fontSize: "1.3em",
+                    fontFamily: "monospace",
                   }}
                   onClick={handleCloseClick}
                 >
                   <p>
                     Enter an address and retrieve the complete list of outgoing
-                    and ongoing messages associated with that account.
+                    and ongoing messages associated with that account
                   </p>
                 </div>
               </div>
@@ -815,16 +817,16 @@ export default function Home() {
                   maxWidth: "400px",
                   border: "3px solid rgba(10, 202, 166, 1)",
                   color: "#f2f2f2",
-                  marginBottom: "21em",
+                  marginBottom: "3rem",
                   marginLeft: "20px",
                   marginRight: "20px",
+                  fontSize: "1.3em",
                 }}
                 onClick={handleCloseClick2}
               >
                 <p>
-                  To retrieve the conversation between two accounts, please
-                  provide the secondary address along with the primary address
-                  for which you want to obtain the conversation.
+                  Provide the secondary address to obtain an isolated
+                  conversation between these two accounts
                 </p>
               </div>
             </div>
