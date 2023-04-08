@@ -44,6 +44,11 @@ export default function Home() {
     setIsClicked(!isClicked);
   };
 
+  const handleClick2 = () => {
+    setIsDropdownOpen(false);
+    setIsClicked(true);
+  };
+
   // {isClicked && <div>This will disappear when you click the button</div>}
 
   const handleAddressChange = (event) => {
@@ -371,45 +376,7 @@ export default function Home() {
         </div>
         {isDropdownOpen && (
           <div className={styles.myContainer}>
-            <div>
-              <p className={styles.myTitle}>Icons legend:</p>
-              <p className={styles.myTitle}>
-                <li>
-                  click <img src="gg_scan.svg" width="12px"></img> to replace
-                  the primary address{" "}
-                </li>
-                <li>
-                  click <img src="CarbonArrowUpRight.svg" width="12px"></img> to
-                  place a secondary address{" "}
-                </li>
-                <li>
-                  click <img src="WhhCopy.svg" width="12px"></img> to copy to
-                  clipboard{" "}
-                </li>
-                <hr className={styles.myHr} />
-              </p>
-              <p className={styles.myTitle}>
-                <li>
-                  Enter an address and retrieve the complete list of outgoing
-                  and ongoing messages associated with that account.
-                </li>
-                <hr className={styles.myHr} />
-
-                <li>
-                  To retrieve the conversation between two accounts, please
-                  provide the secondary address along with the primary address
-                  for which you want to obtain the conversation.
-                </li>
-              </p>
-              <hr className={styles.myHr} />
-            </div>
-
             <div className={styles.mySection}>
-              <li style={{ fontStyle: "italic" }}>
-                click on &quot;<strong>Titles</strong>&quot; to get press
-                articles{" "}
-              </li>
-              <hr className={styles.myHr} />
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
                   <strong>Safemoon</strong> exploiter address:
@@ -434,7 +401,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -465,7 +432,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -497,7 +464,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -529,7 +496,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -561,7 +528,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -585,7 +552,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
@@ -609,11 +576,58 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>
               </div>
+            </div>
+            <div>
+              <hr className={styles.myHr} />
+
+              <p className={styles.myTitle}>
+                <strong>Icons legend:</strong>
+              </p>
+              <ul className={styles.myTitle}>
+                <li>
+                  click <img src="gg_scan.svg" width="12px" /> to replace the
+                  primary address{" "}
+                </li>
+                <li>
+                  click <img src="CarbonArrowUpRight.svg" width="12px" /> to
+                  place a secondary address{" "}
+                </li>
+                <li>
+                  click <img src="WhhCopy.svg" width="12px" /> to copy to
+                  clipboard{" "}
+                </li>
+                <li>
+                  click on &quot;<strong>Titles</strong>&quot; to get press
+                  articles{" "}
+                </li>
+              </ul>
+              <hr className={styles.myHr} />
+
+              <p className={styles.myTitle}>
+                <strong>main function:</strong>
+              </p>
+              <ul className={styles.myTitle}>
+                <li>
+                  Enter an address and retrieve the complete list of outgoing
+                  and ongoing messages associated with that account.
+                </li>
+              </ul>
+
+              <p className={styles.myTitle}>
+                <strong>advanced function:</strong>
+              </p>
+              <ul className={styles.myTitle}>
+                <li>
+                  To retrieve the conversation between two accounts, please
+                  provide the secondary address along with the primary address
+                  for which you want to obtain the conversation.
+                </li>
+              </ul>
             </div>
           </div>
         )}
@@ -817,7 +831,7 @@ export default function Home() {
                             <button
                               onClick={(event) => {
                                 setAddress2(transaction.from);
-
+                                setIsClicked(true);
                                 window.scrollTo(0, 0);
                               }}
                               style={{
@@ -917,6 +931,7 @@ export default function Home() {
                             <button
                               onClick={(event) => {
                                 setAddress2(transaction.to);
+                                setIsClicked(true);
 
                                 window.scrollTo(0, 0);
                               }}
@@ -1049,7 +1064,7 @@ export default function Home() {
                                   }}
                                 >
                                   <img
-                                    src="GgShare.svg"
+                                    src="WhhCopy.svg"
                                     alt="Copy transaction data"
                                     style={{ height: "20px" }}
                                   />
@@ -1188,7 +1203,7 @@ export default function Home() {
                             <button
                               onClick={(event) => {
                                 setAddress2(transaction.from);
-
+                                setIsClicked(true);
                                 window.scrollTo(0, 0);
                               }}
                               style={{
@@ -1288,6 +1303,7 @@ export default function Home() {
                             <button
                               onClick={(event) => {
                                 setAddress2(transaction.to);
+                                setIsClicked(true);
 
                                 window.scrollTo(0, 0);
                               }}
@@ -1419,7 +1435,7 @@ export default function Home() {
                                   }}
                                 >
                                   <img
-                                    src="GgShare.svg"
+                                    src="WhhCopy.svg"
                                     alt="Copy transaction data"
                                     style={{ height: "20px" }}
                                   />
@@ -1505,7 +1521,7 @@ export default function Home() {
                 >
                   <img
                     src="gg_scan.svg"
-                    alt="Copy address"
+                    alt="Scan address"
                     className={styles.myImage}
                   />
                 </button>

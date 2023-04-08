@@ -135,8 +135,9 @@
 .yoyo {
   /* this is the adresses classe */
   font-size: 0.6em;
-  text-align: center;
+  text-align: start;
   color: #ccc;
+  margin: 0px 0px;
 }
 
 .messageContent {
@@ -175,7 +176,7 @@
   font-size: 0.7em;
   color: #00ffff;
   /* align-items: center; */
-  text-align: start;
+  text-align: end;
   /* font-style: italic; */
 }
 
