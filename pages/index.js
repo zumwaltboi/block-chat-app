@@ -23,6 +23,7 @@ export default function Home() {
   const [gif, setGif] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [isHelpVisible, setIsHelpVisible] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -164,6 +165,14 @@ export default function Home() {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleHelpClick = () => {
+    setIsHelpVisible(true);
+  };
+
+  const handleCloseClick = () => {
+    setIsHelpVisible(false);
   };
 
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
@@ -374,6 +383,7 @@ export default function Home() {
         <div>
           <h3>a cross-network discution explorer</h3>
         </div>
+
         {isDropdownOpen && (
           <div className={styles.myContainer}>
             <div className={styles.mySection}>
@@ -641,7 +651,67 @@ export default function Home() {
               />
             </a>
           </div>
-          <p>Enter an blockchain address:</p>
+
+          <div>
+            <p style={{ display: "flex", alignItems: "center" }}>
+              Enter a blockchain address:
+              <button
+                onClick={handleHelpClick}
+                type="button"
+                style={{
+                  all: "unset", // Reset all styles
+                  marginLeft: "3px",
+                  cursor: "pointer",
+                  // Adjust the margin as needed
+                }}
+              >
+                <img
+                  src="CarbonHelp.svg"
+                  alt="help"
+                  style={{ height: "20px" }}
+                />
+              </button>
+              {isHelpVisible && (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.6)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    zIndex: 9999,
+                  }}
+                >
+                  <div
+                    style={{
+                      backgroundColor: "#282c33ff",
+                      padding: "10px",
+                      borderRadius: "15px",
+                      maxWidth: "400px",
+                      border: "3px solid rgba(10, 202, 166, 1)",
+                      color: "#f2f2f2",
+                      marginBottom: "30em",
+                      marginLeft: "20px",
+                      marginRight: "20px",
+                    }}
+                    onClick={handleCloseClick}
+                  >
+                    <strong>main function:</strong>
+                    <p>
+                      Enter an address and retrieve the complete list of
+                      outgoing and ongoing messages associated with that
+                      account.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </p>
+          </div>
+
           <label className={styles.label}>
             <input
               type="text"
