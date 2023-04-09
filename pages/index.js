@@ -25,6 +25,7 @@ export default function Home() {
   const [isClicked, setIsClicked] = useState(false);
   const [isHelpVisible, setIsHelpVisible] = useState(false);
   const [isHelpVisible2, setIsHelpVisible2] = useState(false);
+  const [isHelpVisible3, setIsHelpVisible3] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -184,6 +185,14 @@ export default function Home() {
     setIsHelpVisible2(false);
   };
 
+  const handleHelpClick3 = () => {
+    setIsHelpVisible3(true);
+  };
+
+  const handleCloseClick3 = () => {
+    setIsHelpVisible3(false);
+  };
+
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
   const safemoon = "0x678ee23173dce625A90ED651E91CA5138149F590";
   const blockchat = "0xe03948003A4346fa8108f8DA1Cf3C12549f0542d";
@@ -274,47 +283,6 @@ export default function Home() {
         />
       </Head>
       <div className={styles.container}>
-        {/* <div
-          className={styles.header}
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          <a
-            style={{
-              textAlign: "center",
-              flex: 1,
-              alignItems: "center",
-              marginBottom: "20px",
-            }}
-            href="https://blockchat.auditutils.com/"
-          >
-            <img
-              style={{
-                maxWidth: "300px",
-                width: "100%",
-                margin: "0px",
-                padding: "0px",
-                textAlign: "center",
-                flex: 1,
-                alignItems: "center",
-                marginBottom: "20px",
-                // backgroundColor: "#282c33ff",
-                // borderRadius: "12px",
-                marginTop: "15px",
-
-                // filter: "blur(1px)",
-                // filter: "grayscale(100%)",
-                // filter: "opacity(30%)",
-              }}
-              src="logo_v4_long_01.svg"
-              alt="blockchat logo"
-            />
-          </a>
-        </div> */}
-        {/* <div className={styles.showExampleContainer}>
-          <div className={styles.myDropdown} onClick={toggleDropdown}>
-            Show examples
-          </div>
-        </div> */}
         <div className={styles.NewTitleContainer}>
           <div
             style={{
@@ -381,21 +349,119 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <div className={styles.settingsButtonContainer}>
-          <div className={styles.settingsButton} onClick={toggleDropdown}>
-            How to
-          </div>
-          <button className={styles.settingsButton} onClick={handleClick}>
-            Options
-          </button>
-        </div> */}
         <div>
           <h3>a cross-network discution explorer</h3>
         </div>
+        {isHelpVisible3 && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 9999,
+            }}
+            onClick={handleCloseClick3}
+          >
+            <div
+              style={{
+                backgroundColor: "#282c33ff",
+                padding: "20px",
+                borderRadius: "15px",
+                maxWidth: "400px",
+                border: "3px solid rgba(10, 202, 166, 1)",
+                color: "#f2f2f2",
+                marginBottom: "3rem",
+                marginLeft: "20px",
+                marginRight: "20px",
+                fontSize: "1.3em",
+                fontFamily: "monospace",
+              }}
+              onClick={handleCloseClick3}
+            >
+              <p>
+                <strong>Icons legend:</strong>
+              </p>
+              <ul>
+                <li>
+                  click <img src="CarbonZoomFit.svg" width="18px" /> to replace
+                  the primary address{" "}
+                </li>
+                <li>
+                  click <img src="CarbonZoomIn.svg" width="18px" /> to place a
+                  secondary address{" "}
+                </li>
+                <li>
+                  click <img src="CarbonCopy.svg" width="18px" /> to copy to
+                  clipboard{" "}
+                </li>
+                <li>
+                  click <img src="etherscan-logo-circle.png" width="18px" /> to
+                  go on etherscan{" "}
+                </li>
 
+                <li>
+                  click <img src="telegram.png" width="18px" /> to share on
+                  Telegram{" "}
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
         {isDropdownOpen && (
           <div className={styles.myContainer}>
-            <div className={styles.mySection}>
+            <div style={{ marginTop: "0px" }}>
+              <ul className={styles.myTitle}>
+                <li>
+                  click <img src="CarbonZoomFit.svg" width="18px" /> to replace
+                  the primary address{" "}
+                </li>
+                <hr className={styles.myHr} />
+
+                <li>
+                  click on &quot;<strong>Titles</strong>&quot; to get press
+                  articles about the event{" "}
+                </li>
+              </ul>
+              <hr className={styles.myHr} />
+            </div>
+
+            <div>
+              <p className={styles.myTitle}>
+                <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                  <strong>Euler</strong> exploiter address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xb66cd966670d962C227B3EABA30a872DbFb995db
+                </p>
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xb66cd966670d962C227B3EABA30a872DbFb995db"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
                   <strong>Safemoon</strong> exploiter address:
@@ -426,39 +492,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
+
             <hr className={styles.myHr} />
-            <div className={styles.mySection}>
-              <p className={styles.myTitle}>
-                <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-                  <strong>Euler</strong> exploiter address:
-                </a>
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xb66cd966670d962C227B3EABA30a872DbFb995db
-                </p>
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xb66cd966670d962C227B3EABA30a872DbFb995db"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
-            <hr className={styles.myHr} />
-            <div className={styles.mySection}>
+            <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/wormhole-rekt/" target={"_blank"}>
                   <strong>Wormhole</strong> attacker address:
@@ -490,10 +526,10 @@ export default function Home() {
               </div>
             </div>
             <hr className={styles.myHr} />
-            <div className={styles.mySection}>
+            <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/ronin-rekt/" target={"_blank"}>
-                  <strong>Ronin</strong> attaker address:
+                  <strong>Ronin</strong> attacker address:
                 </a>
               </p>
               <div className={styles.myContent}>
@@ -522,7 +558,7 @@ export default function Home() {
               </div>
             </div>
             <hr className={styles.myHr} />
-            <div className={styles.mySection}>
+            <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/polynetwork-rekt/" target={"_blank"}>
                   <strong>PolyNetwork</strong> remaining funds adresses:
@@ -601,53 +637,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div>
-              <hr className={styles.myHr} />
-
-              <p className={styles.myTitle}>
-                <strong>Icons legend:</strong>
-              </p>
-              <ul className={styles.myTitle}>
-                <li>
-                  click <img src="CarbonZoomFit.svg" width="12px" /> to replace
-                  the primary address{" "}
-                </li>
-                <li>
-                  click <img src="CarbonZoomIn.svg" width="12px" /> to place a
-                  secondary address{" "}
-                </li>
-                <li>
-                  click <img src="CarbonCopy.svg" width="12px" /> to copy to
-                  clipboard{" "}
-                </li>
-                <li>
-                  click on &quot;<strong>Titles</strong>&quot; to get press
-                  articles{" "}
-                </li>
-              </ul>
-              <hr className={styles.myHr} />
-
-              <p className={styles.myTitle}>
-                <strong>main function:</strong>
-              </p>
-              <ul className={styles.myTitle}>
-                <li>
-                  Enter an address and retrieve the complete list of outgoing
-                  and ongoing messages associated with that account.
-                </li>
-              </ul>
-
-              <p className={styles.myTitle}>
-                <strong>advanced function:</strong>
-              </p>
-              <ul className={styles.myTitle}>
-                <li>
-                  To retrieve the conversation between two accounts, please
-                  provide the secondary address along with the primary address
-                  for which you want to obtain the conversation.
-                </li>
-              </ul>
-            </div>
+            <hr className={styles.myHr} />
           </div>
         )}
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -695,6 +685,7 @@ export default function Home() {
                   alignItems: "center",
                   zIndex: 9999,
                 }}
+                onClick={handleCloseClick}
               >
                 <div
                   style={{
@@ -808,6 +799,7 @@ export default function Home() {
                 alignItems: "center",
                 zIndex: 9999,
               }}
+              onClick={handleCloseClick2}
             >
               <div
                 style={{
@@ -887,17 +879,7 @@ export default function Home() {
 
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h3
-            // style={{
-            //   color: "#f0fff0",
-            //   fontFamily: "monospace",
-            //   backgroundColor: "#282c33",
-            //   borderRadius: "15px",
-            //   width: "auto",
-            // }}
-            >
-              conversation
-            </h3>
+            <h3>conversation</h3>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
@@ -919,6 +901,24 @@ export default function Home() {
                       {transaction.from === address ? (
                         <div>
                           <p className={styles.timestamp}>
+                            <button
+                              className={styles.myBtn}
+                              onClick={(event) => {
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                // marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUp.svg"
+                                alt="top"
+                                style={{ height: "18px" }}
+                              />
+                            </button>{" "}
                             {transaction.timestamp}
                             {", "}$:{transaction.value}
                             <button
@@ -964,21 +964,19 @@ export default function Home() {
                               />
                             </button>{" "}
                             <button
-                              className={styles.myBtn}
-                              onClick={(event) => {
-                                window.scrollTo(0, 0);
-                              }}
+                              onClick={handleHelpClick3}
+                              type="button"
                               style={{
-                                border: "none",
-                                background: "none",
+                                all: "unset", // Reset all styles
+                                marginLeft: "3px",
                                 cursor: "pointer",
-                                // marginLeft: "20px",
+                                // Adjust the margin as needed
                               }}
                             >
                               <img
-                                src="CarbonArrowUp.svg"
-                                alt="top"
-                                style={{ height: "18px" }}
+                                src="CarbonHelp.svg"
+                                alt="help"
+                                style={{ height: "20px" }}
                               />
                             </button>
                           </p>
@@ -1291,6 +1289,24 @@ export default function Home() {
                       ) : (
                         <div>
                           <p className={styles.timestamp}>
+                            <button
+                              className={styles.myBtn}
+                              onClick={(event) => {
+                                window.scrollTo(0, 0);
+                              }}
+                              style={{
+                                border: "none",
+                                background: "none",
+                                cursor: "pointer",
+                                // marginLeft: "20px",
+                              }}
+                            >
+                              <img
+                                src="CarbonArrowUp.svg"
+                                alt="top"
+                                style={{ height: "18px" }}
+                              />
+                            </button>{" "}
                             {transaction.timestamp}
                             {", "}$:{transaction.value}
                             <button
@@ -1336,21 +1352,19 @@ export default function Home() {
                               />
                             </button>{" "}
                             <button
-                              className={styles.myBtn}
-                              onClick={(event) => {
-                                window.scrollTo(0, 0);
-                              }}
+                              onClick={handleHelpClick3}
+                              type="button"
                               style={{
-                                border: "none",
-                                background: "none",
+                                all: "unset", // Reset all styles
+                                marginLeft: "3px",
                                 cursor: "pointer",
-                                // marginLeft: "20px",
+                                // Adjust the margin as needed
                               }}
                             >
                               <img
-                                src="CarbonArrowUp.svg"
-                                alt="top"
-                                style={{ height: "18px" }}
+                                src="CarbonHelp.svg"
+                                alt="help"
+                                style={{ height: "20px" }}
                               />
                             </button>
                           </p>
@@ -1669,44 +1683,6 @@ export default function Home() {
             </ListGroup>
           </div>
         )}
-        <div>
-          {/* <div className={styles.myContainer}>
-            <p className={styles.myTitle}>
-              Explore chat related to this account through different
-              blockchains:
-            </p>
-            <div className={styles.mySection}>
-              <p className={styles.myTitle}>
-                <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
-                  <strong>Euler</strong> exploiter address:
-                </a>
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xb66cd966670d962C227B3EABA30a872DbFb995db
-                </p>
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xb66cd966670d962C227B3EABA30a872DbFb995db"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
-          </div> */}
-        </div>
 
         <div style={{ flex: 1, textAlign: "center" }}>
           <a

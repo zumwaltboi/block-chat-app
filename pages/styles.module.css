@@ -418,7 +418,12 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  /* margin: 30px auto; */
+}
+
+.myContainer div {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .myContainer h3 {
@@ -439,15 +444,18 @@
   font-family: monospace;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 1.3em;
+  padding-top: 10px;
 }
 
 .myContent {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end; /* Add this property */
-  margin-left: auto; /* Add this property */
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .myParagraph {
@@ -465,7 +473,6 @@
   cursor: pointer;
   margin-left: auto;
   color: #f2f2f2;
-  /* margin-top: 10px; */
   display: flex;
   text-align: end;
 }
@@ -493,8 +500,11 @@
 
 .myAddress {
   word-break: break-all;
-  font-size: 14px;
-  width: auto; /* add a fixed width */
+  font-size: 0.8em;
+  width: auto;
+  margin: 0;
+  margin-top: -20px;
+  text-align: start;
 }
 
 .myDropdown {
