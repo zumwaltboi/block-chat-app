@@ -11,6 +11,8 @@ import {
   getTransactions8,
   getTransactions9,
   getTransactions10,
+  getTransactions11,
+  getTransactions12,
 } from "../lib/eth";
 import styles from "./styles.module.css";
 import Head from "next/head";
@@ -96,6 +98,12 @@ export default function Home() {
           break;
         case "optimistic-goerli":
           transactions = await getTransactions10(address, address2);
+          break;
+        case "arbitrum":
+          transactions = await getTransactions11(address, address2);
+          break;
+        case "arbitrum-goerli":
+          transactions = await getTransactions12(address, address2);
           break;
         default:
           throw new Error(`Invalid network: ${network}`);
@@ -462,7 +470,10 @@ export default function Home() {
 
             <div>
               <p className={styles.myTitle}>
-                <a href="https://rekt.news/euler-rekt/" target={"_blank"}>
+                <a
+                  href="https://decrypt.co/125373/euler-finance-exploiter-returns-recoverable-funds-200m-hack"
+                  target={"_blank"}
+                >
                   <strong>Euler</strong> exploiter address:
                 </a>
               </p>
@@ -593,7 +604,7 @@ export default function Home() {
                   href="https://rekt.news/orion-protocol-rekt/"
                   target={"_blank"}
                 >
-                  <strong>Orion protocol</strong> attacker addresses:
+                  <strong>Orion protocol</strong> attacker address:
                 </a>
               </p>
               <div className={styles.myContent}>
@@ -721,6 +732,146 @@ export default function Home() {
                       "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                     );
                     searchParams.set("network", "polygon-zkevm");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
+                <a
+                  href="https://en.wikipedia.org/wiki/Neymar"
+                  target={"_blank"}
+                >
+                  <strong>Neymar</strong> address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xc4505db8cc490767fa6f4b6f0f2bdd668b357a5d
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xc4505db8cc490767fa6f4b6f0f2bdd668b357a5d"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
+                <a
+                  href="https://en.wikipedia.org/wiki/Justin_Bieber"
+                  target={"_blank"}
+                >
+                  <strong>Justin Bieber</strong> address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xe21dc18513e3e68a52f9fcdacfd56948d43a11c6
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xe21dc18513e3e68a52f9fcdacfd56948d43a11c6"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
+                <a
+                  href="https://en.wikipedia.org/wiki/Logan_Paul"
+                  target={"_blank"}
+                >
+                  <strong>Paul Logan</strong> address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xff0bd4aa3496739d5667adc10e2b843dfab5712b
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xff0bd4aa3496739d5667adc10e2b843dfab5712b"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
+                <a
+                  href="https://en.wikipedia.org/wiki/Snoop_Dogg"
+                  target={"_blank"}
+                >
+                  <strong>Snoop Dogg</strong> address:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xce90a7949bb78892f159f428d0dc23a8e3584d75
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xce90a7949bb78892f159f428d0dc23a8e3584d75"
+                    );
+                    searchParams.set("network", "mainnet");
                     window.location.href = `?${searchParams.toString()}`;
                   }}
                   className={styles.myButton}
@@ -945,8 +1096,8 @@ export default function Home() {
               className={styles.networkSelect}
             >
               <option value="mainnet">Ethereum</option>
-              <option value="goerli">Goerli testnet</option>
-              <option value="sepolia">Sepolia testnet</option>
+              <option value="goerli">Eth Goerli</option>
+              <option value="sepolia">Eth Sepolia</option>
               <option value="bsc">Bsc</option>
               <option value="bsc-testnet">Bsc testnet</option>
               <option value="polygon">Polygon</option>
@@ -954,6 +1105,8 @@ export default function Home() {
               <option value="polygon-zkevm">Polygon zkEVM</option>
               <option value="optimistic">Optimism</option>
               <option value="optimistic-goerli">Optimism Goerli</option>
+              <option value="arbitrum">Arbitrum</option>
+              <option value="arbitrum-goerli">Arbitrum Goerli</option>
             </select>
           </div>
 
@@ -1042,6 +1195,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/tx/${transaction.hash}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/tx/${transaction.hash}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/tx/${transaction.hash}`;
                                 }
 
                                 if (etherscanUrl !== "") {
@@ -1166,6 +1323,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.from}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/address/${transaction.from}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1273,6 +1434,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.to}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/address/${transaction.to}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1449,6 +1614,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/tx/${transaction.hash}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/tx/${transaction.hash}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/tx/${transaction.hash}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1573,6 +1742,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.from}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/address/${transaction.from}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1601,7 +1774,7 @@ export default function Home() {
                           </p>
 
                           <p className={styles.yoyo}>
-                            <strong> To: </strong> {transaction.to}
+                            <strong>To:</strong> {transaction.to}
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.to);
@@ -1681,6 +1854,10 @@ export default function Home() {
                                   etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.to}`;
                                 } else if (network === "optimistic-goerli") {
                                   etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "arbitrum") {
+                                  etherscanUrl = `https://arbiscan.io/address/${transaction.to}`;
+                                } else if (network === "arbitrum-goerli") {
+                                  etherscanUrl = `https://goerli.arbiscan.io/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
