@@ -1720,7 +1720,7 @@ export default function Home() {
                 alignItems: "center",
                 // backgroundColor: "#282c33ff",
                 // borderRadius: "9px",
-                marginTop: "10px",
+                marginTop: "5px",
               }}
               src="logo_v4_512_01.png"
               alt="blockchat logo"
@@ -1736,7 +1736,7 @@ export default function Home() {
             padding: "0px 10px",
           }}
         >
-          <div className={styles.mySection}>
+          <div className={styles.mySection} style={{ marginTop: "0px" }}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
                 <strong>BlockChat</strong> address:
@@ -1775,8 +1775,38 @@ export default function Home() {
             fontFamily: "monospace",
           }}
         >
-          2023 BlockChat by AuditUtils.com
+          2023 BlockChat by{" "}
+          <a href="https://auditutils.com" target="_blank">
+            AuditUtils
+          </a>
         </h3>
+        <p
+          style={{
+            color: "#00ffff",
+            marginTop: "10px",
+            textAlign: "center",
+            fontFamily: "monospace",
+          }}
+        >
+          <button
+            onClick={handleHelpClick4}
+            type="button"
+            style={{
+              all: "unset", // Reset all styles
+              marginLeft: "3px",
+              cursor: "pointer",
+              // Adjust the margin as needed
+            }}
+          >
+            feedback page
+            <img
+              src="CarbonDataTableReference.svg"
+              alt="help"
+              style={{ height: "20px" }}
+            />
+          </button>
+        </p>
+
         <div
           // className={styles.header}
           style={{
@@ -1787,23 +1817,6 @@ export default function Home() {
             // padding: "20px",
           }}
         >
-          {/* <button
-            onClick={handleHelpClick4}
-            type="button"
-            style={{
-              all: "unset", // Reset all styles
-              marginLeft: "3px",
-              cursor: "pointer",
-              // Adjust the margin as needed
-            }}
-          >
-            <img
-              src="CarbonDataTableReference.svg"
-              alt="help"
-              style={{ height: "20px" }}
-            />
-          </button> */}
-
           <a href="https://auditutils.com/">
             <img
               className={styles["profile-image-user137"]}
@@ -1819,9 +1832,8 @@ export default function Home() {
             />
           </a>
         </div>
-        {/* {isHelpVisible4 && (
+        {isHelpVisible4 && (
           <div
-            onClick={handleCloseClick4}
             style={{
               position: "fixed",
               top: 0,
@@ -1854,9 +1866,27 @@ export default function Home() {
               }}
             >
               <p>user137@protonmail.com</p>
+              <a
+                className={styles.settingsButton}
+                href="mailto:user137@protonmail.com"
+                style={{ marginTop: "20px", textAlign: "center" }}
+              >
+                send email
+              </a>
+              <button
+                onClick={handleCloseClick4}
+                className={styles.settingsButton}
+                style={{
+                  textAlign: "center",
+                  marginTop: "20px",
+                  fontFamily: "monospace",
+                }}
+              >
+                close
+              </button>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
