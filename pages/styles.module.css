@@ -347,6 +347,7 @@
   padding: 6px;
   max-height: 48px;
   background-color: #282c33;
+  text-align: center;
 }
 
 .networkSelect {

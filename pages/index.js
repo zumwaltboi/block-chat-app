@@ -26,6 +26,8 @@ export default function Home() {
   const [isHelpVisible, setIsHelpVisible] = useState(false);
   const [isHelpVisible2, setIsHelpVisible2] = useState(false);
   const [isHelpVisible3, setIsHelpVisible3] = useState(false);
+  const [isHelpVisible4, setIsHelpVisible4] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -191,6 +193,21 @@ export default function Home() {
 
   const handleCloseClick3 = () => {
     setIsHelpVisible3(false);
+  };
+
+  const handleHelpClick4 = () => {
+    setIsHelpVisible4(true);
+  };
+
+  const handleCloseClick4 = () => {
+    setIsHelpVisible4(false);
+  };
+
+  const handleFeedbackSubmit = (e) => {
+    e.preventDefault();
+    // Use the feedback state to send feedback via mailto link
+    window.location.href = `mailto:user137@protonmail.com?subject=Feedback&body=${feedback}`;
+    setIsHelpVisible4(false);
   };
 
   const euler = "0xb66cd966670d962C227B3EABA30a872DbFb995db";
@@ -1713,7 +1730,11 @@ export default function Home() {
 
         <div
           className={styles.myContainer}
-          style={{ backgroundColor: "transparent", marginTop: "10px" }}
+          style={{
+            backgroundColor: "transparent",
+            marginTop: "10px",
+            padding: "0px 10px",
+          }}
         >
           <div className={styles.mySection}>
             <p className={styles.myTitle}>
@@ -1762,13 +1783,30 @@ export default function Home() {
             // display: "flex",
             alignItems: "center",
             marginTop: "60px",
-            textAlign: "end",
+            textAlign: "center",
             // padding: "20px",
           }}
         >
+          {/* <button
+            onClick={handleHelpClick4}
+            type="button"
+            style={{
+              all: "unset", // Reset all styles
+              marginLeft: "3px",
+              cursor: "pointer",
+              // Adjust the margin as needed
+            }}
+          >
+            <img
+              src="CarbonDataTableReference.svg"
+              alt="help"
+              style={{ height: "20px" }}
+            />
+          </button> */}
+
           <a href="https://auditutils.com/">
             <img
-              className={styles["profile-image-au"]}
+              className={styles["profile-image-user137"]}
               src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
               alt="auditutils logo pixel"
             />
@@ -1781,6 +1819,44 @@ export default function Home() {
             />
           </a>
         </div>
+        {/* {isHelpVisible4 && (
+          <div
+            onClick={handleCloseClick4}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 9999,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#282c33ff",
+                padding: "20px",
+                borderRadius: "15px",
+                maxWidth: "400px",
+                border: "3px solid rgba(10, 202, 166, 1)",
+                color: "#f2f2f2",
+                marginBottom: "3rem",
+                marginLeft: "20px",
+                marginRight: "20px",
+                fontSize: "1.3em",
+                fontFamily: "monospace",
+                display: "flex", // Add this
+                flexDirection: "column", // Add this
+                alignItems: "center", // Add this
+              }}
+            >
+              <p>user137@protonmail.com</p>
+            </div>
+          </div>
+        )} */}
       </div>
     </div>
   );
