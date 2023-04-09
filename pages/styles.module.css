@@ -501,10 +501,10 @@
 
 .myAddress {
   word-break: break-all;
-  font-size: 0.9em;
+  font-size: 0.8em;
   width: auto;
   margin: 0;
-  margin-top: -20px;
+  margin-top: -10px;
   text-align: start;
 }
 

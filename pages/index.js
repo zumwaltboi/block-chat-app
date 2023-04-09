@@ -473,8 +473,9 @@ export default function Home() {
                   href="https://decrypt.co/125373/euler-finance-exploiter-returns-recoverable-funds-200m-hack"
                   target={"_blank"}
                 >
-                  <strong>Euler</strong> exploiter address:
+                  <strong>Euler</strong>{" "}
                 </a>
+                exploiter address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -503,8 +504,9 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/safemoon-rekt/" target={"_blank"}>
-                  <strong>Safemoon</strong> exploiter address:
-                </a>
+                  <strong>Safemoon</strong>
+                </a>{" "}
+                exploiter address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -536,8 +538,9 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/wormhole-rekt/" target={"_blank"}>
-                  <strong>Wormhole</strong> attacker address:
-                </a>
+                  <strong>Wormhole</strong>
+                </a>{" "}
+                attacker address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -568,8 +571,9 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/ronin-rekt/" target={"_blank"}>
-                  <strong>Ronin</strong> attacker address:
+                  <strong>Ronin</strong>{" "}
                 </a>
+                attacker address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -603,8 +607,9 @@ export default function Home() {
                   href="https://rekt.news/orion-protocol-rekt/"
                   target={"_blank"}
                 >
-                  <strong>Orion protocol</strong> attacker address:
-                </a>
+                  <strong>Orion protocol</strong>
+                </a>{" "}
+                attacker address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -635,8 +640,9 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a href="https://rekt.news/polynetwork-rekt/" target={"_blank"}>
-                  <strong>PolyNetwork</strong> remaining funds adresses:
+                  <strong>PolyNetwork</strong>{" "}
                 </a>
+                remaining funds adresses:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -715,8 +721,9 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a href="https://twitter.com/VitalikButerin" target={"_blank"}>
-                  <strong>Vitalik Buterin</strong> Ethereum creator:
-                </a>
+                  <strong>Vitalik Buterin</strong>
+                </a>{" "}
+                Ethereum creator:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -750,8 +757,9 @@ export default function Home() {
                   href="https://en.wikipedia.org/wiki/Neymar"
                   target={"_blank"}
                 >
-                  <strong>Neymar</strong> address:
-                </a>
+                  <strong>Neymar</strong>{" "}
+                </a>{" "}
+                address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -785,8 +793,9 @@ export default function Home() {
                   href="https://en.wikipedia.org/wiki/Justin_Bieber"
                   target={"_blank"}
                 >
-                  <strong>Justin Bieber</strong> address:
+                  <strong>Justin Bieber</strong>{" "}
                 </a>
+                address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -820,8 +829,9 @@ export default function Home() {
                   href="https://en.wikipedia.org/wiki/Logan_Paul"
                   target={"_blank"}
                 >
-                  <strong>Paul Logan</strong> address:
-                </a>
+                  <strong>Paul Logan</strong>
+                </a>{" "}
+                address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
@@ -855,8 +865,9 @@ export default function Home() {
                   href="https://en.wikipedia.org/wiki/Snoop_Dogg"
                   target={"_blank"}
                 >
-                  <strong>Snoop Dogg</strong> address:
-                </a>
+                  <strong>Snoop Dogg</strong>
+                </a>{" "}
+                address:
               </p>
               <div className={styles.myContent}>
                 <p className={styles.myAddress}>
