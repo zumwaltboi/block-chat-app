@@ -8,6 +8,9 @@ import {
   getTransactions5,
   getTransactions6,
   getTransactions7,
+  getTransactions8,
+  getTransactions9,
+  getTransactions10,
 } from "../lib/eth";
 import styles from "./styles.module.css";
 import Head from "next/head";
@@ -84,6 +87,15 @@ export default function Home() {
           break;
         case "polygon-testnet":
           transactions = await getTransactions7(address, address2);
+          break;
+        case "polygon-zkevm":
+          transactions = await getTransactions8(address, address2);
+          break;
+        case "optimistic":
+          transactions = await getTransactions9(address, address2);
+          break;
+        case "optimistic-goerli":
+          transactions = await getTransactions10(address, address2);
           break;
         default:
           throw new Error(`Invalid network: ${network}`);
@@ -577,6 +589,41 @@ export default function Home() {
             <hr className={styles.myHr} />
             <div>
               <p className={styles.myTitle}>
+                <a
+                  href="https://rekt.news/orion-protocol-rekt/"
+                  target={"_blank"}
+                >
+                  <strong>Orion protocol</strong> attacker addresses:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0x3dabf5e36df28f6064a7c5638d0c4e01539e35f1
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0x3dabf5e36df28f6064a7c5638d0c4e01539e35f1"
+                    );
+                    searchParams.set("network", "mainnet");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
+            <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
                 <a href="https://rekt.news/polynetwork-rekt/" target={"_blank"}>
                   <strong>PolyNetwork</strong> remaining funds adresses:
                 </a>
@@ -655,6 +702,37 @@ export default function Home() {
               </div>
             </div>
             <hr className={styles.myHr} />
+            <div>
+              <p className={styles.myTitle}>
+                <a href="https://twitter.com/VitalikButerin" target={"_blank"}>
+                  <strong>Vitalik Buterin</strong> Ethereum creator:
+                </a>
+              </p>
+              <div className={styles.myContent}>
+                <p className={styles.myAddress}>
+                  0xd8da6bf26964af9d7eed9e03e53415d37aa96045
+                </p>
+
+                <button
+                  onClick={(event) => {
+                    const searchParams = new URLSearchParams();
+                    searchParams.set(
+                      "address",
+                      "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                    );
+                    searchParams.set("network", "polygon-zkevm");
+                    window.location.href = `?${searchParams.toString()}`;
+                  }}
+                  className={styles.myButton}
+                >
+                  <img
+                    src="CarbonZoomFit.svg"
+                    alt="Scan address"
+                    className={styles.myImage}
+                  />
+                </button>
+              </div>
+            </div>
           </div>
         )}
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -872,7 +950,10 @@ export default function Home() {
               <option value="bsc">Bsc</option>
               <option value="bsc-testnet">Bsc testnet</option>
               <option value="polygon">Polygon</option>
-              <option value="polygon-testnet">Polygon testnet</option>
+              <option value="polygon-testnet">Polygon mumbai</option>
+              <option value="polygon-zkevm">Polygon zkEVM</option>
+              <option value="optimistic">Optimism</option>
+              <option value="optimistic-goerli">Optimism Goerli</option>
             </select>
           </div>
 
@@ -955,7 +1036,14 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/tx/${transaction.hash}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/tx/${transaction.hash}`;
                                 }
+
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
                                 }
@@ -1072,6 +1160,12 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/address/${transaction.from}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1173,6 +1267,12 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/address/${transaction.to}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1343,6 +1443,12 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/tx/${transaction.hash}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/tx/${transaction.hash}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/tx/${transaction.hash}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/tx/${transaction.hash}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1461,6 +1567,12 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/address/${transaction.from}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/address/${transaction.from}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.from}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.from}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1563,6 +1675,12 @@ export default function Home() {
                                   etherscanUrl = `https://polygonscan.com/address/${transaction.to}`;
                                 } else if (network === "polygon-testnet") {
                                   etherscanUrl = `https://mumbai.polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "polygon-zkevm") {
+                                  etherscanUrl = `https://zkevm.polygonscan.com/address/${transaction.to}`;
+                                } else if (network === "optimistic") {
+                                  etherscanUrl = `https://optimistic.etherscan.io/address/${transaction.to}`;
+                                } else if (network === "optimistic-goerli") {
+                                  etherscanUrl = `https://goerli-optimistic.etherscan.io/address/${transaction.to}`;
                                 }
                                 if (etherscanUrl !== "") {
                                   window.open(etherscanUrl, "_blank");
@@ -1783,8 +1901,8 @@ export default function Home() {
         <p
           style={{
             color: "#00ffff",
-            marginTop: "10px",
-            textAlign: "center",
+            marginTop: "60px",
+            textAlign: "end",
             fontFamily: "monospace",
           }}
         >
@@ -1798,11 +1916,10 @@ export default function Home() {
               // Adjust the margin as needed
             }}
           >
-            feedback page
             <img
-              src="CarbonDataTableReference.svg"
-              alt="help"
-              style={{ height: "20px" }}
+              src="CarbonEmail (1).svg"
+              alt="Contact"
+              style={{ height: "48px" }}
             />
           </button>
         </p>
@@ -1812,8 +1929,8 @@ export default function Home() {
           style={{
             // display: "flex",
             alignItems: "center",
-            marginTop: "60px",
-            textAlign: "center",
+            marginTop: "30px",
+            textAlign: "end",
             // padding: "20px",
           }}
         >
@@ -1871,7 +1988,7 @@ export default function Home() {
                 href="mailto:user137@protonmail.com"
                 style={{ marginTop: "20px", textAlign: "center" }}
               >
-                send email
+                Send email
               </a>
               <button
                 onClick={handleCloseClick4}
@@ -1882,7 +1999,7 @@ export default function Home() {
                   fontFamily: "monospace",
                 }}
               >
-                close
+                Close
               </button>
             </div>
           </div>
