@@ -461,8 +461,7 @@ export default function Home() {
                 <hr className={styles.myHr} />
 
                 <li>
-                  click on &quot;<strong>Titles</strong>&quot; to get press
-                  articles about the event{" "}
+                  click on &quot;<strong>Titles</strong>&quot; to get articles{" "}
                 </li>
               </ul>
               <hr className={styles.myHr} />
