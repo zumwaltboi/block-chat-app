@@ -754,7 +754,7 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a
-                  href="https://en.wikipedia.org/wiki/Neymar"
+                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
                   target={"_blank"}
                 >
                   <strong>Neymar</strong>{" "}
@@ -790,7 +790,7 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a
-                  href="https://en.wikipedia.org/wiki/Justin_Bieber"
+                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
                   target={"_blank"}
                 >
                   <strong>Justin Bieber</strong>{" "}
@@ -826,7 +826,7 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a
-                  href="https://en.wikipedia.org/wiki/Logan_Paul"
+                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
                   target={"_blank"}
                 >
                   <strong>Paul Logan</strong>
@@ -862,7 +862,7 @@ export default function Home() {
             <div>
               <p className={styles.myTitle}>
                 <a
-                  href="https://en.wikipedia.org/wiki/Snoop_Dogg"
+                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
                   target={"_blank"}
                 >
                   <strong>Snoop Dogg</strong>
