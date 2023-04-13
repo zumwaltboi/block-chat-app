@@ -493,6 +493,10 @@
   margin-left: -7px;
 }
 
+.myResetImage:hover {
+  filter: brightness(150%); /* Adjust the filter properties as needed */
+}
+
 .myHr {
   margin: 10px 0;
   border: none;
