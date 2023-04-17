@@ -24,13 +24,14 @@ The following are the planned features and goals for BlockChat:
 
 ## Installation
 
-You should add .env.local file in the root folder with your etherscan api and respective networks:
-ETHEREUM_API_KEY=[YOUR_API_KEY]
-BSC_API_KEY=[YOUR_API_KEY]
-POLYGON_API_KEY=[YOUR_API_KEY]
-POLYGON_ZKEVM_API_KEY=[YOUR_API_KEY]
-OPTIMISM_API_KEY=[YOUR_API_KEY]
-ARBITRUM_API_KEY=[YOUR_API_KEY]
+You should add .env.local file in the root folder with your api for respective networks:
+
+- ETHEREUM_API_KEY=[YOUR_API_KEY]
+- BSC_API_KEY=[YOUR_API_KEY]
+- POLYGON_API_KEY=[YOUR_API_KEY]
+- POLYGON_ZKEVM_API_KEY=[YOUR_API_KEY]
+- OPTIMISM_API_KEY=[YOUR_API_KEY]
+- ARBITRUM_API_KEY=[YOUR_API_KEY]
 
 To get started, please run the following commands:
 
@@ -48,7 +49,9 @@ Contributions are welcome! If you would like to contribute to BlockChat, please 
 
 For any inquiries or feedback, please contact user137 at user137@protonmail.com or visit the [AuditUtils blog](https://auditutils.com) for more information.
 
+<div align="center">
 <img src="https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_square_01.svg" alt="BlockChat Logo">
+</div>
 
 ## License
 
