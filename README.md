@@ -6,7 +6,7 @@
 
 BlockChat is an open-source app developed by user137 from AuditUtils. It is a cross-network discussions explorer, built using Next.js, Node.js, and the etherscan API.
 
-## address:
+## Address:
 
 https://blockchat.auditutils.com/
 
