@@ -16,8 +16,8 @@ https://blockchat.auditutils.com/
 - Isolate conversation between two addresses or isolate self-conversation on one address by specifying a secondary address in the advanced menu.
 - User-friendly interface: BlockChat features a user-friendly interface that is easy to use and navigate, making it accessible to both technical and non-technical users.
 
-  <video width="320" height="240" controls>
-  <source src="./bc-demo-advanced.mp4" type="video/mp4">
+  <video width="320" height="640" controls>
+  <source src="https://github.com/gituser6hij/block-chat-app/blob/main/public/bc-demo-advanced.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
