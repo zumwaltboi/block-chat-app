@@ -1,5 +1,4 @@
 ![BlockChat Logo](https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg)
-<img src="https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg" alt="BlockChat Logo">
 
 # BlockChat
 
@@ -48,6 +47,8 @@ Contributions are welcome! If you would like to contribute to BlockChat, please 
 ## Contact
 
 For any inquiries or feedback, please contact user137 at user137@protonmail.com or visit the [AuditUtils blog](https://auditutils.com) for more information.
+
+<img src="https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_square_01.svg" alt="BlockChat Logo">
 
 ## License
 
