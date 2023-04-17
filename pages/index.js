@@ -1256,6 +1256,8 @@ export default function Home() {
 
                           <p className={styles.yoyo}>
                             <strong>From:</strong> {transaction.from}
+                          </p>
+                          <p>
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.from);
@@ -1366,6 +1368,8 @@ export default function Home() {
 
                           <p className={styles.yoyo}>
                             <strong>To:</strong> {transaction.to}
+                          </p>
+                          <p>
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.to);
@@ -1674,6 +1678,8 @@ export default function Home() {
 
                           <p className={styles.yoyo}>
                             <strong>From:</strong> {transaction.from}
+                          </p>
+                          <p>
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.from);
@@ -1785,6 +1791,8 @@ export default function Home() {
 
                           <p className={styles.yoyo}>
                             <strong>To:</strong> {transaction.to}
+                          </p>
+                          <p>
                             <button
                               onClick={(event) => {
                                 setAddress(transaction.to);
