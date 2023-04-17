@@ -339,6 +339,11 @@
   background-color: #282c33;
 }
 
+.profile-image-user137:hover {
+  border: 3px solid #00ffff;
+  background-color: #102e4b;
+}
+
 .profile-image-au {
   max-width: 96px;
   border-radius: 15px;

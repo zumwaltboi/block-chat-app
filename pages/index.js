@@ -2085,7 +2085,7 @@ export default function Home() {
             AuditUtils
           </a>
         </h3>
-        <p
+        {/* <p
           style={{
             color: "#00ffff",
             marginTop: "60px",
@@ -2109,18 +2109,25 @@ export default function Home() {
               style={{ height: "48px" }}
             />
           </button>
-        </p>
+        </p> */}
 
         <div
           // className={styles.header}
           style={{
             // display: "flex",
             alignItems: "center",
-            marginTop: "30px",
-            textAlign: "end",
+            marginTop: "60px",
+            textAlign: "center",
             // padding: "20px",
           }}
         >
+          <a href="https://github.com/gituser6hij/block-chat-app">
+            <img
+              className={styles["profile-image-user137"]}
+              src="CarbonLogoGithub.svg"
+              alt="user137 Profile Picture"
+            />
+          </a>
           <a href="https://auditutils.com/">
             <img
               className={styles["profile-image-user137"]}
@@ -2135,6 +2142,23 @@ export default function Home() {
               alt="user137 Profile Picture"
             />
           </a>
+          <button
+            onClick={handleHelpClick4}
+            type="button"
+            style={{
+              all: "unset", // Reset all styles
+              // marginLeft: "20px",
+              cursor: "pointer",
+              // Adjust the margin as needed
+            }}
+          >
+            <img
+              src="CarbonEmail (1).svg"
+              alt="Contact"
+              style={{ height: "48px" }}
+              className={styles["profile-image-user137"]}
+            />
+          </button>
         </div>
         {isHelpVisible4 && (
           <div
