@@ -135,7 +135,7 @@
 .yoyo {
   /* this is the adresses classe */
   font-size: 0.6em;
-  text-align: center;
+  text-align: start;
   color: #ccc;
   margin: 0px 0px;
   /* display: flex;
