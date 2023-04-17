@@ -1,38 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BlockChat
 
-## Getting Started
+BlockChat is an open-source app developed by user137 from AuditUtils. It is a cross-network discussions explorer, built using Next.js, Node.js, and the etherscan API.
 
-First, run the development server:
+## address:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+https://blockchat.auditutils.com/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Gather all messages incoming and outgoing from an address on 12 networks: Ethereum, ETH Goerli, ETH Sepolia, BSC, BSC-testnet, Polygon, Mumbai, Polygon-zkEVM, Arbitrum, Arbitrum-testnet, Optimism, Optimism-testnet.
+- Isolate conversation between two addresses or isolate self-conversation on one address by specifying a secondary address in the advanced menu.
+- User-friendly interface: BlockChat features a user-friendly interface that is easy to use and navigate, making it accessible to both technical and non-technical users.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Roadmap
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The following are the planned features and goals for BlockChat:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Implement sending messages function: Allow users to send messages on supported blockchains directly from the app.
+- Add a chat wall: Display real-time messages from various blockchains on a chat wall for easy viewing.
+- Add filters to discussions: Enable users to filter and sort discussions based on criteria such as blockchain network, sender/receiver addresses, and time.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+You should add .env.local file in the root folder with your etherscan api and respective networks:
+ETHEREUM_API_KEY=[YOUR_API_KEY]
+BSC_API_KEY=[YOUR_API_KEY]
+POLYGON_API_KEY=[YOUR_API_KEY]
+POLYGON_ZKEVM_API_KEY=[YOUR_API_KEY]
+OPTIMISM_API_KEY=[YOUR_API_KEY]
+ARBITRUM_API_KEY=[YOUR_API_KEY]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To get started, please run the following commands:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Install dependencies: `npm install`
+2. Start the development server: `npm run dev`
+3. Build the app for production: `npm run build`
 
-## Deploy on Vercel
+You can access BlockChat at `localhost:3000` after running the above commands.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contribution
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! If you would like to contribute to BlockChat, please refer to the [CONTRIBUTING](CONTRIBUTING.md) guidelines.
+
+## Contact
+
+For any inquiries or feedback, please contact user137 at user137@protonmail.com or visit the [AuditUtils blog](https://auditutils.com) for more information.
+
+## License
+
+BlockChat is released under the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, as long as it is in compliance with the terms of the MIT License.
+
+MIT License
+
+Copyright (c) 2023 gituser6hij
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
