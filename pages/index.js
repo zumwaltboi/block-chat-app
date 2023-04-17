@@ -2049,7 +2049,7 @@ export default function Home() {
             padding: "0px 10px",
           }}
         >
-          <div className={styles.mySection} style={{ marginTop: "0px" }}>
+          <div className={styles.mySection} style={{ marginTop: "10px" }}>
             <p className={styles.myTitle}>
               <a href="https://blockchat.auditutils.com/" target={"_self"}>
                 <strong>BlockChat</strong> address:

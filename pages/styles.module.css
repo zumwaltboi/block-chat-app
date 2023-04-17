@@ -448,10 +448,10 @@
 .myTitle {
   text-align: left;
   font-family: monospace;
-  margin-top: 10px;
+  /* margin-top: 0px; */
   margin-bottom: 10px;
   font-size: 1.3em;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .myContent {
