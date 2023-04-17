@@ -1,3 +1,6 @@
+![BlockChat Logo](https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg)
+<img src="https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg" alt="BlockChat Logo">
+
 # BlockChat
 
 BlockChat is an open-source app developed by user137 from AuditUtils. It is a cross-network discussions explorer, built using Next.js, Node.js, and the etherscan API.
