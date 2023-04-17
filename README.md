@@ -1,5 +1,5 @@
 <div align="center">
-![BlockChat Logo](https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg)
+<img src="https://github.com/gituser6hij/block-chat-app/blob/main/public/logo_v4_long_01_beta-blue.svg" alt="BlockChat Logo">
 </div>
 
 # BlockChat
