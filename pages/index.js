@@ -2131,7 +2131,7 @@ export default function Home() {
         >
           <a href="https://github.com/gituser6hij/block-chat-app">
             <img
-              className={styles["profile-image-user137"]}
+              className={styles["profile-image-au"]}
               src="CarbonLogoGithub.svg"
               alt="user137 Profile Picture"
             />
@@ -2141,6 +2141,7 @@ export default function Home() {
               className={styles["profile-image-user137"]}
               src="https://auditutils.com/content/images/2023/02/au-pixelize.jpg"
               alt="auditutils logo pixel"
+              style={{ height: "48px", width: "48px" }}
             />
           </a>
           <a href="https://user137-portfolio.auditutils.com">
@@ -2150,11 +2151,11 @@ export default function Home() {
               alt="user137 Profile Picture"
             />
           </a>
-          <button
+          <a
             onClick={handleHelpClick4}
             type="button"
             style={{
-              all: "unset", // Reset all styles
+              // all: "unset", // Reset all styles
               // marginLeft: "20px",
               cursor: "pointer",
               // Adjust the margin as needed
@@ -2166,7 +2167,7 @@ export default function Home() {
               style={{ height: "48px" }}
               className={styles["profile-image-user137"]}
             />
-          </button>
+          </a>
         </div>
         {isHelpVisible4 && (
           <div
