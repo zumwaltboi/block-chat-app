@@ -16,6 +16,11 @@ import {
 } from "../lib/eth";
 import styles from "./styles.module.css";
 import Head from "next/head";
+import React from "react";
+
+import SendMessage from "./send-message";
+import ConnectWalletButton from "./connect-wallet-button";
+import SwitchNetwork from "./SwitchNetwork.jsx";
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -32,6 +37,11 @@ export default function Home() {
   const [isHelpVisible2, setIsHelpVisible2] = useState(false);
   const [isHelpVisible3, setIsHelpVisible3] = useState(false);
   const [isHelpVisible4, setIsHelpVisible4] = useState(false);
+  const [isSendHelpClick1Visible, setIsSendHelpClick1Visible] = useState(true);
+  const [isSendHelpClick2Visible, setIsSendHelpClick2Visible] = useState(false);
+
+  const [isSendVisible, setIsSendVisible] = useState(false);
+
   const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
@@ -51,7 +61,18 @@ export default function Home() {
 
   const handleClick = () => {
     setIsDropdownOpen(false);
+    setIsSendVisible(false);
     setIsClicked(!isClicked);
+  };
+
+  const ToggleSend = () => {
+    setIsDropdownOpen(false);
+    setIsClicked(false);
+    setIsSendVisible(!isSendVisible);
+  };
+
+  const ToggleSendNetwork = () => {
+    setIsSendHelpClick2Visible(!isSendHelpClick2Visible);
   };
 
   const handleClick2 = () => {
@@ -189,10 +210,20 @@ export default function Home() {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    setIsSendVisible(false);
+    setIsClicked(false);
   };
 
   const handleHelpClick = () => {
     setIsHelpVisible(true);
+  };
+
+  const handleSendHelpClick1 = () => {
+    setIsSendHelpClick1Visible(true);
+  };
+
+  const handleSendHelpClick2 = () => {
+    setIsSendHelpClick2Visible(!isSendHelpClick2Visible);
   };
 
   const handleCloseClick = () => {
@@ -381,6 +412,17 @@ export default function Home() {
                 }}
               >
                 advanced
+              </button>
+              <button
+                className={styles.settingsButton}
+                onClick={ToggleSend}
+                style={{
+                  marginTop: "5px",
+                  marginBottom: "auto",
+                  cursor: "pointer",
+                }}
+              >
+                Send
               </button>
             </div>
           </div>
@@ -893,6 +935,63 @@ export default function Home() {
                   />
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+        {isSendVisible && (
+          <div>
+            <div
+              className={styles.form}
+              style={{ display: "flex", flexDirection: "collumn" }}
+            >
+              <div className={styles.settingsButtonContainer}>
+                <a href="https://blockchat.auditutils.com/">
+                  <img
+                    src="CharmRefresh.svg"
+                    alt="reset"
+                    className={styles.myResetImage}
+                  />
+                </a>
+              </div>
+              <h1 style={{ textAlign: "center", fontSize: "1.4em" }}>
+                Send a message
+              </h1>
+              {address3 ? (
+                <div>
+                  {isSendHelpClick1Visible && (
+                    <button
+                      onClick={handleSendHelpClick2}
+                      type="button"
+                      style={{
+                        all: "unset", // Reset all styles
+                        marginLeft: "3px",
+                        cursor: "pointer",
+
+                        // Adjust the margin as needed
+                      }}
+                    >
+                      <img
+                        src="CarbonContentDeliveryNetwork.svg"
+                        alt="help"
+                        style={{ height: "20px" }}
+                      />
+                    </button>
+                  )}
+                  {isSendHelpClick2Visible && (
+                    <div style={{ marginTop: "30px" }}>
+                      {"options: "}
+                      <SwitchNetwork setAddress3={setAddress3} />
+                    </div>
+                  )}
+                  <p>Connected</p>
+
+                  <p>Sender:</p>
+                  <p>{address3}</p>
+                </div>
+              ) : (
+                <ConnectWalletButton setAddress3={setAddress3} />
+              )}
+              <SendMessage />
             </div>
           </div>
         )}
@@ -2169,6 +2268,7 @@ export default function Home() {
             />
           </a>
         </div>
+
         {isHelpVisible4 && (
           <div
             style={{
