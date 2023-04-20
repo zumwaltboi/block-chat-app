@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Web3 from "web3";
+import styles from "./styles.module.css";
 
 function SwitchNetwork({ setAddress3 }) {
   const [chainId, setChainId] = useState("0x13881"); // default to Ethereum mainnet
@@ -59,9 +60,11 @@ function SwitchNetwork({ setAddress3 }) {
         style={{
           color: "#0acaa6e6",
           fontFamily: "monospace",
-          fontSize: "1.4em",
+          fontSize: "1em",
           fontWeight: "bold",
-          backgroundColor: "transparent",
+          backgroundColor: "#282c33ff",
+          width: "150px",
+          padding: "20px 5px",
         }}
       >
         Switch Network

@@ -807,8 +807,9 @@ export default function Home() {
               alignContent: "center",
               textAlign: "center",
               width: "100%",
-              maxWidth: "600px",
+              // maxWidth: "600px",
               overflowWrap: "break-word",
+              padding: "20px 0px",
             }}
           >
             <div className={styles.settingsButtonContainer}>
@@ -820,9 +821,7 @@ export default function Home() {
                 />
               </a>
             </div>
-            <h1 style={{ textAlign: "center", fontSize: "1.4em" }}>
-              Send a message
-            </h1>
+
             {address3 ? (
               <div>
                 {isSendHelpClick1Visible && (
@@ -838,29 +837,26 @@ export default function Home() {
                     }}
                   >
                     <img
-                      src="CarbonContentDeliveryNetwork.svg"
+                      src="CarbonSettings.svg"
                       alt="help"
                       style={{ height: "20px" }}
                     />
                   </button>
                 )}
                 {isSendHelpClick2Visible && (
-                  <div style={{ marginTop: "30px" }}>
-                    {"options: "}
-                    <SwitchNetwork setAddress3={setAddress3} />
-                  </div>
+                  <SwitchNetwork setAddress3={setAddress3} />
                 )}
-                <div
-                  className={styles.myContainer}
+
+                <p>Connected</p>
+                <p>From::</p>
+                <p
                   style={{
-                    maxWidth: "600px",
+                    // maxWidth: "600px",
                     overflowWrap: "break-word",
                   }}
                 >
-                  <p>Connected</p>
-                  <p>Sender:</p>
-                  <p>{address3}</p>
-                </div>
+                  {address3}
+                </p>
               </div>
             ) : (
               <ConnectWalletButton setAddress3={setAddress3} />

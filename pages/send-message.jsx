@@ -47,6 +47,8 @@ function SendMessage() {
             alignContent: "center",
             textAlign: "center",
             width: "100%",
+            margin: "0",
+            padding: "0",
           }}
         >
           <p htmlFor="recipient">To:</p>
@@ -94,7 +96,7 @@ function SendMessage() {
             marginTop: "10px",
           }}
         >
-          SEND
+          SEND MESSAGE
         </button>
       </form>
     </div>
