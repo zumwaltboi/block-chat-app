@@ -47,7 +47,7 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: none;
-  color: #3c4146; /* Just a mild gray, you can change this to whatever you want */
+  color: #00ffff; /* Just a mild gray, you can change this to whatever you want */
 }
 
 button:hover,

@@ -63,7 +63,7 @@
   font-family: monospace;
   font-size: 1.1em;
   /* margin-top: 10px; */
-  text-align: left;
+  text-align: center;
   justify-content: left;
 }
 
@@ -81,6 +81,17 @@
 }
 
 .form input {
+  padding: 10px 10px;
+  border: 3px solid rgba(10, 202, 166, 0.9);
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: transparent;
+  color: #00ffff;
+}
+
+.form textarea {
   padding: 10px 10px;
   border: 3px solid rgba(10, 202, 166, 0.9);
   border-radius: 15px;
@@ -355,6 +366,11 @@
   text-align: center;
 }
 
+.profile-image-au:hover {
+  border: 3px solid #00ffff;
+  background-color: #102e4b;
+}
+
 .networkSelect {
   background-color: transparent;
   border: 3px solid rgba(10, 202, 166, 0.9);
@@ -617,6 +633,14 @@
 }
 
 .settingsButton:hover {
+  background-color: rgba(10, 202, 166, 1);
+  color: #282c33;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: --gunmetal;
+}
+
+.settingsButton:focus {
   background-color: rgba(10, 202, 166, 1);
   color: #282c33;
   font-weight: 700;

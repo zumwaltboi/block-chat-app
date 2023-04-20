@@ -793,206 +793,79 @@ export default function Home() {
               </div>
             </div>
             <hr className={styles.myHr} />
-            <div>
-              <p className={styles.myTitle}>
-                <a
-                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
-                  target={"_blank"}
-                >
-                  <strong>Neymar</strong>{" "}
-                </a>{" "}
-                address:
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xc4505db8cc490767fa6f4b6f0f2bdd668b357a5d
-                </p>
-
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xc4505db8cc490767fa6f4b6f0f2bdd668b357a5d"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
-            <hr className={styles.myHr} />
-            <div>
-              <p className={styles.myTitle}>
-                <a
-                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
-                  target={"_blank"}
-                >
-                  <strong>Justin Bieber</strong>{" "}
-                </a>
-                address:
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xe21dc18513e3e68a52f9fcdacfd56948d43a11c6
-                </p>
-
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xe21dc18513e3e68a52f9fcdacfd56948d43a11c6"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
-            <hr className={styles.myHr} />
-            <div>
-              <p className={styles.myTitle}>
-                <a
-                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
-                  target={"_blank"}
-                >
-                  <strong>Paul Logan</strong>
-                </a>{" "}
-                address:
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xff0bd4aa3496739d5667adc10e2b843dfab5712b
-                </p>
-
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xff0bd4aa3496739d5667adc10e2b843dfab5712b"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
-            <hr className={styles.myHr} />
-            <div>
-              <p className={styles.myTitle}>
-                <a
-                  href="https://dappradar.com/blog/celebrity-wallets-a-dive-into-crypto-hollywood"
-                  target={"_blank"}
-                >
-                  <strong>Snoop Dogg</strong>
-                </a>{" "}
-                address:
-              </p>
-              <div className={styles.myContent}>
-                <p className={styles.myAddress}>
-                  0xce90a7949bb78892f159f428d0dc23a8e3584d75
-                </p>
-
-                <button
-                  onClick={(event) => {
-                    const searchParams = new URLSearchParams();
-                    searchParams.set(
-                      "address",
-                      "0xce90a7949bb78892f159f428d0dc23a8e3584d75"
-                    );
-                    searchParams.set("network", "mainnet");
-                    window.location.href = `?${searchParams.toString()}`;
-                  }}
-                  className={styles.myButton}
-                >
-                  <img
-                    src="CarbonZoomFit.svg"
-                    alt="Scan address"
-                    className={styles.myImage}
-                  />
-                </button>
-              </div>
-            </div>
           </div>
         )}
         {isSendVisible && (
-          <div>
-            <div
-              className={styles.form}
-              style={{ display: "flex", flexDirection: "collumn" }}
-            >
-              <div className={styles.settingsButtonContainer}>
-                <a href="https://blockchat.auditutils.com/">
-                  <img
-                    src="CharmRefresh.svg"
-                    alt="reset"
-                    className={styles.myResetImage}
-                  />
-                </a>
-              </div>
-              <h1 style={{ textAlign: "center", fontSize: "1.4em" }}>
-                Send a message
-              </h1>
-              {address3 ? (
-                <div>
-                  {isSendHelpClick1Visible && (
-                    <button
-                      onClick={handleSendHelpClick2}
-                      type="button"
-                      style={{
-                        all: "unset", // Reset all styles
-                        marginLeft: "3px",
-                        cursor: "pointer",
+          <div
+            className={styles.form}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "1.1em",
+              fontFamily: "monospace",
+              flexDirection: "column",
+              alignContent: "center",
+              textAlign: "center",
+              width: "100%",
+              maxWidth: "600px",
+              overflowWrap: "break-word",
+            }}
+          >
+            <div className={styles.settingsButtonContainer}>
+              <a href="https://blockchat.auditutils.com/">
+                <img
+                  src="CharmRefresh.svg"
+                  alt="reset"
+                  className={styles.myResetImage}
+                />
+              </a>
+            </div>
+            <h1 style={{ textAlign: "center", fontSize: "1.4em" }}>
+              Send a message
+            </h1>
+            {address3 ? (
+              <div>
+                {isSendHelpClick1Visible && (
+                  <button
+                    onClick={handleSendHelpClick2}
+                    type="button"
+                    style={{
+                      all: "unset", // Reset all styles
+                      // marginLeft: "3px",
+                      cursor: "pointer",
 
-                        // Adjust the margin as needed
-                      }}
-                    >
-                      <img
-                        src="CarbonContentDeliveryNetwork.svg"
-                        alt="help"
-                        style={{ height: "20px" }}
-                      />
-                    </button>
-                  )}
-                  {isSendHelpClick2Visible && (
-                    <div style={{ marginTop: "30px" }}>
-                      {"options: "}
-                      <SwitchNetwork setAddress3={setAddress3} />
-                    </div>
-                  )}
+                      // Adjust the margin as needed
+                    }}
+                  >
+                    <img
+                      src="CarbonContentDeliveryNetwork.svg"
+                      alt="help"
+                      style={{ height: "20px" }}
+                    />
+                  </button>
+                )}
+                {isSendHelpClick2Visible && (
+                  <div style={{ marginTop: "30px" }}>
+                    {"options: "}
+                    <SwitchNetwork setAddress3={setAddress3} />
+                  </div>
+                )}
+                <div
+                  className={styles.myContainer}
+                  style={{
+                    maxWidth: "600px",
+                    overflowWrap: "break-word",
+                  }}
+                >
                   <p>Connected</p>
-
                   <p>Sender:</p>
                   <p>{address3}</p>
                 </div>
-              ) : (
-                <ConnectWalletButton setAddress3={setAddress3} />
-              )}
-              <SendMessage />
-            </div>
+              </div>
+            ) : (
+              <ConnectWalletButton setAddress3={setAddress3} />
+            )}
+            <SendMessage />
           </div>
         )}
         <form className={styles.form} onSubmit={handleSubmit}>

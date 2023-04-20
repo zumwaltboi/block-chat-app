@@ -32,6 +32,7 @@ function SendMessage() {
         flexDirection: "column",
         alignItems: "center",
         marginTop: "10px",
+        width: "100%",
       }}
     >
       {/* <h1 style={{ textAlign: "center" }}>Send a message</h1> */}
@@ -40,11 +41,10 @@ function SendMessage() {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "1.1em",
+            fontSize: "1em",
             fontFamily: "monospace",
             flexDirection: "column",
             alignContent: "center",
-            // marginTop: "30px",
             textAlign: "center",
             width: "100%",
           }}
@@ -56,31 +56,31 @@ function SendMessage() {
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
             className={styles.inputText}
+            placeholder="0x..."
+            style={{ width: "100%" }}
           />
         </div>
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "1.1em",
+            fontSize: "1em",
             fontFamily: "monospace",
             flexDirection: "column",
             alignContent: "center",
-            // marginTop: "30px",
             textAlign: "center",
             width: "100%",
           }}
         >
           <p htmlFor="message">Message:</p>
-          <input
+          <textarea
             id="message"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className={styles.inputText}
-            style={{
-              minHeight: "120px",
-            }}
+            style={{ width: "100%", minHeight: "90px" }}
+            placeholder="..."
           />
         </div>
         <button
@@ -88,9 +88,10 @@ function SendMessage() {
           className={styles.submitButton}
           style={{
             color: "#00ffff",
-            fontFamily: "monospace",
+            // fontFamily: "monospace",
             fontSize: "1.4em",
             fontWeight: "bold",
+            marginTop: "10px",
           }}
         >
           SEND
