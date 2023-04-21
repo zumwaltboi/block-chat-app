@@ -796,22 +796,7 @@ export default function Home() {
           </div>
         )}
         {isSendVisible && (
-          <div
-            className={styles.form}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              fontSize: "1.1em",
-              fontFamily: "monospace",
-              flexDirection: "column",
-              alignContent: "center",
-              textAlign: "center",
-              width: "100%",
-              // maxWidth: "600px",
-              overflowWrap: "break-word",
-              padding: "20px 0px",
-            }}
-          >
+          <div className={styles.form}>
             <div className={styles.settingsButtonContainer}>
               <a href="https://blockchat.auditutils.com/">
                 <img
@@ -823,7 +808,7 @@ export default function Home() {
             </div>
 
             {address3 ? (
-              <div>
+              <div className={styles.addressContainer}>
                 {isSendHelpClick1Visible && (
                   <button
                     onClick={handleSendHelpClick2}
@@ -846,17 +831,11 @@ export default function Home() {
                 {isSendHelpClick2Visible && (
                   <SwitchNetwork setAddress3={setAddress3} />
                 )}
-
-                <p>Connected</p>
-                <p>From::</p>
-                <p
-                  style={{
-                    // maxWidth: "600px",
-                    overflowWrap: "break-word",
-                  }}
-                >
-                  {address3}
-                </p>
+                <div className={styles.connectedAddress}>
+                  <p>Connected</p>
+                  <p>From:</p>
+                  <p>{address3}</p>
+                </div>
               </div>
             ) : (
               <ConnectWalletButton setAddress3={setAddress3} />

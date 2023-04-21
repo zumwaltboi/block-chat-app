@@ -40,43 +40,45 @@ function ConnectWalletButton({ setAddress3 }) {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        fontSize: "1em",
-        fontFamily: "monospace",
-      }}
-    >
-      <p>Choose a network:</p>
-      <div>
-        <select value={chainId} onChange={handleNetworkChange}>
-          <option value="0x1">Ethereum</option>
-          <option value="0x5">Eth Goerli</option>
-          <option value="0xaa36a7">Eth Sepolia</option>
-          <option value="0x38">Bsc</option>
-          <option value="0x61">Bsc testnet</option>
-          <option value="0x89">Polygon</option>
-          <option value="0x13881">Polygon mumbai</option>
-          <option value="0x44d">Polygon zkEVM</option>
-          <option value="0xa">Optimism</option>
-          <option value="0x1a4">Optimism Goerli</option>
-          <option value="0xA4B1">Arbitrum</option>
-          <option value="0x66eed">Arbitrum Goerli</option>
-        </select>
-        <button
-          onClick={handleClick}
-          style={{
-            color: "#0acaa6e6",
-            fontFamily: "monospace",
-            fontSize: "1.4em",
-            fontWeight: "bold",
-            backgroundColor: "transparent",
-          }}
-        >
-          Connect Wallet
-        </button>
+    <div className="wrapper">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          fontSize: "1em",
+          fontFamily: "monospace",
+        }}
+      >
+        <p>Choose a network:</p>
+        <div>
+          <select value={chainId} onChange={handleNetworkChange}>
+            <option value="0x1">Ethereum</option>
+            <option value="0x5">Eth Goerli</option>
+            <option value="0xaa36a7">Eth Sepolia</option>
+            <option value="0x38">Bsc</option>
+            <option value="0x61">Bsc testnet</option>
+            <option value="0x89">Polygon</option>
+            <option value="0x13881">Polygon mumbai</option>
+            <option value="0x44d">Polygon zkEVM</option>
+            <option value="0xa">Optimism</option>
+            <option value="0x1a4">Optimism Goerli</option>
+            <option value="0xA4B1">Arbitrum</option>
+            <option value="0x66eed">Arbitrum Goerli</option>
+          </select>
+          <button
+            onClick={handleClick}
+            style={{
+              color: "#0acaa6e6",
+              fontFamily: "monospace",
+              fontSize: "1.4em",
+              fontWeight: "bold",
+              backgroundColor: "transparent",
+            }}
+          >
+            Connect Wallet
+          </button>
+        </div>
       </div>
     </div>
   );

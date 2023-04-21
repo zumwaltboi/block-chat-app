@@ -752,3 +752,36 @@
   width: 100%;
   /* margin-bottom: -20px; */
 }
+
+.wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.addressContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.connectedAddress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #282c33ff;
+  width: auto;
+  height: auto;
+}
+
+.connectedAddress p {
+  margin: 5px;
+  word-wrap: break-word;
+  color: #00ffff;
+}
