@@ -394,7 +394,7 @@ export default function Home() {
                 justifyContent: "space-between",
                 height: "100%",
                 width: "100%",
-                maxWidth: "90px",
+                maxWidth: "96px",
                 // marginLeft: "10px",
               }}
             >
@@ -402,12 +402,12 @@ export default function Home() {
                 className={styles.settingsButton}
                 onClick={toggleDropdown}
                 style={{
-                  cursor: "pointer",
-                  height: "30%",
+                  margin: "0 0",
+                  padding: "15px 5px",
                 }}
                 // style={{ marginTop: "auto", marginBottom: "auto" }}
               >
-                examples
+                Examples
               </button>
               {/* <button
                 className={styles.settingsButton}
@@ -457,7 +457,7 @@ export default function Home() {
               maxWidth: "30%",
             }}
           >
-            Inbox explorer
+            Explore
           </button>
           <button
             className={styles.settingsButton}
@@ -480,7 +480,7 @@ export default function Home() {
               maxWidth: "30%",
             }}
           >
-            Send message
+            Send
           </button>
         </div>
 
