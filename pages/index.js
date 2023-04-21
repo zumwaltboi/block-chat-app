@@ -412,7 +412,7 @@ export default function Home() {
         </div>
 
         <div>
-          <h3>a cross-network discution explorer</h3>
+          <h3>Cross-network blockchain message tool</h3>
         </div>
         <div
           style={{
@@ -2001,7 +2001,7 @@ export default function Home() {
           >
             <img
               style={{
-                maxWidth: "150px",
+                maxWidth: "120px",
                 // marginTop: "30px",
                 padding: "0px",
                 textAlign: "center",
