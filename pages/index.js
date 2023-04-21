@@ -65,6 +65,12 @@ export default function Home() {
     setIsClicked(!isClicked);
   };
 
+  const ToggleInbox = () => {
+    setIsDropdownOpen(false);
+    setIsSendVisible(false);
+    setIsClicked(false);
+  };
+
   const ToggleSend = () => {
     setIsDropdownOpen(false);
     setIsClicked(false);
@@ -384,12 +390,12 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
+                alignItems: "flex",
                 justifyContent: "space-between",
                 height: "100%",
-                width: "30%",
+                width: "100%",
                 maxWidth: "90px",
-                marginLeft: "10px",
+                // marginLeft: "10px",
               }}
             >
               <button
@@ -397,23 +403,24 @@ export default function Home() {
                 onClick={toggleDropdown}
                 style={{
                   cursor: "pointer",
+                  height: "30%",
                 }}
                 // style={{ marginTop: "auto", marginBottom: "auto" }}
               >
                 examples
               </button>
-              <button
+              {/* <button
                 className={styles.settingsButton}
                 onClick={handleClick}
                 style={{
-                  marginTop: "5px",
                   marginBottom: "auto",
                   cursor: "pointer",
+                  height: "30%",
                 }}
               >
-                advanced
-              </button>
-              <button
+                examples
+              </button> */}
+              {/* <button
                 className={styles.settingsButton}
                 onClick={ToggleSend}
                 style={{
@@ -423,7 +430,7 @@ export default function Home() {
                 }}
               >
                 Send
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -431,6 +438,52 @@ export default function Home() {
         <div>
           <h3>a cross-network discution explorer</h3>
         </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginTop: "5px",
+            justifyContent: "space-between",
+            textAlign: "center",
+          }}
+        >
+          <button
+            className={styles.settingsButton}
+            onClick={ToggleInbox}
+            style={{
+              cursor: "pointer",
+              // marginRight: "5px",
+              textAlign: "center",
+              maxWidth: "30%",
+            }}
+          >
+            Inbox explorer
+          </button>
+          <button
+            className={styles.settingsButton}
+            onClick={handleClick}
+            style={{
+              cursor: "pointer",
+              textAlign: "center",
+              maxWidth: "30%",
+            }}
+          >
+            Isolate
+          </button>
+          <button
+            className={styles.settingsButton}
+            onClick={ToggleSend}
+            style={{
+              cursor: "pointer",
+              // marginLeft: "5px",
+              textAlign: "center",
+              maxWidth: "30%",
+            }}
+          >
+            Send message
+          </button>
+        </div>
+
         {isHelpVisible3 && (
           <div
             style={{
