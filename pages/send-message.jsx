@@ -26,80 +26,69 @@ function SendMessage() {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "10px",
-        width: "100%",
-      }}
-    >
-      {/* <h1 style={{ textAlign: "center" }}>Send a message</h1> */}
-      <form onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: "1em",
-            fontFamily: "monospace",
-            flexDirection: "column",
-            alignContent: "center",
-            textAlign: "center",
-            width: "100%",
-            margin: "0",
-            padding: "0",
-          }}
-        >
-          <p htmlFor="recipient">To:</p>
-          <input
-            id="recipient"
-            type="text"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-            className={styles.inputText}
-            placeholder="0x..."
-            style={{ width: "100%" }}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: "1em",
-            fontFamily: "monospace",
-            flexDirection: "column",
-            alignContent: "center",
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
-          <p htmlFor="message">Message:</p>
-          <textarea
-            id="message"
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className={styles.inputText}
-            style={{ width: "100%", minHeight: "90px" }}
-            placeholder="..."
-          />
-        </div>
-        <button
-          type="submit"
-          className={styles.submitButton}
-          style={{
-            color: "#00ffff",
-            // fontFamily: "monospace",
-            fontSize: "1.4em",
-            fontWeight: "bold",
-            marginTop: "10px",
-          }}
-        >
-          SEND MESSAGE
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          fontSize: "1em",
+          fontFamily: "monospace",
+          flexDirection: "column",
+          alignContent: "center",
+          textAlign: "center",
+          width: "100%",
+          margin: "0",
+          padding: "0",
+        }}
+      >
+        <p htmlFor="recipient">To:</p>
+        <input
+          id="recipient"
+          type="text"
+          value={recipient}
+          onChange={(e) => setRecipient(e.target.value)}
+          className={styles.inputText}
+          placeholder="0x..."
+          style={{ width: "100%" }}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          fontSize: "1em",
+          fontFamily: "monospace",
+          flexDirection: "column",
+          alignContent: "center",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <p htmlFor="message">Message:</p>
+        <textarea
+          id="message"
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={styles.inputText}
+          style={{ width: "100%", minHeight: "90px" }}
+          placeholder="..."
+        />
+      </div>
+      <button
+        type="submit"
+        className={styles.submitButton}
+        style={{
+          color: "#00ffff",
+          // fontFamily: "monospace",
+          fontSize: "1.4em",
+          fontWeight: "bold",
+          marginTop: "10px",
+        }}
+      >
+        SEND MESSAGE
+      </button>
+    </form>
   );
 }
 

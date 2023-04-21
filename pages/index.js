@@ -74,7 +74,7 @@ export default function Home() {
   const ToggleSend = () => {
     setIsDropdownOpen(false);
     setIsClicked(false);
-    setIsSendVisible(!isSendVisible);
+    setIsSendVisible(true);
   };
 
   const ToggleSendNetwork = () => {
@@ -837,8 +837,20 @@ export default function Home() {
             </div>
 
             {address3 ? (
-              <div className={styles.addressContainer}>
-                {isSendHelpClick1Visible && (
+              <div
+                className={styles.addressContainer}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  backgroundColor: "transparent",
+                  width: "100%",
+                  flexDirection: "column",
+                  marginTop: "0px",
+                  padding: "0 0",
+                  // height: "50px",
+                }}
+              >
+                {/* {isSendHelpClick1Visible && (
                   <button
                     onClick={handleSendHelpClick2}
                     type="button"
@@ -856,14 +868,50 @@ export default function Home() {
                       style={{ height: "20px" }}
                     />
                   </button>
-                )}
-                {isSendHelpClick2Visible && (
+                )} */}
+                {/* {isSendHelpClick2Visible && (
                   <SwitchNetwork setAddress3={setAddress3} />
-                )}
-                <div className={styles.connectedAddress}>
-                  <p>Connected</p>
-                  <p>From:</p>
-                  <p>{address3}</p>
+                )} */}
+                <div
+                  className={styles.connectedAddress}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    backgroundColor: "transparent",
+                    width: "100%",
+                    flexDirection: "column",
+                    marginTop: "0px",
+                    padding: "0 0",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  <p>
+                    Connected
+                    {isSendHelpClick1Visible && (
+                      <button
+                        onClick={handleSendHelpClick2}
+                        type="button"
+                        style={{
+                          all: "unset", // Reset all styles
+                          marginLeft: "9px",
+                          cursor: "pointer",
+
+                          // Adjust the margin as needed
+                        }}
+                      >
+                        <img
+                          src="CarbonSettings.svg"
+                          alt="help"
+                          style={{ height: "20px" }}
+                        />
+                      </button>
+                    )}
+                  </p>
+                  {isSendHelpClick2Visible && (
+                    <SwitchNetwork setAddress3={setAddress3} />
+                  )}
+                  <p style={{ color: "#ccc" }}>From:</p>
+                  <p style={{ wordBreak: "break-word" }}>{address3}</p>
                 </div>
               </div>
             ) : (
@@ -1116,7 +1164,7 @@ export default function Home() {
 
         {transactions.length > 0 && (
           <div className={styles.conversation}>
-            <h3>conversation</h3>
+            <h3>Discution:</h3>
             <ListGroup>
               {transactions.map((transaction, index) => {
                 if (!transaction.inputData) {
