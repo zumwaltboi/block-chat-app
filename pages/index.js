@@ -62,7 +62,7 @@ export default function Home() {
   const handleClick = () => {
     setIsDropdownOpen(false);
     setIsSendVisible(false);
-    setIsClicked(!isClicked);
+    setIsClicked(true);
   };
 
   const ToggleInbox = () => {
@@ -376,7 +376,7 @@ export default function Home() {
             >
               <img
                 style={{
-                  maxWidth: "300px",
+                  maxWidth: "240px",
                   width: "100%",
                   margin: "0px",
                   // padding: "5px 0",
@@ -394,43 +394,19 @@ export default function Home() {
                 justifyContent: "space-between",
                 height: "100%",
                 width: "100%",
-                maxWidth: "96px",
-                // marginLeft: "10px",
+                maxWidth: "80px", // <-- reduced max width
               }}
             >
               <button
                 className={styles.settingsButton}
                 onClick={toggleDropdown}
                 style={{
-                  margin: "0 0",
+                  margin: "auto",
                   padding: "15px 5px",
                 }}
-                // style={{ marginTop: "auto", marginBottom: "auto" }}
               >
                 Examples
               </button>
-              {/* <button
-                className={styles.settingsButton}
-                onClick={handleClick}
-                style={{
-                  marginBottom: "auto",
-                  cursor: "pointer",
-                  height: "30%",
-                }}
-              >
-                examples
-              </button> */}
-              {/* <button
-                className={styles.settingsButton}
-                onClick={ToggleSend}
-                style={{
-                  marginTop: "5px",
-                  marginBottom: "auto",
-                  cursor: "pointer",
-                }}
-              >
-                Send
-              </button> */}
             </div>
           </div>
         </div>
